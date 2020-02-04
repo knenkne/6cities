@@ -8,7 +8,6 @@
     "start": "webpack-dev-server",
     "eslint": "eslint --ext .jsx --ext .js src/",
     "test": "npm run eslint"
-    
   },
   "devDependencies": {
     "@babel/core": "7.8.4",
@@ -24,5 +23,9 @@
   },
   "engines": {
     "node": "10"
+  },
+  "dependencies": {
+    "react": "16.12.0",
+    "react-dom": "16.12.0"
   }
 }
