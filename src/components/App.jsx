@@ -5,7 +5,7 @@ import Main from './Main.jsx';
 export default function App(props) {
   return (
     // eslint-disable-next-line react/prop-types
-    <Main quantity={props.quantity} />
+    <Main names={props.names} cities={props.cities} />
   );
 }
 

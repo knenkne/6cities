@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import App from './components/App.jsx';
 
-const OFFERS_QUANTITY = 200;
+const names = [`Beautiful & luxurious apartment at great location`, `Wood and stone place`, `Canal View Prinsengracht`, `Nice, cozy, warm big bed apartment`];
+const cities = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`];
 
-ReactDOM.render(<App quantity={OFFERS_QUANTITY}/>, document.getElementById(`root`));
+ReactDOM.render(<App names={names} cities={cities} />, document.getElementById(`root`));
