@@ -8,7 +8,7 @@ import MainEmpty from './main-empty.jsx';
 
 function Main(props) {
   return (
-    <div className={`page page--gray page--main ${props.names.length > 0 ? `` : ` page__main--index-empty`}`}>
+    <div className={`page page--gray page--main ${props.offers.length > 0 ? `` : ` page__main--index-empty`}`}>
       <header className="header">
         <div className="container">
           <div className="header__wrapper">
@@ -40,14 +40,16 @@ function Main(props) {
             </ul>
           </section>
         </div>
-        {props.names.length > 0 ? <MainFilled names={props.names} city={props.city} /> : <MainEmpty city={props.city} />}
+        {props.offers.length > 0 ? <MainFilled offers={props.offers} city={props.city} /> : <MainEmpty city={props.city} />}
       </main>
     </div>
   );
 }
 
 Main.propTypes = {
-  names: PropTypes.arrayOf(PropTypes.string),
+  offers: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string
+  })),
   cities: PropTypes.arrayOf(PropTypes.string),
   city: PropTypes.string
 };

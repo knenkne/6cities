@@ -4,17 +4,26 @@ import Main from './main.jsx';
 
 const city = `Samara`;
 const cities = [`Samara`, `Moscow`, `Palo Alto`];
-const names = [`Winterfell`, `Detroit`, `312`];
+
+const offers = [
+  {
+    name: `Samara`},
+  {
+    name: `Winterfell`
+  },
+  {
+    name: `Big bed apartment`
+  }];
 
 describe(`Render <Main />`, () => {
   it(`<Main /> should render offer's container`, () => {
-    const tree = renderer.create(<Main cities={cities} names={names} />).toJSON();
+    const tree = renderer.create(<Main cities={cities} offers={offers} />).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 
   it(`<Main /> should render empty container`, () => {
-    const tree = renderer.create(<Main cities={cities} names={[]} city={city} />).toJSON();
+    const tree = renderer.create(<Main cities={cities} offers={[]} city={city} />).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

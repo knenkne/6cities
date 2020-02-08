@@ -26,7 +26,7 @@ function MainFilled(props) {
             </ul>
           </form>
           <div className="cities__places-list places__list tabs__content">
-            {props.names.map((name) => <Offer name={name} key={name} />)}
+            {props.offers.map((offer) => <Offer name={offer.name} key={offer.name} />)}
           </div>
         </section>
         <div className="cities__right-section">
@@ -39,7 +39,9 @@ function MainFilled(props) {
 
 MainFilled.propTypes = {
   city: PropTypes.string,
-  names: PropTypes.arrayOf(PropTypes.string)
+  offers: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string
+  }))
 };
 
 export default MainFilled;
