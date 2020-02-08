@@ -46,8 +46,8 @@ function Offer(props) {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name">
-          <a href="#">{props.name}</a>
+        <h2 className="place-card__name" onClick={props.onOfferClick}>
+          <a href="#" >{props.name}</a>
         </h2>
         <p className="place-card__type">Apartment</p>
       </div>
@@ -56,7 +56,8 @@ function Offer(props) {
 }
 
 Offer.propTypes = {
-  name: PropTypes.string
+  name: PropTypes.string,
+  onOfferClick: PropTypes.func.isRequired
 };
 
 export default Offer;

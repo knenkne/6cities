@@ -164,6 +164,7 @@ exports[`<MainFilled /> should render offers 1`] = `
             </div>
             <h2
               className="place-card__name"
+              onClick={[Function]}
             >
               <a
                 href="#"
@@ -265,6 +266,7 @@ exports[`<MainFilled /> should render offers 1`] = `
             </div>
             <h2
               className="place-card__name"
+              onClick={[Function]}
             >
               <a
                 href="#"
@@ -366,6 +368,7 @@ exports[`<MainFilled /> should render offers 1`] = `
             </div>
             <h2
               className="place-card__name"
+              onClick={[Function]}
             >
               <a
                 href="#"

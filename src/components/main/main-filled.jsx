@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import Offer from '../offer/offer.jsx';
 
 function MainFilled(props) {
+  /* eslint no-console: ["error", { allow: ["log"] }] */
+  const offerHanlder = () => console.log(`Offer has been opened!`);
+
   return (
     <div className="cities">
       <div className="cities__places-container cities__places-container--empty container">
@@ -26,7 +29,7 @@ function MainFilled(props) {
             </ul>
           </form>
           <div className="cities__places-list places__list tabs__content">
-            {props.offers.map((offer) => <Offer name={offer.name} key={offer.name} />)}
+            {props.offers.map((offer) => <Offer name={offer.name} key={offer.name} onOfferClick={offerHanlder} />)}
           </div>
         </section>
         <div className="cities__right-section">

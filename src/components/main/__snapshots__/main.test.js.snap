@@ -421,6 +421,7 @@ exports[`Render <Main /> <Main /> should render offer's container 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
+                  onClick={[Function]}
                 >
                   <a
                     href="#"
@@ -522,6 +523,7 @@ exports[`Render <Main /> <Main /> should render offer's container 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
+                  onClick={[Function]}
                 >
                   <a
                     href="#"
@@ -623,6 +625,7 @@ exports[`Render <Main /> <Main /> should render offer's container 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
+                  onClick={[Function]}
                 >
                   <a
                     href="#"
