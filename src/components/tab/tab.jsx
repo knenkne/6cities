@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function Tab(props) {
   return (
     <li className="locations__item">
-      <a className={`locations__item-link tabs__item${props.city === `Amsterdam` ? `tabs__item tabs__item--active` : ``}`} href="#">
+      <a className={`locations__item-link tabs__item${props.current ? `tabs__item tabs__item--active` : ``}`} href="#">
         <span>{props.city}</span>
       </a>
     </li>
@@ -12,7 +12,8 @@ function Tab(props) {
 }
 
 Tab.propTypes = {
-  city: PropTypes.string
+  city: PropTypes.string,
+  current: PropTypes.bool
 };
 
 export default Tab;
