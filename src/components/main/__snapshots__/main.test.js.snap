@@ -2,7 +2,7 @@
 
 exports[`Render <Main /> <Main /> should render empty container 1`] = `
 <div
-  className="page page--gray page--main  page__main--index-empty"
+  className="page page--gray page--main"
 >
   <header
     className="header"
@@ -47,7 +47,7 @@ exports[`Render <Main /> <Main /> should render empty container 1`] = `
                 <span
                   className="header__user-name user__name"
                 >
-                  Oliver.conner@gmail.com
+                  Sign in
                 </span>
               </a>
             </li>
@@ -57,7 +57,7 @@ exports[`Render <Main /> <Main /> should render empty container 1`] = `
     </div>
   </header>
   <main
-    className="page__main page__main--index"
+    className="page__main page__main--index page__main--index-empty page__main--index-empty"
   >
     <h1
       className="visually-hidden"
@@ -148,7 +148,7 @@ exports[`Render <Main /> <Main /> should render empty container 1`] = `
 
 exports[`Render <Main /> <Main /> should render offer's container 1`] = `
 <div
-  className="page page--gray page--main "
+  className="page page--gray page--main"
 >
   <header
     className="header"
@@ -193,7 +193,7 @@ exports[`Render <Main /> <Main /> should render offer's container 1`] = `
                 <span
                   className="header__user-name user__name"
                 >
-                  Oliver.conner@gmail.com
+                  Sign in
                 </span>
               </a>
             </li>
@@ -203,7 +203,7 @@ exports[`Render <Main /> <Main /> should render offer's container 1`] = `
     </div>
   </header>
   <main
-    className="page__main page__main--index"
+    className="page__main page__main--index page__main--index-empty"
   >
     <h1
       className="visually-hidden"
@@ -262,7 +262,7 @@ exports[`Render <Main /> <Main /> should render offer's container 1`] = `
       className="cities"
     >
       <div
-        className="cities__places-container cities__places-container--empty container"
+        className="cities__places-container container"
       >
         <section
           className="cities__places places"

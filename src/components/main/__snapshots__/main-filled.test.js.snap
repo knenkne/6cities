@@ -5,7 +5,7 @@ exports[`<MainFilled /> should render offers 1`] = `
   className="cities"
 >
   <div
-    className="cities__places-container cities__places-container--empty container"
+    className="cities__places-container container"
   >
     <section
       className="cities__places places"

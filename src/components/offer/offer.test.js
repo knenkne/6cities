@@ -8,7 +8,7 @@ const offer = {
 
 
 it(`<Offer /> should render "Russia, Saratov"`, () => {
-  const tree = renderer.create(<Offer name={offer.name} />).toJSON();
+  const tree = renderer.create(<Offer name={offer.name} onOfferClick={jest.fn()} />).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

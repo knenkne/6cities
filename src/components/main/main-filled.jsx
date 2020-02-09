@@ -9,7 +9,7 @@ function MainFilled(props) {
 
   return (
     <div className="cities">
-      <div className="cities__places-container cities__places-container--empty container">
+      <div className="cities__places-container container">
         <section className="cities__places places">
           <h2 className="visually-hidden">Places</h2>
           <b className="places__found">312 places to stay in {props.city}</b>

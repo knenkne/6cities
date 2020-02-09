@@ -15,7 +15,9 @@ const offers = [
   {
     name: `Nice, cozy, warm big bed apartment`
   }];
+
 const cities = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`];
 const city = `Paris`;
+const userName = ``;
 
-ReactDOM.render(<App offers={offers} cities={cities} city={city} />, document.getElementById(`root`));
+ReactDOM.render(<App offers={offers} cities={cities} city={city} userName={userName} />, document.getElementById(`root`));
