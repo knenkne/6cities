@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Header from '../components/header/header.jsx';
 import Gallery from '../components/gallery/gallery.jsx';
+import Intro from '../components/offer-intro/offer-intro.jsx';
 
 function Room(props) {
   return (
@@ -10,7 +11,12 @@ function Room(props) {
       <Header userName={props.userName} />
       <main className="page__main page__main--property">
         <section className="property">
-          <Gallery images={props.images} />
+          <Gallery images={props.offer.images} />
+          <div className="property__container container">
+            <div className="property__wrapper">
+              <Intro {...props.offer} />
+            </div>
+          </div>
         </section>
       </main>
     </div>
@@ -19,7 +25,10 @@ function Room(props) {
 
 Room.propTypes = {
   userName: PropTypes.string,
-  images: PropTypes.arrayOf(PropTypes.string)
+  offer: PropTypes.shape({
+    images: PropTypes.arrayOf(PropTypes.string),
+    name: PropTypes.string
+  })
 };
 
 export default Room;

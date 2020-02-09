@@ -10,14 +10,22 @@ export default function App(props) {
     <React.Fragment>
       <Main offers={props.offers} cities={props.cities} city={props.city} userName={props.userName} />
       <SignIn city={props.city} />
-      <Room userName={props.userName} images={props.images} />
+      <Room userName={props.userName} images={props.offers[0].images} offer={props.offers[0]} />
     </React.Fragment>
   );
 }
 
 App.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string
+    images: PropTypes.arrayOf(PropTypes.string),
+    name: PropTypes.string,
+    type: PropTypes.string,
+    bedrooms: PropTypes.number,
+    adults: PropTypes.number,
+    price: PropTypes.number,
+    premium: PropTypes.bool,
+    rating: PropTypes.number,
+    bookmarked: PropTypes.bool
   })),
   cities: PropTypes.arrayOf(PropTypes.string),
   city: PropTypes.string,
