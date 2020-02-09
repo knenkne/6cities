@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './components/App.jsx';
+import App from './App.jsx';
 
 const offers = [
   {
@@ -18,6 +18,6 @@ const offers = [
 
 const cities = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`];
 const city = `Paris`;
-const userName = ``;
+const userName = `jztenk@gmail.com`;
 
 ReactDOM.render(<App offers={offers} cities={cities} city={city} userName={userName} />, document.getElementById(`root`));

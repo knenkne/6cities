@@ -29,7 +29,6 @@ function Header(props) {
 }
 
 Header.propTypes = {
-  signedIn: PropTypes.bool,
   userName: PropTypes.string
 };
 
