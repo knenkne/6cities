@@ -24,7 +24,8 @@ function Offers(props) {
 
 Offers.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string
+    name: PropTypes.string,
+    type: PropTypes.string
   })),
   cities: PropTypes.arrayOf(PropTypes.string),
   city: PropTypes.string

@@ -8,20 +8,31 @@ Enzyme.configure({
 });
 
 const offer = {
-  name: `Cozy corner`
+  name: `Beautiful & luxurious apartment at great location`,
+  type: `Apartment`,
+  images: [`img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`],
+  bedrooms: 3,
+  adults: 4,
+  price: 110,
+  premium: false,
+  rating: 4.51,
+  bookmarked: true
 };
 
-it(`Offer item should have been pressed`, () => {
-  const onOfferClick = jest.fn();
+it(`Offer item should have been saved`, () => {
+  const event = {
+    target: null
+  };
+
+  const handleMouseEnter = (e) => {
+    event.target = e.target;
+  };
 
   const offerWrapper = shallow(
-      <Offer name={offer.name} onOfferClick={onOfferClick} />
+      <Offer {...offer} handleMouseEnter={handleMouseEnter} />
   );
 
-  const offerName = offerWrapper.find(`.place-card__name`);
+  offerWrapper.simulate(`mouseenter`, {target: offer.name});
 
-  offerName.props().onClick();
-  offerName.props().onClick();
-
-  expect(onOfferClick.mock.calls.length).toBe(2);
+  expect(event.target).toBe(`Beautiful & luxurious apartment at great location`);
 });
