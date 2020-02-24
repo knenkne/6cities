@@ -6,6 +6,7 @@ import Gallery from '../components/gallery/gallery.jsx';
 import Intro from '../components/offer-intro/offer-intro.jsx';
 import Features from '../components/features/features.jsx';
 import Host from '../components/host/host.jsx';
+import Reviews from '../components/reviews/reviews.jsx';
 
 function Room(props) {
   return (
@@ -19,6 +20,7 @@ function Room(props) {
               <Intro {...props.offer} />
               <Features features={props.offer.features}/>
               <Host host={props.offer.host}/>
+              <Reviews reviews={props.offer.reviews}/>
             </div>
           </div>
         </section>
@@ -38,7 +40,18 @@ Room.propTypes = {
       avatar: PropTypes.string,
       description: PropTypes.arrayOf(PropTypes.string),
       pro: PropTypes.bool
-    })
+    }),
+    reviews: PropTypes.arrayOf(PropTypes.shape({
+      author: PropTypes.shape({
+        name: PropTypes.string,
+        avatar: PropTypes.string
+      }),
+      review: PropTypes.shape({
+        text: PropTypes.string,
+        rating: PropTypes.number,
+        date: PropTypes.string
+      })
+    }))
   })
 };
 

@@ -21,7 +21,8 @@ export const offers = [
         `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`
       ],
       pro: true
-    }
+    },
+    reviews: []
   },
   {
     id: 2,
@@ -45,7 +46,29 @@ export const offers = [
         `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`
       ],
       pro: false
-    }
+    },
+    reviews: [{
+      author: {
+        name: `Max`,
+        avatar: `/img/avatar-max.jpg`
+      },
+      info: {
+        text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
+        rating: 5,
+        date: `2019-04-24`
+      }
+    },
+    {
+      author: {
+        name: `Alex`,
+        avatar: `/img/avatar-max.jpg`
+      },
+      info: {
+        text: `lorem ipsum lol.`,
+        rating: 2,
+        date: `2020-01-17`
+      }
+    }]
   },
   {
     id: 3,
@@ -69,7 +92,8 @@ export const offers = [
         `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`
       ],
       pro: true
-    }
+    },
+    reviews: []
   },
   {
     id: 4,
@@ -93,5 +117,6 @@ export const offers = [
         `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`
       ],
       pro: false
-    }
+    },
+    reviews: []
   }];
