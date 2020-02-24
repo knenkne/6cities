@@ -1,48 +1,59 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
-import Main from './pages/main.jsx';
-import SignIn from './pages/sign-in.jsx';
-import Room from './pages/room.jsx';
+import Main from "./pages/main.jsx";
+import SignIn from "./pages/sign-in.jsx";
+import Room from "./pages/room.jsx";
 
 export default function App(props) {
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <Main offers={props.offers} cities={props.cities} city={props.city} userName={props.userName} />
+          <Main
+            offers={props.offers}
+            cities={props.cities}
+            city={props.city}
+            userName={props.userName}
+          />
         </Route>
         <Route exact path="/login">
           <SignIn city={props.city} />
         </Route>
-        <Route path='/offer/:id' component={(routerProps) => <Room serName={props.userName} offer={props.offers.find((offer) => offer.id === parseInt(routerProps.match.params.id, 10))}/>} />
+        <Route
+          path="/offer/:id"
+          component={(routerProps) => (
+            <Room
+              serName={props.userName}
+              offer={props.offers.find(
+                  (offer) => offer.id === parseInt(routerProps.match.params.id, 10)
+              )}
+            />
+          )}
+        />
         <Route exact path="/dev-component">
           {/* <Component /> */}
         </Route>
       </Switch>
     </Router>
-
-  // <React.Fragment>
-  //   <Main offers={props.offers} cities={props.cities} city={props.city} userName={props.userName} />
-  // <SignIn city={props.city} />
-  // <Room userName={props.userName} offer={props.offers[0]} />
-  // </React.Fragment>
   );
 }
 
 App.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape({
-    images: PropTypes.arrayOf(PropTypes.string),
-    name: PropTypes.string,
-    type: PropTypes.string,
-    bedrooms: PropTypes.number,
-    adults: PropTypes.number,
-    price: PropTypes.number,
-    premium: PropTypes.bool,
-    rating: PropTypes.number,
-    bookmarked: PropTypes.bool
-  })),
+  offers: PropTypes.arrayOf(
+      PropTypes.shape({
+        images: PropTypes.arrayOf(PropTypes.string),
+        name: PropTypes.string,
+        type: PropTypes.string,
+        bedrooms: PropTypes.number,
+        adults: PropTypes.number,
+        price: PropTypes.number,
+        premium: PropTypes.bool,
+        rating: PropTypes.number,
+        bookmarked: PropTypes.bool
+      })
+  ),
   cities: PropTypes.arrayOf(PropTypes.string),
   city: PropTypes.string,
   userName: PropTypes.string,

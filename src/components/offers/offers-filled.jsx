@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 import Offer from '../offer/offer.jsx';
+import Map from '../map/map.jsx';
 
 class OffersFilled extends React.PureComponent {
   constructor(props) {
@@ -53,7 +54,7 @@ class OffersFilled extends React.PureComponent {
             </div>
           </section>
           <div className="cities__right-section">
-            <section className="cities__map map"></section>
+            <Map offers={this.props.offers}/>
           </div>
         </div>
       </div>

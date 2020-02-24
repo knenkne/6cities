@@ -9,7 +9,10 @@ export const offers = [
     price: 110,
     premium: false,
     rating: 4.51,
-    bookmarked: true
+    bookmarked: true,
+    city: [52.38333, 4.9],
+    cords: [52.3909553943508, 4.85309666406198],
+    features: [`Wi-Fi`, `Heating`, `Kitchen`, `Fridge`, `Washing machine`, `Coffee machine`, `Dishwasher`, `Towels`, `Baby seat`, `Cabel TV`]
   },
   {
     id: 2,
@@ -21,7 +24,10 @@ export const offers = [
     price: 120,
     premium: true,
     rating: 4.49,
-    bookmarked: true
+    bookmarked: true,
+    city: [52.38333, 4.9],
+    cords: [52.369553943508, 4.85309666406198],
+    features: [`Wi-Fi`, `Heating`, `Kitchen`, `Fridge`, `Washing machine`, `Coffee machine`, `Dishwasher`, `Towels`, `Baby seat`, `Cabel TV`]
   },
   {
     id: 3,
@@ -33,7 +39,10 @@ export const offers = [
     price: 240,
     premium: false,
     rating: 2.11,
-    bookmarked: false
+    bookmarked: false,
+    city: [52.38333, 4.9],
+    cords: [52.3909553943508, 4.929309666406198],
+    features: [`Wi-Fi`, `Heating`, `Kitchen`, `Fridge`, `Washing machine`, `Coffee machine`, `Dishwasher`, `Towels`, `Baby seat`, `Cabel TV`]
   },
   {
     id: 4,
@@ -45,5 +54,8 @@ export const offers = [
     price: 50,
     premium: true,
     rating: 3.2,
-    bookmarked: false
+    bookmarked: false,
+    city: [52.38333, 4.9],
+    cords: [52.3809553943508, 4.939309666406198],
+    features: [`Wi-Fi`, `Heating`, `Kitchen`, `Fridge`, `Washing machine`, `Coffee machine`, `Dishwasher`, `Towels`, `Baby seat`, `Cabel TV`]
   }];

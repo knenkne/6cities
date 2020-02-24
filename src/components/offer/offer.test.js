@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 import Offer from './offer.jsx';
 
@@ -17,7 +18,9 @@ const offer = {
 };
 
 it(`<Offer /> should render "Beautiful & luxurious apartment at great location"`, () => {
-  const tree = renderer.create(<Offer {...offer} />).toJSON();
+  const tree = renderer.create(<Router>
+    <Offer {...offer} />
+  </Router>).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

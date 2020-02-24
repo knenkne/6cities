@@ -1,16 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Offer /> should render "Russia, Saratov" 1`] = `
+exports[`<Offer /> should render "Beautiful & luxurious apartment at great location" 1`] = `
 <article
   className="cities__place-card place-card"
 >
-  <div
-    className="place-card__mark"
-  >
-    <span>
-      Premium
-    </span>
-  </div>
   <div
     className="cities__image-wrapper place-card__image-wrapper"
   >
@@ -21,7 +14,7 @@ exports[`<Offer /> should render "Russia, Saratov" 1`] = `
         alt="Place image"
         className="place-card__image"
         height="200"
-        src="img/apartment-01.jpg"
+        src="img/room.jpg"
         width="260"
       />
     </a>
@@ -38,7 +31,8 @@ exports[`<Offer /> should render "Russia, Saratov" 1`] = `
         <b
           className="place-card__price-value"
         >
-          €120
+          €
+          110
         </b>
         <span
           className="place-card__price-text"
@@ -47,7 +41,7 @@ exports[`<Offer /> should render "Russia, Saratov" 1`] = `
         </span>
       </div>
       <button
-        className="place-card__bookmark-button button"
+        className="place-card__bookmark-button button place-card__bookmark-button--active"
         type="button"
       >
         <svg
@@ -75,7 +69,7 @@ exports[`<Offer /> should render "Russia, Saratov" 1`] = `
         <span
           style={
             Object {
-              "width": "80%",
+              "width": "100%",
             }
           }
         />
@@ -88,12 +82,12 @@ exports[`<Offer /> should render "Russia, Saratov" 1`] = `
     </div>
     <h2
       className="place-card__name"
-      onClick={[MockFunction]}
     >
       <a
-        href="#"
+        href="/offer/undefined"
+        onClick={[Function]}
       >
-        Russia, Saratov
+        Beautiful & luxurious apartment at great location
       </a>
     </h2>
     <p
