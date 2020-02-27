@@ -2,53 +2,90 @@ import React from "react";
 import PropTypes from 'prop-types';
 import leaflet from 'leaflet';
 
-const zoom = 12;
-const icon = leaflet.icon({
-  iconUrl: `img/pin.svg`,
-  iconSize: [30, 30]
+const LeafIcon = leaflet.Icon.extend({
+  options: {
+    iconSize: [27, 39],
+  }
 });
+
+const icon = new LeafIcon({iconUrl: `/img/pin.svg`});
+const activeIcon = new LeafIcon({iconUrl: `/img/pin-active.svg`});
+const zoom = 12;
 
 
 class Map extends React.PureComponent {
   constructor(props) {
     super(props);
 
+    this.city = this.props.offers[0].city;
+    this.map = null;
+    this.layer = null;
     this.mapRef = React.createRef();
   }
 
+  componentDidUpdate() {
+    this.layer.clearLayers();
+
+    for (const offer of this.props.offers) {
+      leaflet
+      .marker(offer.cords, {icon})
+      .addTo(this.layer);
+    }
+
+    if (this.props.currentOffer) {
+      leaflet
+        .marker(this.props.currentOffer.cords, {icon: activeIcon})
+        .addTo(this.layer);
+    }
+
+  }
 
   componentDidMount() {
-    const city = this.props.offers[0].city;
-    const map = leaflet.map(this.mapRef.current.id, {
-      center: city,
+    this.map = leaflet.map(this.mapRef.current.id, {
+      center: this.city,
       zoom,
       zoomControl: false,
       marker: true
     });
 
-    map.setView(city, zoom);
+    this.layer = leaflet.layerGroup().addTo(this.map);
+
+    this.map.setView(this.city, zoom);
 
     leaflet
     .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{@2x}.png`)
-    .addTo(map);
+    .addTo(this.map);
 
     for (const offer of this.props.offers) {
       leaflet
       .marker(offer.cords, {icon})
-      .addTo(map);
+      .addTo(this.layer);
+    }
+
+    if (this.props.currentOffer) {
+      leaflet
+        .marker(this.props.currentOffer.cords, {icon: activeIcon})
+        .addTo(this.layer);
     }
   }
 
   render() {
     return (
-      <section ref={this.mapRef} className="cities__map map" id="map">
+      <section ref={this.mapRef} className={this.props.mini ? `cities__map map` : `property__map map`} id="map">
       </section>
     );
   }
 }
 
 Map.propTypes = {
-  offers: PropTypes.array
+  offers: PropTypes.array,
+  mini: PropTypes.bool,
+  currentOffer: PropTypes.object
+};
+
+Map.defaultProps = {
+  mini: false,
+  currentOffer: null
 };
 
 export default Map;

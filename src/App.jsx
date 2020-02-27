@@ -25,7 +25,7 @@ export default function App(props) {
           path="/offer/:id"
           component={(routerProps) => (
             <Room
-              serName={props.userName}
+              userName={props.userName}
               offer={props.offers.find(
                   (offer) => offer.id === parseInt(routerProps.match.params.id, 10)
               )}

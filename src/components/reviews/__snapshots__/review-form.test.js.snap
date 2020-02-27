@@ -132,7 +132,6 @@ exports[`<Form /> should render 1`] = `
     id="review"
     name="review"
     placeholder="Tell how was your stay, what you like and what can be improved"
-    value=""
   />
   <div
     className="reviews__button-wrapper"
@@ -156,7 +155,7 @@ exports[`<Form /> should render 1`] = `
     </p>
     <button
       className="reviews__submit form__submit button"
-      disabled=""
+      disabled={true}
       type="submit"
     >
       Submit

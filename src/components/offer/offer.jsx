@@ -48,7 +48,7 @@ function Offer(props) {
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={`offer/${props.id}`}>{props.name}</Link>
+          <Link to={`/offer/${props.id}`}>{props.name}</Link>
         </h2>
         <p className="place-card__type">{props.type}</p>
       </div>

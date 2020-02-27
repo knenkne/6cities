@@ -7,8 +7,13 @@ import Intro from '../components/offer-intro/offer-intro.jsx';
 import Features from '../components/features/features.jsx';
 import Host from '../components/host/host.jsx';
 import Reviews from '../components/reviews/reviews.jsx';
+import Map from '../components/map/map.jsx';
+import Offers from '../components/offers/offers-nearby.jsx';
+
+import {offers} from '../mocks/offers.js';
 
 function Room(props) {
+  const nearbyOffers = offers.filter((offer) => offer.id !== props.offer.id);
   return (
     <div className="page">
       <Header userName={props.userName} />
@@ -23,7 +28,9 @@ function Room(props) {
               <Reviews reviews={props.offer.reviews}/>
             </div>
           </div>
+          <Map offers={nearbyOffers} currentOffer={props.offer}/>
         </section>
+        <Offers offers={nearbyOffers}/>
       </main>
     </div>
   );
@@ -32,6 +39,7 @@ function Room(props) {
 Room.propTypes = {
   userName: PropTypes.string,
   offer: PropTypes.shape({
+    id: PropTypes.number,
     images: PropTypes.arrayOf(PropTypes.string),
     name: PropTypes.string,
     features: PropTypes.arrayOf(PropTypes.string),
