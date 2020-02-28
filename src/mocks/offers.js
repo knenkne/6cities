@@ -1,6 +1,6 @@
 export const offers = [
   {
-    id: 1,
+    id: `1`,
     name: `Beautiful & luxurious apartment at great location`,
     type: `Apartment`,
     images: [`/img/room.jpg`, `/img/apartment-01.jpg`, `/img/apartment-02.jpg`, `/img/apartment-03.jpg`, `/img/studio-01.jpg`, `/img/apartment-01.jpg`],
@@ -10,7 +10,10 @@ export const offers = [
     premium: false,
     rating: 4.51,
     bookmarked: true,
-    city: [52.38333, 4.9],
+    city: {
+      name: `Paris`,
+      cords: [52.38333, 4.9]
+    },
     cords: [52.3909553943508, 4.85309666406198],
     features: [`Wi-Fi`, `Heating`, `Kitchen`, `Fridge`, `Washing machine`, `Coffee machine`, `Dishwasher`, `Towels`, `Baby seat`, `Cabel TV`],
     host: {
@@ -25,7 +28,7 @@ export const offers = [
     reviews: []
   },
   {
-    id: 2,
+    id: `2`,
     name: `Wood and stone place`,
     type: `Room`,
     images: [`/img/apartment-01.jpg`, `/img/room.jpg`, `/img/apartment-02.jpg`, `/img/apartment-03.jpg`, `/img/studio-01.jpg`, `/img/apartment-01.jpg`],
@@ -35,7 +38,10 @@ export const offers = [
     premium: true,
     rating: 4.49,
     bookmarked: true,
-    city: [52.38333, 4.9],
+    city: {
+      name: `Cologne`,
+      cords: [52.38333, 4.9]
+    },
     cords: [52.369553943508, 4.85309666406198],
     features: [`Wi-Fi`, `Heating`, `Kitchen`, `Fridge`, `Washing machine`, `Coffee machine`, `Dishwasher`, `Towels`, `Baby seat`, `Cabel TV`],
     host: {
@@ -71,7 +77,7 @@ export const offers = [
     }]
   },
   {
-    id: 3,
+    id: `3`,
     name: `Canal View Prinsengracht`,
     type: `House`,
     images: [`/img/apartment-02.jpg`, `/img/room.jpg`, `/img/apartment-01.jpg`, `/img/apartment-03.jpg`, `/img/studio-01.jpg`, `/img/apartment-01.jpg`],
@@ -81,7 +87,10 @@ export const offers = [
     premium: false,
     rating: 2.11,
     bookmarked: false,
-    city: [52.38333, 4.9],
+    city: {
+      name: `Hamburg`,
+      cords: [52.38333, 4.9]
+    },
     cords: [52.3909553943508, 4.929309666406198],
     features: [`Wi-Fi`, `Heating`, `Kitchen`, `Fridge`, `Washing machine`, `Coffee machine`, `Dishwasher`, `Towels`, `Baby seat`, `Cabel TV`],
     host: {
@@ -96,7 +105,7 @@ export const offers = [
     reviews: []
   },
   {
-    id: 4,
+    id: `4`,
     name: `Nice, cozy, warm big bed apartment`,
     type: `Hotel`,
     images: [`/img/apartment-03.jpg`, `/img/room.jpg`, `/img/apartment-01.jpg`, `/img/apartment-02.jpg`, `/img/studio-01.jpg`, `/img/apartment-01.jpg`],
@@ -106,7 +115,10 @@ export const offers = [
     premium: true,
     rating: 3.2,
     bookmarked: false,
-    city: [52.38333, 4.9],
+    city: {
+      name: `Paris`,
+      cords: [52.38333, 4.9]
+    },
     cords: [52.3809553943508, 4.939309666406198],
     features: [`Wi-Fi`, `Heating`, `Kitchen`, `Fridge`, `Washing machine`, `Coffee machine`, `Dishwasher`, `Towels`, `Baby seat`, `Cabel TV`],
     host: {

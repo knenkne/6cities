@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 function Offer(props) {
   return (
-    <article className="cities__place-card place-card" onMouseEnter={props.handleMouseEnter}>
+    <article className="cities__place-card place-card">
       {props.premium && <div className="place-card__mark">
         <span>Premium</span>
       </div>}
@@ -48,7 +49,7 @@ function Offer(props) {
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={`offer/${props.id}`}>{props.name}</Link>
+          <Link to={`/offer/${props.id}`}>{props.name}</Link>
         </h2>
         <p className="place-card__type">{props.type}</p>
       </div>
@@ -57,7 +58,7 @@ function Offer(props) {
 }
 
 Offer.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   name: PropTypes.string,
   type: PropTypes.string,
   price: PropTypes.number,
@@ -65,7 +66,7 @@ Offer.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string),
   premium: PropTypes.bool,
   bookmarked: PropTypes.bool,
-  handleMouseEnter: PropTypes.func
+  onLinkClick: PropTypes.func
 };
 
 export default Offer;

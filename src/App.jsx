@@ -1,12 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {connect} from "react-redux";
+
+import * as actions from './store/actions/actions.js';
 
 import Main from "./pages/main.jsx";
 import SignIn from "./pages/sign-in.jsx";
 import Room from "./pages/room.jsx";
 
-export default function App(props) {
+function App(props) {
   return (
     <Router>
       <Switch>
@@ -21,17 +24,7 @@ export default function App(props) {
         <Route exact path="/login">
           <SignIn city={props.city} />
         </Route>
-        <Route
-          path="/offer/:id"
-          component={(routerProps) => (
-            <Room
-              serName={props.userName}
-              offer={props.offers.find(
-                  (offer) => offer.id === parseInt(routerProps.match.params.id, 10)
-              )}
-            />
-          )}
-        />
+        <Route exact path="/offer/:id" component={Room}/>
         <Route exact path="/dev-component">
           {/* <Component /> */}
         </Route>
@@ -59,3 +52,9 @@ App.propTypes = {
   userName: PropTypes.string,
   images: PropTypes.arrayOf(PropTypes.string)
 };
+
+const mapStateToProps = (state) => ({
+  currentCity: state.currentCity
+});
+
+export default connect(mapStateToProps)(App);

@@ -8,7 +8,7 @@ function Main(props) {
   return (
     <div className={`page page--gray page--main`}>
       <Header userName={props.userName} />
-      <Offers offers={props.offers} cities={props.cities} city={props.city} />
+      <Offers />
     </div>
   );
 }

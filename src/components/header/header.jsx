@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 function Header(props) {
   return (
@@ -17,7 +18,7 @@ function Header(props) {
                 <a className="header__nav-link header__nav-link--profile" href="#">
                   <div className="header__avatar-wrapper user__avatar-wrapper">
                   </div>
-                  <span className="header__user-name user__name">{props.userName ? props.userName : `Sign in`}</span>
+                  <span className="header__user-name user__name">{props.user ? props.user : `Sign in`}</span>
                 </a>
               </li>
             </ul>
@@ -29,7 +30,11 @@ function Header(props) {
 }
 
 Header.propTypes = {
-  userName: PropTypes.string
+  user: PropTypes.string
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(Header);

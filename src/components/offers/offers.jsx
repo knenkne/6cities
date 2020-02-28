@@ -5,19 +5,22 @@ import Tab from '../tab/tab.jsx';
 import OffersFilled from './offers-filled.jsx';
 import OffersEmpty from './offers-empty.jsx';
 
+import {connect} from 'react-redux';
+
 
 function Offers(props) {
+  const offers = props.offers.filter((offer) => offer.city.name === props.currentCity);
   return (
     <main className={`page__main page__main--index page__main--index-empty${props.offers.length > 0 ? `` : ` page__main--index-empty`}`}>
       <h1 className="visually-hidden">Cities</h1>
       <div className="tabs">
         <section className="locations container">
           <ul className="locations__list tabs__list">
-            {props.cities.map((city) => <Tab current={props.city === city} city={city} key={city} />)}
+            {props.cities.map((city) => <Tab city={city} key={city} />)}
           </ul>
         </section>
       </div>
-      {props.offers.length > 0 ? <OffersFilled offers={props.offers} city={props.city} /> : <OffersEmpty city={props.city} />}
+      {offers.length > 0 ? <OffersFilled offers={offers} city={props.currentCity} /> : <OffersEmpty city={props.currentCity} />}
     </main>
   );
 }
@@ -28,9 +31,16 @@ Offers.propTypes = {
     type: PropTypes.string
   })),
   cities: PropTypes.arrayOf(PropTypes.string),
-  city: PropTypes.string
+  currentCity: PropTypes.string
 };
 
-export default Offers;
+const mapStateToProps = (state) => ({
+  currentCity: state.currentCity,
+  cities: state.cities,
+  offers: state.offers
+});
+
+export {Offers};
+export default connect(mapStateToProps)(Offers);
 
 
