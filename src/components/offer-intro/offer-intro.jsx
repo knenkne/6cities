@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function OfferIntro(props) {
-  const {id, title, type, bedrooms, maxAdults, previewImage, isPremium, isFavorite, price, rating} = props;
+  const {title, type, bedrooms, maxAdults, isPremium, isFavorite, price, rating} = props;
 
   return (
     <React.Fragment>
@@ -47,14 +47,14 @@ function OfferIntro(props) {
 }
 
 OfferIntro.propTypes = {
-  name: PropTypes.string,
+  title: PropTypes.string,
   type: PropTypes.string,
   bedrooms: PropTypes.number,
-  adults: PropTypes.number,
+  maxAdults: PropTypes.number,
+  isPremium: PropTypes.bool,
+  isFavorite: PropTypes.bool,
   price: PropTypes.number,
-  premium: PropTypes.bool,
-  rating: PropTypes.number,
-  bookmarked: PropTypes.bool
+  rating: PropTypes.number
 };
 
 export default OfferIntro;

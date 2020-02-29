@@ -58,15 +58,14 @@ function Offer(props) {
 }
 
 Offer.propTypes = {
-  id: PropTypes.string,
-  name: PropTypes.string,
+  id: PropTypes.number,
+  title: PropTypes.string,
   type: PropTypes.string,
+  previewImage: PropTypes.string,
+  isPremium: PropTypes.bool,
+  isFavorite: PropTypes.bool,
   price: PropTypes.number,
-  rating: PropTypes.number,
-  images: PropTypes.arrayOf(PropTypes.string),
-  premium: PropTypes.bool,
-  bookmarked: PropTypes.bool,
-  onLinkClick: PropTypes.func
+  rating: PropTypes.number
 };
 
 export default Offer;

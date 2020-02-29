@@ -14,7 +14,6 @@ exports[`<Offer /> should render "Beautiful & luxurious apartment at great locat
         alt="Place image"
         className="place-card__image"
         height="200"
-        src="img/room.jpg"
         width="260"
       />
     </a>
@@ -41,7 +40,7 @@ exports[`<Offer /> should render "Beautiful & luxurious apartment at great locat
         </span>
       </div>
       <button
-        className="place-card__bookmark-button button place-card__bookmark-button--active"
+        className="place-card__bookmark-button button"
         type="button"
       >
         <svg
@@ -86,9 +85,7 @@ exports[`<Offer /> should render "Beautiful & luxurious apartment at great locat
       <a
         href="/offer/undefined"
         onClick={[Function]}
-      >
-        Beautiful & luxurious apartment at great location
-      </a>
+      />
     </h2>
     <p
       className="place-card__type"

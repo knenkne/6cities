@@ -9,7 +9,7 @@ Array [
     <span
       className="reviews__amount"
     >
-      2
+      1
     </span>
   </h2>,
   <ul
@@ -50,7 +50,7 @@ Array [
             <span
               style={
                 Object {
-                  "width": "100%",
+                  "width": "80%",
                 }
               }
             />
@@ -64,76 +64,15 @@ Array [
         <p
           className="reviews__text"
         >
-          A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
+          A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.
         </p>
         <time
           className="reviews__time"
-          dateTime="2019-04-24"
+          dateTime="2019-05-08T14:13:56.569Z"
         >
-          April
+          May
            
           2019
-        </time>
-      </div>
-    </li>
-    <li
-      className="reviews__item"
-    >
-      <div
-        className="reviews__user user"
-      >
-        <div
-          className="reviews__avatar-wrapper user__avatar-wrapper"
-        >
-          <img
-            alt="Reviews avatar"
-            className="reviews__avatar user__avatar"
-            height="54"
-            src="/img/avatar-max.jpg"
-            width="54"
-          />
-        </div>
-        <span
-          className="reviews__user-name"
-        >
-          Alex
-        </span>
-      </div>
-      <div
-        className="reviews__info"
-      >
-        <div
-          className="reviews__rating rating"
-        >
-          <div
-            className="reviews__stars rating__stars"
-          >
-            <span
-              style={
-                Object {
-                  "width": "40%",
-                }
-              }
-            />
-            <span
-              className="visually-hidden"
-            >
-              Rating
-            </span>
-          </div>
-        </div>
-        <p
-          className="reviews__text"
-        >
-          lorem ipsum lol.
-        </p>
-        <time
-          className="reviews__time"
-          dateTime="2020-01-17"
-        >
-          January
-           
-          2020
         </time>
       </div>
     </li>

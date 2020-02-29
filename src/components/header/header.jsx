@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-function Header(props) {
+function Header({user}) {
   return (
     <header className="header">
       <div className="container">
@@ -18,7 +18,7 @@ function Header(props) {
                 <a className="header__nav-link header__nav-link--profile" href="#">
                   <div className="header__avatar-wrapper user__avatar-wrapper">
                   </div>
-                  <span className="header__user-name user__name">{props.user ? props.user : `Sign in`}</span>
+                  <span className="header__user-name user__name">{user ? user : `Sign in`}</span>
                 </a>
               </li>
             </ul>

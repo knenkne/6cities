@@ -2,10 +2,10 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Reviews from './reviews.jsx';
 
-import {offers} from '../../mocks/offers.js';
+import {comments} from '../../mocks/comments.js';
 
 it(`<Reviews /> should render`, () => {
-  const tree = renderer.create(<Reviews reviews={offers[1].reviews} />).toJSON();
+  const tree = renderer.create(<Reviews reviews={comments[`1`]} />).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

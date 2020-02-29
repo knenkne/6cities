@@ -3,13 +3,14 @@
 exports[`Render <Tab /> <Tab /> should render 1`] = `
 <li
   className="locations__item"
+  onClick={[Function]}
 >
   <a
     className="locations__item-link tabs__item"
     href="#"
   >
     <span>
-      Sochi
+      Amsterdam
     </span>
   </a>
 </li>
@@ -18,13 +19,14 @@ exports[`Render <Tab /> <Tab /> should render 1`] = `
 exports[`Render <Tab /> Active <Tab /> should render 1`] = `
 <li
   className="locations__item"
+  onClick={[Function]}
 >
   <a
     className="locations__item-link tabs__itemtabs__item tabs__item--active"
     href="#"
   >
     <span>
-      Sochi
+      Paris
     </span>
   </a>
 </li>

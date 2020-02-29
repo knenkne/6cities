@@ -15,11 +15,6 @@ exports[`<Features /> should render 1`] = `
     <li
       className="property__inside-item"
     >
-      Wi-Fi
-    </li>
-    <li
-      className="property__inside-item"
-    >
       Heating
     </li>
     <li
@@ -30,7 +25,7 @@ exports[`<Features /> should render 1`] = `
     <li
       className="property__inside-item"
     >
-      Fridge
+      Cable TV
     </li>
     <li
       className="property__inside-item"
@@ -46,21 +41,6 @@ exports[`<Features /> should render 1`] = `
       className="property__inside-item"
     >
       Dishwasher
-    </li>
-    <li
-      className="property__inside-item"
-    >
-      Towels
-    </li>
-    <li
-      className="property__inside-item"
-    >
-      Baby seat
-    </li>
-    <li
-      className="property__inside-item"
-    >
-      Cabel TV
     </li>
   </ul>
 </div>

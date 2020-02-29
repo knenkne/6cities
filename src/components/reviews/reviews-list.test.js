@@ -2,11 +2,11 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import List from './reviews-list.jsx';
 
-import {offers} from '../../mocks/offers.js';
+import {comments} from '../../mocks/comments.js';
 
 
 it(`<List /> should render`, () => {
-  const tree = renderer.create(<List reviews={offers[1].reviews} />).toJSON();
+  const tree = renderer.create(<List reviews={comments[`1`]} />).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

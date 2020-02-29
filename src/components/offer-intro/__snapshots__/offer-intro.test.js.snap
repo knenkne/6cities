@@ -7,9 +7,7 @@ Array [
   >
     <h1
       className="property__name"
-    >
-      Beautiful & luxurious apartment at great location
-    </h1>
+    />
     <button
       className="property__bookmark-button button"
       type="button"
@@ -73,7 +71,6 @@ Array [
       className="property__feature property__feature--adults"
     >
       Max 
-      4
        adults
     </li>
   </ul>,
@@ -98,22 +95,13 @@ Array [
 exports[`Render <Intro /> <Intro /> should render with premium and book marks 1`] = `
 Array [
   <div
-    className="property__mark"
-  >
-    <span>
-      Premium
-    </span>
-  </div>,
-  <div
     className="property__name-wrapper"
   >
     <h1
       className="property__name"
-    >
-      Beautiful & luxurious apartment at great location
-    </h1>
+    />
     <button
-      className="property__bookmark-button button property__bookmark-button--active"
+      className="property__bookmark-button button"
       type="button"
     >
       <svg
@@ -175,7 +163,6 @@ Array [
       className="property__feature property__feature--adults"
     >
       Max 
-      4
        adults
     </li>
   </ul>,

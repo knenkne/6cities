@@ -18,7 +18,7 @@ exports[`<OffersFilled /> should render offers 1`] = `
       <b
         class="places__found"
       >
-        4
+        3
          places to stay in 
       </b>
       <form
@@ -91,7 +91,7 @@ exports[`<OffersFilled /> should render offers 1`] = `
                 alt="Place image"
                 class="place-card__image"
                 height="200"
-                src="/img/room.jpg"
+                src="/img/apartment-01.jpg"
                 width="260"
               />
             </a>
@@ -109,7 +109,7 @@ exports[`<OffersFilled /> should render offers 1`] = `
                   class="place-card__price-value"
                 >
                   €
-                  110
+                  120
                 </b>
                 <span
                   class="place-card__price-text"
@@ -118,7 +118,7 @@ exports[`<OffersFilled /> should render offers 1`] = `
                 </span>
               </div>
               <button
-                class="place-card__bookmark-button button place-card__bookmark-button--active"
+                class="place-card__bookmark-button button"
                 type="button"
               >
                 <svg
@@ -159,111 +159,13 @@ exports[`<OffersFilled /> should render offers 1`] = `
               <a
                 href="/offer/1"
               >
-                Beautiful & luxurious apartment at great location
+                Beautiful & luxurious studio at great location
               </a>
             </h2>
             <p
               class="place-card__type"
             >
-              Apartment
-            </p>
-          </div>
-        </article>
-        <article
-          class="cities__place-card place-card"
-        >
-          <div
-            class="place-card__mark"
-          >
-            <span>
-              Premium
-            </span>
-          </div>
-          <div
-            class="cities__image-wrapper place-card__image-wrapper"
-          >
-            <a
-              href="#"
-            >
-              <img
-                alt="Place image"
-                class="place-card__image"
-                height="200"
-                src="/img/apartment-01.jpg"
-                width="260"
-              />
-            </a>
-          </div>
-          <div
-            class="place-card__info"
-          >
-            <div
-              class="place-card__price-wrapper"
-            >
-              <div
-                class="place-card__price"
-              >
-                <b
-                  class="place-card__price-value"
-                >
-                  €
-                  120
-                </b>
-                <span
-                  class="place-card__price-text"
-                >
-                  / night
-                </span>
-              </div>
-              <button
-                class="place-card__bookmark-button button place-card__bookmark-button--active"
-                type="button"
-              >
-                <svg
-                  class="place-card__bookmark-icon"
-                  height="19"
-                  width="18"
-                >
-                  <use
-                    xlink:href="#icon-bookmark"
-                  />
-                </svg>
-                <span
-                  class="visually-hidden"
-                >
-                  To bookmarks
-                </span>
-              </button>
-            </div>
-            <div
-              class="place-card__rating rating"
-            >
-              <div
-                class="place-card__stars rating__stars"
-              >
-                <span
-                  style="width: 80%;"
-                />
-                <span
-                  class="visually-hidden"
-                >
-                  Rating
-                </span>
-              </div>
-            </div>
-            <h2
-              class="place-card__name"
-            >
-              <a
-                href="/offer/2"
-              >
-                Wood and stone place
-              </a>
-            </h2>
-            <p
-              class="place-card__type"
-            >
-              Room
+              apartment
             </p>
           </div>
         </article>
@@ -298,105 +200,7 @@ exports[`<OffersFilled /> should render offers 1`] = `
                   class="place-card__price-value"
                 >
                   €
-                  240
-                </b>
-                <span
-                  class="place-card__price-text"
-                >
-                  / night
-                </span>
-              </div>
-              <button
-                class="place-card__bookmark-button button"
-                type="button"
-              >
-                <svg
-                  class="place-card__bookmark-icon"
-                  height="19"
-                  width="18"
-                >
-                  <use
-                    xlink:href="#icon-bookmark"
-                  />
-                </svg>
-                <span
-                  class="visually-hidden"
-                >
-                  To bookmarks
-                </span>
-              </button>
-            </div>
-            <div
-              class="place-card__rating rating"
-            >
-              <div
-                class="place-card__stars rating__stars"
-              >
-                <span
-                  style="width: 40%;"
-                />
-                <span
-                  class="visually-hidden"
-                >
-                  Rating
-                </span>
-              </div>
-            </div>
-            <h2
-              class="place-card__name"
-            >
-              <a
-                href="/offer/3"
-              >
-                Canal View Prinsengracht
-              </a>
-            </h2>
-            <p
-              class="place-card__type"
-            >
-              House
-            </p>
-          </div>
-        </article>
-        <article
-          class="cities__place-card place-card"
-        >
-          <div
-            class="place-card__mark"
-          >
-            <span>
-              Premium
-            </span>
-          </div>
-          <div
-            class="cities__image-wrapper place-card__image-wrapper"
-          >
-            <a
-              href="#"
-            >
-              <img
-                alt="Place image"
-                class="place-card__image"
-                height="200"
-                src="/img/apartment-03.jpg"
-                width="260"
-              />
-            </a>
-          </div>
-          <div
-            class="place-card__info"
-          >
-            <div
-              class="place-card__price-wrapper"
-            >
-              <div
-                class="place-card__price"
-              >
-                <b
-                  class="place-card__price-value"
-                >
-                  €
-                  50
+                  120
                 </b>
                 <span
                   class="place-card__price-text"
@@ -444,15 +248,106 @@ exports[`<OffersFilled /> should render offers 1`] = `
               class="place-card__name"
             >
               <a
-                href="/offer/4"
+                href="/offer/2"
               >
-                Nice, cozy, warm big bed apartment
+                Beautiful & luxurious studio at great location
               </a>
             </h2>
             <p
               class="place-card__type"
             >
-              Hotel
+              room
+            </p>
+          </div>
+        </article>
+        <article
+          class="cities__place-card place-card"
+        >
+          <div
+            class="cities__image-wrapper place-card__image-wrapper"
+          >
+            <a
+              href="#"
+            >
+              <img
+                alt="Place image"
+                class="place-card__image"
+                height="200"
+                src="/img/apartment-02.jpg"
+                width="260"
+              />
+            </a>
+          </div>
+          <div
+            class="place-card__info"
+          >
+            <div
+              class="place-card__price-wrapper"
+            >
+              <div
+                class="place-card__price"
+              >
+                <b
+                  class="place-card__price-value"
+                >
+                  €
+                  120
+                </b>
+                <span
+                  class="place-card__price-text"
+                >
+                  / night
+                </span>
+              </div>
+              <button
+                class="place-card__bookmark-button button"
+                type="button"
+              >
+                <svg
+                  class="place-card__bookmark-icon"
+                  height="19"
+                  width="18"
+                >
+                  <use
+                    xlink:href="#icon-bookmark"
+                  />
+                </svg>
+                <span
+                  class="visually-hidden"
+                >
+                  To bookmarks
+                </span>
+              </button>
+            </div>
+            <div
+              class="place-card__rating rating"
+            >
+              <div
+                class="place-card__stars rating__stars"
+              >
+                <span
+                  style="width: 60%;"
+                />
+                <span
+                  class="visually-hidden"
+                >
+                  Rating
+                </span>
+              </div>
+            </div>
+            <h2
+              class="place-card__name"
+            >
+              <a
+                href="/offer/3"
+              >
+                Beautiful & luxurious studio at great location
+              </a>
+            </h2>
+            <p
+              class="place-card__type"
+            >
+              room
             </p>
           </div>
         </article>
@@ -486,8 +381,8 @@ exports[`<OffersFilled /> should render offers 1`] = `
                   alt=""
                   class="leaflet-tile"
                   role="presentation"
-                  src="https://b.basemaps.cartocdn.com/rastertiles/voyager_labels_under/12/2103/1345{@2x}.png"
-                  style="width: 256px; height: 256px; left: -192px; top: -219px;"
+                  src="https://a.basemaps.cartocdn.com/rastertiles/voyager_labels_under/10/525/336{@2x}.png"
+                  style="width: 256px; height: 256px; left: -237px; top: -134px;"
                 />
               </div>
             </div>
@@ -505,28 +400,21 @@ exports[`<OffersFilled /> should render offers 1`] = `
               alt=""
               class="leaflet-marker-icon leaflet-zoom-hide leaflet-interactive"
               src="/img/pin.svg"
-              style="margin-left: -13.5px; margin-top: -19.5px; width: 27px; height: 39px; left: -136px; top: -36px; z-index: -36;"
+              style="margin-left: -13.5px; margin-top: -19.5px; width: 27px; height: 39px; left: -162px; top: 18px; z-index: 18;"
               tabindex="0"
             />
             <img
               alt=""
               class="leaflet-marker-icon leaflet-zoom-hide leaflet-interactive"
               src="/img/pin.svg"
-              style="margin-left: -13.5px; margin-top: -19.5px; width: 27px; height: 39px; left: -136px; top: 66px; z-index: 66;"
+              style="margin-left: -13.5px; margin-top: -19.5px; width: 27px; height: 39px; left: -31px; top: -24px; z-index: -24;"
               tabindex="0"
             />
             <img
               alt=""
               class="leaflet-marker-icon leaflet-zoom-hide leaflet-interactive"
               src="/img/pin.svg"
-              style="margin-left: -13.5px; margin-top: -19.5px; width: 27px; height: 39px; left: 86px; top: -36px; z-index: -36;"
-              tabindex="0"
-            />
-            <img
-              alt=""
-              class="leaflet-marker-icon leaflet-zoom-hide leaflet-interactive"
-              src="/img/pin.svg"
-              style="margin-left: -13.5px; margin-top: -19.5px; width: 27px; height: 39px; left: 115px; top: 11px; z-index: 11;"
+              style="margin-left: -13.5px; margin-top: -19.5px; width: 27px; height: 39px; left: -31px; top: -24px; z-index: -24;"
               tabindex="0"
             />
           </div>
@@ -542,7 +430,30 @@ exports[`<OffersFilled /> should render offers 1`] = `
         >
           <div
             class="leaflet-top leaflet-left"
-          />
+          >
+            <div
+              class="leaflet-control-zoom leaflet-bar leaflet-control"
+            >
+              <a
+                aria-label="Zoom in"
+                class="leaflet-control-zoom-in"
+                href="#"
+                role="button"
+                title="Zoom in"
+              >
+                +
+              </a>
+              <a
+                aria-label="Zoom out"
+                class="leaflet-control-zoom-out"
+                href="#"
+                role="button"
+                title="Zoom out"
+              >
+                −
+              </a>
+            </div>
+          </div>
           <div
             class="leaflet-top leaflet-right"
           />
