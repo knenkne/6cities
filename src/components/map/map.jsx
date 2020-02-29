@@ -10,14 +10,12 @@ const LeafIcon = leaflet.Icon.extend({
 
 const icon = new LeafIcon({iconUrl: `/img/pin.svg`});
 const activeIcon = new LeafIcon({iconUrl: `/img/pin-active.svg`});
-const zoom = 12;
-
 
 class Map extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.city = this.props.currentOffer ? this.props.currentOffer.city.cords : this.props.offers[0].city.cords;
+    this.city = props.currentOffer ? props.currentOffer.city : props.offers[0].city;
     this.map = null;
     this.layer = null;
     this.mapRef = React.createRef();
@@ -28,13 +26,13 @@ class Map extends React.PureComponent {
 
     for (const offer of this.props.offers) {
       leaflet
-      .marker(offer.cords, {icon})
+      .marker([offer.location.latitude, offer.location.longitude], {icon})
       .addTo(this.layer);
     }
 
     if (this.props.currentOffer) {
       leaflet
-        .marker(this.props.currentOffer.cords, {icon: activeIcon})
+        .marker([this.props.currentOffer.location.latitude, this.props.currentOffer.location.longitude], {icon: activeIcon})
         .addTo(this.layer);
     }
 
@@ -42,15 +40,16 @@ class Map extends React.PureComponent {
 
   componentDidMount() {
     this.map = leaflet.map(this.mapRef.current.id, {
-      center: this.city,
-      zoom,
-      zoomControl: false,
+      center: [this.city.location.latitude, this.city.location.longitude],
+      zoom: this.city.location.zoom,
+      zoomControl: true,
+      scrollWheelZoom: false,
       marker: true
     });
 
     this.layer = leaflet.layerGroup().addTo(this.map);
 
-    this.map.setView(this.city, zoom);
+    this.map.setView([this.city.location.latitude, this.city.location. longitude], this.city.location.zoom);
 
     leaflet
     .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{@2x}.png`)
@@ -58,13 +57,13 @@ class Map extends React.PureComponent {
 
     for (const offer of this.props.offers) {
       leaflet
-      .marker(offer.cords, {icon})
+      .marker([offer.location.latitude, offer.location.longitude], {icon})
       .addTo(this.layer);
     }
 
     if (this.props.currentOffer) {
       leaflet
-        .marker(this.props.currentOffer.cords, {icon: activeIcon})
+        .marker([this.props.currentOffer.location.latitude, this.props.currentOffer.location.longitude], {icon: activeIcon})
         .addTo(this.layer);
     }
   }

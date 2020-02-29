@@ -6,11 +6,12 @@ import reducer from './reducers/reducer.js';
 
 const initialState = {
   user: `jztenk@gmail.com`,
-  currentCity: `Paris`,
+  currentCity: `Amsterdam`,
   currentOffer: null,
-  cities: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`],
+  cities: [],
   offers,
-  nearbyOffers: []
+  nearbyOffers: [],
+  comments: []
 };
 
 export const store = createStore(reducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

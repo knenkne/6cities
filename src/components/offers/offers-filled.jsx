@@ -50,7 +50,7 @@ class OffersFilled extends React.PureComponent {
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              {this.props.offers.map((offer) => <Offer {...offer} key={offer.name} />)}
+              {this.props.offers.map((offer) => <Offer {...offer} key={offer.id} />)}
             </div>
           </section>
           <div className="cities__right-section">

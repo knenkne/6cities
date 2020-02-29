@@ -19,41 +19,43 @@ class Room extends React.PureComponent {
   }
 
   componentDidMount() {
-    this.props.init(this.props.offers, this.props.match.params.id);
+    this.props.init(this.props.offers, parseInt(this.props.match.params.id, 10));
+    this.props.getComments(parseInt(this.props.match.params.id, 10));
   }
 
   componentWillReceiveProps(nextProps) {
     if ((this.props.currentOffer) && (nextProps.match.params.id !== this.props.currentOffer.id)) {
       window.scrollTo({
-        top: 0,
-        behavior: `smooth`
+        top: 0
       });
 
-      this.props.init(this.props.offers, nextProps.match.params.id);
+      this.props.init(this.props.offers, parseInt(this.props.match.params.id, 10));
+      this.props.getComments(parseInt(this.props.match.params.id, 10));
     }
   }
 
   render() {
-    const {currentOffer, offers} = this.props;
+    const {currentOffer, offers, comments} = this.props;
 
     if (!currentOffer) {
       return null;
     }
 
-    const nearbyOffers = offers.filter((offer) => (offer.city.name === currentOffer.city.name) && (offer.id !== currentOffer.id));
+    const {id, images, goods, host, city} = currentOffer;
+    const nearbyOffers = offers.filter((offer) => (offer.city.name === city.name) && (offer.id !== id));
 
     return (
       <div className="page">
         <Header />
         <main className="page__main page__main--property">
           <section className="property">
-            <Gallery images={currentOffer.images} />
+            <Gallery images={images} />
             <div className="property__container container">
               <div className="property__wrapper">
                 <Intro {...currentOffer} />
-                <Features features={currentOffer.features}/>
-                <Host host={currentOffer.host}/>
-                <Reviews reviews={currentOffer.reviews}/>
+                <Features features={goods}/>
+                <Host {...host}/>
+                <Reviews reviews={comments}/>
               </div>
             </div>
             <Map offers={nearbyOffers} currentOffer={currentOffer}/>
@@ -75,23 +77,32 @@ Room.propTypes = {
   currentOffer: PropTypes.shape({
     id: PropTypes.string,
     images: PropTypes.array,
-    features: PropTypes.array,
+    goods: PropTypes.array,
     host: PropTypes.object,
-    reviews: PropTypes.array
+    reviews: PropTypes.array,
+    city: PropTypes.shape({
+      name: PropTypes.string
+    })
   }),
+  comments: PropTypes.array,
   nearbyOffers: PropTypes.array,
-  init: PropTypes.func
+  init: PropTypes.func,
+  getComments: PropTypes.func
 };
 
 const mapStateToProps = (state) => ({
   offers: state.offers,
-  currentOffer: state.currentOffer
+  currentOffer: state.currentOffer,
+  comments: state.comments
 });
 
 
 const mapDispatchToProps = (dispatch) => ({
   init(offers, id) {
     dispatch(ActionCreator.initOffer(offers, id));
+  },
+  getComments(id) {
+    dispatch(ActionCreator.getComments(id));
   }
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Room);
