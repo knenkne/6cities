@@ -9,21 +9,28 @@ class OffersFilled extends React.PureComponent {
     super(props);
 
     this.state = {
-      currentOffer: null
+      focusedOffer: null
     };
 
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
 
   handleMouseEnter(e) {
     e.persist();
     e.preventDefault();
 
+    this.setState({
+      focusedOffer: parseInt(e.currentTarget.dataset.id, 10)
+    });
+  }
 
-    this.setState(() => {
-      return {
-        currentOffer: e.target
-      };
+  handleMouseLeave(e) {
+    e.persist();
+    e.preventDefault();
+
+    this.setState({
+      focusedOffer: null
     });
   }
 
@@ -50,11 +57,11 @@ class OffersFilled extends React.PureComponent {
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              {this.props.offers.map((offer) => <Offer {...offer} key={offer.id} />)}
+              {this.props.offers.map((offer) => <Offer {...offer} key={offer.id} handleMouseEnter={this.handleMouseEnter} handleMouseLeave={this.handleMouseLeave}/>)}
             </div>
           </section>
           <div className="cities__right-section">
-            <Map mini={true} offers={this.props.offers}/>
+            <Map mini offers={this.props.offers} focusedOffer={this.state.focusedOffer}/>
           </div>
         </div>
       </div>

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 function Offer(props) {
-  const {id, title, type, previewImage, isPremium, isFavorite, price, rating} = props;
+  const {id, title, type, previewImage, isPremium, isFavorite, price, rating, handleMouseEnter, handleMouseLeave} = props;
   return (
-    <article className="cities__place-card place-card">
+    <article className="cities__place-card place-card" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} data-id={id}>
       {isPremium && <div className="place-card__mark">
         <span>Premium</span>
       </div>}
@@ -65,7 +65,9 @@ Offer.propTypes = {
   isPremium: PropTypes.bool,
   isFavorite: PropTypes.bool,
   price: PropTypes.number,
-  rating: PropTypes.number
+  rating: PropTypes.number,
+  handleMouseEnter: PropTypes.func,
+  handleMouseLeave: PropTypes.func
 };
 
 export default Offer;

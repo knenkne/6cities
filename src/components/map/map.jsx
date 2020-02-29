@@ -26,7 +26,7 @@ class Map extends React.PureComponent {
 
     for (const offer of this.props.offers) {
       leaflet
-      .marker([offer.location.latitude, offer.location.longitude], {icon})
+      .marker([offer.location.latitude, offer.location.longitude], {icon: this.props.focusedOffer === offer.id ? activeIcon : icon})
       .addTo(this.layer);
     }
 
@@ -79,7 +79,8 @@ class Map extends React.PureComponent {
 Map.propTypes = {
   offers: PropTypes.array,
   mini: PropTypes.bool,
-  currentOffer: PropTypes.object
+  currentOffer: PropTypes.object,
+  focusedOffer: PropTypes.number
 };
 
 Map.defaultProps = {

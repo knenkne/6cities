@@ -9,8 +9,8 @@ export const offers = [
         zoom: 10
       }
     },
-    previewImage: `/img/apartment-01.jpg`,
-    images: [`/img/apartment-02.jpg`, `/img/apartment-03.jpg`],
+    previewImage: `img/apartment-01.jpg`,
+    images: [`img/apartment-02.jpg`, `img/apartment-03.jpg`],
     title: `Beautiful & luxurious studio at great location`,
     isFavorite: false,
     isPremium: false,
@@ -24,7 +24,7 @@ export const offers = [
       id: 3,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `/img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`
     },
     description: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
     location: {
@@ -43,8 +43,8 @@ export const offers = [
         zoom: 10
       }
     },
-    previewImage: `/img/apartment-02.jpg`,
-    images: [`/img/apartment-01.jpg`, `/img/apartment-03.jpg`],
+    previewImage: `img/apartment-02.jpg`,
+    images: [`img/apartment-01.jpg`, `img/apartment-03.jpg`],
     title: `Beautiful & luxurious studio at great location`,
     isFavorite: false,
     isPremium: false,
@@ -58,7 +58,7 @@ export const offers = [
       id: 3,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `/img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`
     },
     description: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
     location: {
@@ -77,8 +77,8 @@ export const offers = [
         zoom: 10
       }
     },
-    previewImage: `/img/apartment-02.jpg`,
-    images: [`/img/apartment-01.jpg`, `/img/apartment-03.jpg`],
+    previewImage: `img/apartment-02.jpg`,
+    images: [`img/apartment-01.jpg`, `img/apartment-03.jpg`],
     title: `Beautiful & luxurious studio at great location`,
     isFavorite: false,
     isPremium: false,
@@ -92,7 +92,7 @@ export const offers = [
       id: 3,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `/img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`
     },
     description: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
     location: {

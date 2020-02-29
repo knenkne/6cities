@@ -26,7 +26,8 @@ class Room extends React.PureComponent {
   componentWillReceiveProps(nextProps) {
     if ((this.props.currentOffer) && (nextProps.match.params.id !== this.props.currentOffer.id)) {
       window.scrollTo({
-        top: 0
+        top: 0,
+        behavior: `auto`
       });
 
       this.props.init(this.props.offers, parseInt(this.props.match.params.id, 10));
