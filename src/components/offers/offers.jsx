@@ -37,7 +37,7 @@ Offers.propTypes = {
 const mapStateToProps = (state) => ({
   currentCity: state.currentCity,
   cities: state.cities,
-  offers: state.offers
+  offers: state.currentOffers
 });
 
 export {Offers};

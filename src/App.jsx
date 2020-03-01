@@ -17,7 +17,7 @@ function App(props) {
       <Switch>
         <Route exact path="/" component={Main}/>
         <Route exact path="/login" component={SignIn}/>
-        <Route exact path="/offer/:id" component={Room}/>
+        <Route path="/offer/:id" component={Room}/>
       </Switch>
     </Router>
   );

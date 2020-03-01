@@ -3,27 +3,35 @@ import PropTypes from 'prop-types';
 
 import Offer from '../offer/offer.jsx';
 import Map from '../map/map.jsx';
+import Sorters from '../sorters/sorters.jsx';
 
 class OffersFilled extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      currentOffer: null
+      focusedOffer: null
     };
 
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
 
   handleMouseEnter(e) {
     e.persist();
     e.preventDefault();
 
+    this.setState({
+      focusedOffer: parseInt(e.currentTarget.dataset.id, 10)
+    });
+  }
 
-    this.setState(() => {
-      return {
-        currentOffer: e.target
-      };
+  handleMouseLeave(e) {
+    e.persist();
+    e.preventDefault();
+
+    this.setState({
+      focusedOffer: null
     });
   }
 
@@ -34,27 +42,13 @@ class OffersFilled extends React.PureComponent {
           <section className="cities__places places">
             <h2 className="visually-hidden">Places</h2>
             <b className="places__found">{this.props.offers.length} places to stay in {this.props.city}</b>
-            <form className="places__sorting" action="#" method="get">
-              <span className="places__sorting-caption">Sort by</span>
-              <span className="places__sorting-type" tabIndex="0">
-                Popular
-                <svg className="places__sorting-arrow" width="7" height="4">
-                  <use xlinkHref="#icon-arrow-select"></use>
-                </svg>
-              </span>
-              <ul className="places__options places__options--custom">
-                <li className="places__option places__option--active" tabIndex="0">Popular</li>
-                <li className="places__option" tabIndex="0">Price: low to high</li>
-                <li className="places__option" tabIndex="0">Price: high to low</li>
-                <li className="places__option" tabIndex="0">Top rated first</li>
-              </ul>
-            </form>
+            <Sorters/>
             <div className="cities__places-list places__list tabs__content">
-              {this.props.offers.map((offer) => <Offer {...offer} key={offer.id} />)}
+              {this.props.offers.map((offer) => <Offer {...offer} key={offer.id} handleMouseEnter={this.handleMouseEnter} handleMouseLeave={this.handleMouseLeave}/>)}
             </div>
           </section>
           <div className="cities__right-section">
-            <Map mini={true} offers={this.props.offers}/>
+            <Map mini offers={this.props.offers} focusedOffer={this.state.focusedOffer}/>
           </div>
         </div>
       </div>

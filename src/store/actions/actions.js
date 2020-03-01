@@ -17,5 +17,26 @@ export const ActionCreator = {
   getComments: (id) => ({
     type: types.GET_COMMENTS,
     payload: comments[id] || []
-  })
+  }),
+  sortOffers: (offers, type) => {
+    const sortMap = {
+      rating(a, b) {
+        return b.rating - a.rating;
+      },
+      id(a, b) {
+        return a.id - b.id;
+      },
+      toLow(a, b) {
+        return b.price - a.price;
+      },
+      toHigh(a, b) {
+        return a.price - b.price;
+      }
+    };
+
+    return {
+      type: types.SORT_OFFERS,
+      payload: [...offers].sort(sortMap[type])
+    };
+  }
 };
