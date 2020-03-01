@@ -23,11 +23,11 @@ class Room extends React.PureComponent {
     this.props.getComments(parseInt(this.props.match.params.id, 10));
   }
 
-  componentWillReceiveProps(nextProps) {
-    if ((this.props.currentOffer) && (nextProps.match.params.id !== this.props.currentOffer.id)) {
+  componentDidUpdate() {
+    if ((this.props.currentOffer) && (this.props.match.params.id !== this.props.currentOffer.id)) {
       window.scrollTo({
         top: 0,
-        behavior: `auto`
+        behavior: `smooth`
       });
 
       this.props.init(this.props.offers, parseInt(this.props.match.params.id, 10));

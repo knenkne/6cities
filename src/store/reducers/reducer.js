@@ -19,6 +19,10 @@ export default (state, action) => {
       return extend(state, {comments: action.payload});
     }
 
+    case actions.SORT_OFFERS: {
+      return extend(state, {currentOffers: action.payload});
+    }
+
     default: {
       return state;
     }

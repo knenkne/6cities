@@ -10,6 +10,7 @@ const initialState = {
   currentOffer: null,
   cities: [],
   offers,
+  currentOffers: offers,
   nearbyOffers: [],
   comments: []
 };
