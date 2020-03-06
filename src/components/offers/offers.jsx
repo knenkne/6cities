@@ -7,20 +7,33 @@ import OffersEmpty from './offers-empty.jsx';
 
 import {connect} from 'react-redux';
 
+const sortMap = {
+  rating(a, b) {
+    return b.rating - a.rating;
+  },
+  id(a, b) {
+    return a.id - b.id;
+  },
+  toLow(a, b) {
+    return b.price - a.price;
+  },
+  toHigh(a, b) {
+    return a.price - b.price;
+  }
+};
 
-function Offers(props) {
-  const offers = props.offers.filter((offer) => offer.city.name === props.currentCity);
+function Offers({offers, cities, currentCity}) {
   return (
-    <main className={`page__main page__main--index page__main--index-empty${props.offers.length > 0 ? `` : ` page__main--index-empty`}`}>
+    <main className={`page__main page__main--index page__main--index-empty${offers.length > 0 ? `` : ` page__main--index-empty`}`}>
       <h1 className="visually-hidden">Cities</h1>
       <div className="tabs">
         <section className="locations container">
           <ul className="locations__list tabs__list">
-            {props.cities.map((city) => <Tab city={city} key={city} />)}
+            {cities.map((city) => <Tab city={city} key={city} />)}
           </ul>
         </section>
       </div>
-      {offers.length > 0 ? <OffersFilled offers={offers} city={props.currentCity} /> : <OffersEmpty city={props.currentCity} />}
+      {offers.length > 0 ? <OffersFilled offers={offers} city={currentCity} /> : <OffersEmpty city={currentCity} />}
     </main>
   );
 }
@@ -37,10 +50,9 @@ Offers.propTypes = {
 const mapStateToProps = (state) => ({
   currentCity: state.currentCity,
   cities: state.cities,
-  offers: state.currentOffers
+  offers: state.offers.filter((offer) => offer.city.name === state.currentCity).sort(sortMap[state.currentSorting])
 });
 
-export {Offers};
 export default connect(mapStateToProps)(Offers);
 
 

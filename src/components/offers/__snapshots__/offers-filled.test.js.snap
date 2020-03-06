@@ -51,24 +51,28 @@ exports[`<OffersFilled /> should render offers 1`] = `
         >
           <li
             class="places__option places__option--active"
+            data-name="id"
             tabindex="0"
           >
             Popular
           </li>
           <li
             class="places__option"
+            data-name="toHigh"
             tabindex="0"
           >
             Price: low to high
           </li>
           <li
             class="places__option"
+            data-name="toLow"
             tabindex="0"
           >
             Price: high to low
           </li>
           <li
             class="places__option"
+            data-name="rating"
             tabindex="0"
           >
             Top rated first
@@ -80,6 +84,7 @@ exports[`<OffersFilled /> should render offers 1`] = `
       >
         <article
           class="cities__place-card place-card"
+          data-id="1"
         >
           <div
             class="cities__image-wrapper place-card__image-wrapper"
@@ -91,7 +96,7 @@ exports[`<OffersFilled /> should render offers 1`] = `
                 alt="Place image"
                 class="place-card__image"
                 height="200"
-                src="/img/apartment-01.jpg"
+                src="img/apartment-01.jpg"
                 width="260"
               />
             </a>
@@ -109,7 +114,7 @@ exports[`<OffersFilled /> should render offers 1`] = `
                   class="place-card__price-value"
                 >
                   €
-                  120
+                  100
                 </b>
                 <span
                   class="place-card__price-text"
@@ -144,7 +149,7 @@ exports[`<OffersFilled /> should render offers 1`] = `
                 class="place-card__stars rating__stars"
               >
                 <span
-                  style="width: 100%;"
+                  style="width: 40%;"
                 />
                 <span
                   class="visually-hidden"
@@ -171,6 +176,7 @@ exports[`<OffersFilled /> should render offers 1`] = `
         </article>
         <article
           class="cities__place-card place-card"
+          data-id="2"
         >
           <div
             class="cities__image-wrapper place-card__image-wrapper"
@@ -182,7 +188,7 @@ exports[`<OffersFilled /> should render offers 1`] = `
                 alt="Place image"
                 class="place-card__image"
                 height="200"
-                src="/img/apartment-02.jpg"
+                src="img/apartment-02.jpg"
                 width="260"
               />
             </a>
@@ -200,7 +206,7 @@ exports[`<OffersFilled /> should render offers 1`] = `
                   class="place-card__price-value"
                 >
                   €
-                  120
+                  140
                 </b>
                 <span
                   class="place-card__price-text"
@@ -262,6 +268,7 @@ exports[`<OffersFilled /> should render offers 1`] = `
         </article>
         <article
           class="cities__place-card place-card"
+          data-id="3"
         >
           <div
             class="cities__image-wrapper place-card__image-wrapper"
@@ -273,7 +280,7 @@ exports[`<OffersFilled /> should render offers 1`] = `
                 alt="Place image"
                 class="place-card__image"
                 height="200"
-                src="/img/apartment-02.jpg"
+                src="img/apartment-02.jpg"
                 width="260"
               />
             </a>
@@ -326,7 +333,7 @@ exports[`<OffersFilled /> should render offers 1`] = `
                 class="place-card__stars rating__stars"
               >
                 <span
-                  style="width: 60%;"
+                  style="width: 100%;"
                 />
                 <span
                   class="visually-hidden"

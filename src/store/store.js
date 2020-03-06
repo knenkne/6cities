@@ -6,12 +6,11 @@ import reducer from './reducers/reducer.js';
 
 const initialState = {
   user: `jztenk@gmail.com`,
-  currentCity: `Amsterdam`,
+  currentCity: `Paris`,
   currentOffer: null,
-  cities: [],
+  currentSorting: `id`,
+  cities: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`],
   offers,
-  currentOffers: offers,
-  nearbyOffers: [],
   comments: []
 };
 

@@ -1,12 +1,8 @@
-import {extend} from '../utils.js';
+import extend from '../../utils/extend/extend.js';
 import * as actions from '../action-types.js';
 
 export default (state, action) => {
   switch (action.type) {
-    case actions.INIT_CITIES: {
-      return extend(state, {cities: action.payload});
-    }
-
     case actions.SET_CITY: {
       return extend(state, {currentCity: action.payload});
     }
@@ -19,8 +15,8 @@ export default (state, action) => {
       return extend(state, {comments: action.payload});
     }
 
-    case actions.SORT_OFFERS: {
-      return extend(state, {currentOffers: action.payload});
+    case actions.SET_SORTING: {
+      return extend(state, {currentSorting: action.payload});
     }
 
     default: {

@@ -3,15 +3,6 @@ import {ActionCreator} from '../actions/actions.js';
 import {offers} from '../../mocks/offers.js';
 import {comments} from '../../mocks/comments.js';
 
-it(`Reducer should init cities`, () => {
-  expect(reducer({
-    offers,
-    cities: []
-  }, ActionCreator.initCities(offers))).toEqual({
-    offers,
-    cities: [`Amsterdam`, `Paris`]
-  });
-});
 
 it(`Reducer should set city`, () => {
   expect(reducer({

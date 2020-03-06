@@ -21,8 +21,9 @@ describe(`Render <Offers />`, () => {
     global.document.body.appendChild(div);
 
     const store = mockStore({
+      cities: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`],
       currentCity: `Paris`,
-      cities: [`Paris`, `Amsterdam`],
+      currentSorting: `id`,
       offers
     });
 
@@ -38,8 +39,9 @@ describe(`Render <Offers />`, () => {
 
   it(`<Offers /> should render empty container`, () => {
     const store = mockStore({
+      cities: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`],
       currentCity: `Paris`,
-      cities: [`Paris`, `Amsterdam`],
+      currentSorting: `id`,
       offers: []
     });
 

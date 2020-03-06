@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 
 import {ActionCreator} from '../../store/actions/actions.js';
 
+import withActiveItem from '../../hocs/with-active-item/with-active-item.jsx';
+
 const sorters = [
   {
     name: `id`,
@@ -22,74 +24,50 @@ const sorters = [
     title: `Top rated first`
   }];
 
-class Sorters extends React.PureComponent {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      isOpened: false,
-      currentSorting: {
-        name: `id`,
-        title: `Popular`
-      }
-    };
+function Sorters({currentSorting, isActive, onClick, onSortClick}) {
+  const handleClick = (e) => {
+    onSortClick(e);
+    onClick();
+  };
 
-    this.handleMenuToggle = this.handleMenuToggle.bind(this);
-    this.handleItemClick = this.handleItemClick.bind(this);
-  }
-
-  handleMenuToggle() {
-    this.setState((prevState) => ({isOpened: !prevState.isOpened}));
-  }
-
-  handleItemClick(e) {
-    this.setState({currentSorting: {
-      name: e.currentTarget.dataset.name,
-      title: e.currentTarget.textContent
-    }});
-    this.props.sort(this.props.offers, e.currentTarget.dataset.name);
-    this.handleMenuToggle();
-  }
-
-  render() {
-    const {isOpened, currentSorting} = this.state;
-
-    return (
-      <form className="places__sorting" action="#" method="get">
-        <span className="places__sorting-caption">Sort by</span>
-        <span className="places__sorting-type" tabIndex="0" onClick={this.handleMenuToggle}>
-          {currentSorting.title}
-          <svg className="places__sorting-arrow" width="7" height="4">
-            <use xlinkHref="#icon-arrow-select"></use>
-          </svg>
-        </span>
-        <ul className={`places__options places__options--custom${isOpened ? ` places__options--opened` : ``}`}>
-          {sorters.map(({name, title}) => (<li key={name}
-            className={`places__option${this.state.currentSorting.name === name ? ` places__option--active` : ``}`}
-            tabIndex="0"
-            data-name={name}
-            onClick={this.handleItemClick}>
-            {title}
-          </li>))}
-        </ul>
-      </form>
-    );
-  }
+  return (
+    <form className="places__sorting" action="#" method="get">
+      <span className="places__sorting-caption">Sort by</span>
+      <span className="places__sorting-type" tabIndex="0" onClick={onClick}>
+        {sorters.find((sorter) => sorter.name === currentSorting).title}
+        <svg className="places__sorting-arrow" width="7" height="4">
+          <use xlinkHref="#icon-arrow-select"></use>
+        </svg>
+      </span>
+      <ul className={`places__options places__options--custom${isActive ? ` places__options--opened` : ``}`}>
+        {sorters.map(({name, title}) => (<li key={name}
+          className={`places__option${currentSorting === name ? ` places__option--active` : ``}`}
+          tabIndex="0"
+          data-name={name}
+          onClick={handleClick}>
+          {title}
+        </li>))}
+      </ul>
+    </form>
+  );
 }
 
+Sorters.propTypes = {
+  currentSorting: PropTypes.string,
+  isActive: PropTypes.bool,
+  onClick: PropTypes.func,
+  onSortClick: PropTypes.func
+};
+
 const mapStateToProps = (state) => ({
-  offers: state.currentOffers
+  currentSorting: state.currentSorting
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  sort(offers, type) {
-    dispatch(ActionCreator.sortOffers(offers, type));
+  onSortClick(e) {
+    dispatch(ActionCreator.setSorting(e.currentTarget.dataset.name));
   },
 });
 
-Sorters.propTypes = {
-  offers: PropTypes.array,
-  sort: PropTypes.func
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Sorters);
+export default connect(mapStateToProps, mapDispatchToProps)(withActiveItem(Sorters));
