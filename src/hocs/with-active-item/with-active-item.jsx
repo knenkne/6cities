@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const withActiveItem = (Component) =>
   class WithActiveItem extends React.PureComponent {

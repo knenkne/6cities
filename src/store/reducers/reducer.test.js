@@ -1,8 +1,8 @@
 import reducer from './reducer.js';
 import {ActionCreator} from '../actions/actions.js';
-import {offers} from '../../mocks/offers.js';
-import {comments} from '../../mocks/comments.js';
 
+
+const comments = [{author: `Max`, message: `Booooring`}, {author: `Victoria`, message: `Amazing`}];
 
 it(`Reducer should set city`, () => {
   expect(reducer({
@@ -12,18 +12,18 @@ it(`Reducer should set city`, () => {
   });
 });
 
-it(`Reducer should init offer`, () => {
+it(`Reducer should set offer`, () => {
   expect(reducer({
     currentOffer: null,
-  }, ActionCreator.initOffer(offers, 1))).toEqual({
-    currentOffer: offers[0]
+  }, ActionCreator.setOffer(1))).toEqual({
+    currentOffer: 1
   });
 });
 
 it(`Reducer should set comments`, () => {
   expect(reducer({
     comments: [],
-  }, ActionCreator.getComments(1))).toEqual({
-    comments: comments[1]
+  }, ActionCreator.setComments(comments))).toEqual({
+    comments
   });
 });

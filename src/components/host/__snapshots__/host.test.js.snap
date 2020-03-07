@@ -29,9 +29,7 @@ exports[`<Host /> should render 1`] = `
   <div
     className="property__description"
   >
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quas laboriosam quidem placeat accusantium rem fuga, ipsam consequuntur perspiciatis repellendus saepe expedita culpa adipisci labore amet. Unde nostrum excepturi neque.
-    </p>
+    <p />
   </div>
 </div>
 `;

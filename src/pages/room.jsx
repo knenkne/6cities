@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import {ActionCreator} from '../store/actions/actions.js';
+import {getComments} from '../store/actions/actions.js';
 
 import Header from '../components/header/header.jsx';
 import Gallery from '../components/gallery/gallery.jsx';
@@ -19,31 +20,34 @@ class Room extends React.PureComponent {
   }
 
   componentDidMount() {
-    this.props.init(this.props.offers, parseInt(this.props.match.params.id, 10));
-    this.props.getComments(parseInt(this.props.match.params.id, 10));
+    this.props.setOffer(parseInt(this.props.match.params.id, 10));
+    this.props.getComments(this.props.match.params.id, 10);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if ((this.props.currentOffer) && (nextProps.match.params.id !== this.props.currentOffer.id)) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
       window.scrollTo({
         top: 0,
         behavior: `smooth`
       });
 
-      this.props.init(this.props.offers, parseInt(this.props.match.params.id, 10));
-      this.props.getComments(parseInt(this.props.match.params.id, 10));
+      this.props.setOffer(parseInt(this.props.match.params.id, 10));
+      this.props.getComments(this.props.match.params.id, 10);
+    }
+
+    if (this.props.offer && (this.props.city !== this.props.offer.city.name)) {
+      this.props.setCity(this.props.offer.city.name);
     }
   }
 
   render() {
-    const {currentOffer, offers, comments} = this.props;
+    const {offer, offers, comments} = this.props;
 
-    if (!currentOffer) {
+    if (!offer) {
       return null;
     }
 
-    const {id, images, goods, host, city} = currentOffer;
-    const nearbyOffers = offers.filter((offer) => (offer.city.name === city.name) && (offer.id !== id));
+    const {images, goods, host, description} = offer;
 
     return (
       <div className="page">
@@ -53,15 +57,15 @@ class Room extends React.PureComponent {
             <Gallery images={images} />
             <div className="property__container container">
               <div className="property__wrapper">
-                <Intro {...currentOffer} />
+                <Intro {...offer} />
                 <Features features={goods}/>
-                <Host {...host}/>
+                <Host {...host} description={description}/>
                 <Reviews reviews={comments}/>
               </div>
             </div>
-            <Map offers={nearbyOffers} currentOffer={currentOffer}/>
+            <Map offers={offers} currentOffer={offer}/>
           </section>
-          {nearbyOffers.length > 0 && <Offers offers={nearbyOffers}/>}
+          {Offers.length > 0 && <Offers offers={offers}/>}
         </main>
       </div>
     );
@@ -75,7 +79,8 @@ Room.propTypes = {
     })
   }),
   offers: PropTypes.array,
-  currentOffer: PropTypes.shape({
+  offer: PropTypes.shape({
+    description: PropTypes.string,
     id: PropTypes.string,
     images: PropTypes.array,
     goods: PropTypes.array,
@@ -85,25 +90,32 @@ Room.propTypes = {
       name: PropTypes.string
     })
   }),
+  city: PropTypes.string,
   comments: PropTypes.array,
   nearbyOffers: PropTypes.array,
-  init: PropTypes.func,
-  getComments: PropTypes.func
+  setOffer: PropTypes.func,
+  getComments: PropTypes.func,
+  setCity: PropTypes.func
 };
 
 const mapStateToProps = (state) => ({
-  offers: state.offers,
-  currentOffer: state.currentOffer,
+  city: state.currentCity,
+  offers: state.offers.filter((offer) => (offer.city.name === state.currentCity) && (offer.id !== state.currentOffer)).slice(0, 3),
+  offer: state.offers.find((offer) => offer.id === state.currentOffer),
   comments: state.comments
 });
 
 
 const mapDispatchToProps = (dispatch) => ({
-  init(offers, id) {
-    dispatch(ActionCreator.initOffer(offers, id));
+  setCity(name) {
+    dispatch(ActionCreator.setCity(name));
+  },
+  setOffer(id) {
+    dispatch(ActionCreator.setOffer(id));
   },
   getComments(id) {
-    dispatch(ActionCreator.getComments(id));
+    dispatch(getComments(id));
   }
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(Room);

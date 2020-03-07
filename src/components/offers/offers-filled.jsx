@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import withFocusedItem from '../../hocs/with-focused-item/with-focused-item.jsx';
 
-import Offer from "../offer/offer.jsx";
-import Map from "../map/map.jsx";
-import Sorters from "../sorters/sorters.jsx";
+import Offer from '../offer/offer.jsx';
+import Map from '../map/map.jsx';
+import Sorters from '../sorters/sorters.jsx';
 
 function OffersFilled({offers, city, focusedItem, onMouseEnter, onMouseLeave}) {
   return (

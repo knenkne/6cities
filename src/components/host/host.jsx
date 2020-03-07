@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 
-function Host({isPro, name, avatarUrl}) {
+function Host({isPro, name, avatarUrl, description}) {
   return (
     <div className="property__host">
       <h2 className="property__host-title">Meet the host</h2>
@@ -14,7 +14,7 @@ function Host({isPro, name, avatarUrl}) {
         </span>
       </div>
       <div className="property__description">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quas laboriosam quidem placeat accusantium rem fuga, ipsam consequuntur perspiciatis repellendus saepe expedita culpa adipisci labore amet. Unde nostrum excepturi neque.</p>
+        <p>{description}</p>
       </div>
     </div>
   );
@@ -23,7 +23,8 @@ function Host({isPro, name, avatarUrl}) {
 Host.propTypes = {
   name: PropTypes.string,
   avatarUrl: PropTypes.string,
-  isPro: PropTypes.bool
+  isPro: PropTypes.bool,
+  description: PropTypes.string
 };
 
 export default Host;

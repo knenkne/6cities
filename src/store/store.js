@@ -1,7 +1,15 @@
-import {createStore} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
+import thunk from 'redux-thunk';
 
-import {offers} from '../mocks/offers.js';
+import {ActionCreator, getHotels} from './actions/actions.js';
+import createAPI from '../api/api.js';
 import reducer from './reducers/reducer.js';
+
+
+const onUnauthorized = () => {
+  store.dispatch(ActionCreator.requireAuthorization(`401`));
+};
+const api = createAPI(onUnauthorized);
 
 
 const initialState = {
@@ -10,8 +18,14 @@ const initialState = {
   currentOffer: null,
   currentSorting: `id`,
   cities: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`],
-  offers,
+  offers: [],
   comments: []
 };
 
-export const store = createStore(reducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+export const store = createStore(reducer, initialState, compose(
+    applyMiddleware(thunk.withExtraArgument(api)),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+));
+
+store.dispatch(getHotels());
