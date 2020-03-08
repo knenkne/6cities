@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
+import {getCity} from '../../store/reducers/cities/selectors.js';
 import {ActionCreator} from '../../store/actions/actions.js';
 
-function Tab(props) {
-  const handleClick = () => props.onTabClick(props.city);
+function Tab({city, currentCity, onTabClick}) {
+  const handleClick = () => onTabClick(city);
   return (
     <li className="locations__item" onClick={handleClick}>
-      <a className={`locations__item-link tabs__item${props.currentCity === props.city ? `tabs__item tabs__item--active` : ``}`} href="#">
-        <span>{props.city}</span>
+      <a className={`locations__item-link tabs__item${currentCity === city ? `tabs__item tabs__item--active` : ``}`} href="#">
+        <span>{city}</span>
       </a>
     </li>
   );
@@ -22,7 +23,7 @@ Tab.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  currentCity: state.currentCity
+  currentCity: getCity(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

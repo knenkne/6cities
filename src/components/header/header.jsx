@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-function Header({user}) {
+import {getAuthorizationStatus, getUsername} from '../../store/reducers/user/selectors.js';
+
+function Header({isAuthorized, name}) {
   return (
     <header className="header">
       <div className="container">
@@ -18,7 +20,7 @@ function Header({user}) {
                 <a className="header__nav-link header__nav-link--profile" href="#">
                   <div className="header__avatar-wrapper user__avatar-wrapper">
                   </div>
-                  <span className="header__user-name user__name">{user ? user : `Sign in`}</span>
+                  <span className="header__user-name user__name">{isAuthorized ? name : `Sign in`}</span>
                 </a>
               </li>
             </ul>
@@ -30,11 +32,13 @@ function Header({user}) {
 }
 
 Header.propTypes = {
-  user: PropTypes.string
+  isAuthorized: PropTypes.bool,
+  name: PropTypes.string
 };
 
 const mapStateToProps = (state) => ({
-  user: state.user
+  isAuthorized: getAuthorizationStatus(state),
+  name: getUsername(state)
 });
 
 export default connect(mapStateToProps)(Header);

@@ -12,7 +12,10 @@ const mockStore = configureStore([]);
 describe(`Render <Header />`, () => {
   it(`<Header /> should have been rendered with userName`, () => {
     const store = mockStore({
-      user: `Max@gmail.com`
+      user: {
+        isAuthorized: true,
+        name: `jztenk@gmail.com`
+      }
     });
 
     const tree = renderer.create(
@@ -25,7 +28,9 @@ describe(`Render <Header />`, () => {
 
   it(`<Header /> should have been rendered with sign-in`, () => {
     const store = mockStore({
-      user: null
+      user: {
+        isAuthorized: false
+      }
     });
 
     const tree = renderer.create(

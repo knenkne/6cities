@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Host({isPro, name, avatarUrl, description}) {
+function Host({name, isPro, description, avatarUrl}) {
   return (
     <div className="property__host">
       <h2 className="property__host-title">Meet the host</h2>

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Gallery(props) {
+function Gallery({images}) {
   return (
     <div className="property__gallery-container container">
       <div className="property__gallery">
-        {props.images.map((image, i) => {
+        {images.map((image, i) => {
           return (
             <div className="property__image-wrapper" key={`Image №${i}`}>
               <img className="property__image" src={image} alt="Photo studio" />

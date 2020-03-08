@@ -1,12 +1,8 @@
 import React from 'react';
-import Enzyme, {shallow} from 'enzyme';
-import Adapter from "enzyme-adapter-react-16";
+import {shallow} from 'enzyme';
 
 import withFocusedItem from './with-focused-item.jsx';
 
-Enzyme.configure({
-  adapter: new Adapter()
-});
 
 const MockComponent = () => <div />;
 const MockComponentWrapped = withFocusedItem(MockComponent);

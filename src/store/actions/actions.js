@@ -1,5 +1,5 @@
 import * as types from '../action-types.js';
-import HotelAdapter from '../../adapters/hotel-adapter.js';
+import Adapter from '../../adapter.js';
 
 export const ActionCreator = {
   setCity: (name) =>
@@ -15,7 +15,7 @@ export const ActionCreator = {
   setComments: (data) =>
     ({
       type: types.SET_COMMENTS,
-      payload: HotelAdapter.parseHotels(data)
+      payload: Adapter.parse(data)
     }),
   setSorting: (name) => ({
     type: types.SET_SORTING,
@@ -25,16 +25,27 @@ export const ActionCreator = {
     type: types.REQUIRE_AUTHORIZATION,
     payload: status,
   }),
-  setHotels: (data) => ({
-    type: types.SET_HOTELS,
-    payload: HotelAdapter.parseHotels(data)
+  setOffers: (data) => ({
+    type: types.SET_OFFERS,
+    payload: Adapter.parse(data)
+  }),
+  setNearbyOffers: (data) => ({
+    type: types.SET_NEARBY_OFFERS,
+    payload: Adapter.parse(data)
   })
 };
 
-export const getHotels = () => (dispatch, getState, api) => {
+export const getOffers = () => (dispatch, getState, api) => {
   return api.get(`/hotels`)
           .then((response) => {
-            dispatch(ActionCreator.setHotels(response.data));
+            dispatch(ActionCreator.setOffers(response.data));
+          });
+};
+
+export const getNearbyOffers = (id) => (dispatch, getState, api) => {
+  return api.get(`/hotels/${id}/nearby`)
+          .then((response) => {
+            dispatch(ActionCreator.setNearbyOffers(response.data));
           });
 };
 

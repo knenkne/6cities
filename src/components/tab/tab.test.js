@@ -11,7 +11,9 @@ describe(`Render <Tab />`, () => {
   it(`<Tab /> should render`, () => {
     const city = `Amsterdam`;
     const store = mockStore({
-      currentCity: `Paris`
+      cities: {
+        current: `Paris`
+      }
     });
 
     const tree = renderer.create(
@@ -25,7 +27,9 @@ describe(`Render <Tab />`, () => {
   it(`Active <Tab /> should render`, () => {
     const city = `Paris`;
     const store = mockStore({
-      currentCity: `Paris`
+      cities: {
+        current: `Paris`
+      }
     });
 
 

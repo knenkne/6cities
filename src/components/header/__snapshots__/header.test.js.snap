@@ -99,7 +99,7 @@ exports[`Render <Header /> <Header /> should have been rendered with userName 1`
               <span
                 className="header__user-name user__name"
               >
-                Max@gmail.com
+                jztenk@gmail.com
               </span>
             </a>
           </li>

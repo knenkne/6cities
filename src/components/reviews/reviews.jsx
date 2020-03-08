@@ -1,30 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+
+import {getAuthorizationStatus} from '../../store/reducers/user/selectors.js';
+import {getComments} from '../../store/reducers/offers/selectors.js';
 
 import List from './reviews-list.jsx';
 import Form from './review-form.jsx';
 
-function Reviews({reviews}) {
+function Reviews({isAuthorized, comments}) {
   return (
     <section className="property__reviews reviews">
-      {reviews.length > 0 && <List reviews={reviews}/>}
-      <Form />
+      {comments.length > 0 && <List reviews={comments}/>}
+      {isAuthorized && <Form />}
     </section>
   );
 }
 
 Reviews.propTypes = {
-  reviews: PropTypes.arrayOf(PropTypes.shape({
-    author: PropTypes.shape({
+  isAuthorized: PropTypes.bool,
+  comments: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    user: PropTypes.shape({
+      id: PropTypes.number,
       name: PropTypes.string,
-      avatar: PropTypes.string
-    }),
-    info: PropTypes.shape({
-      text: PropTypes.string,
-      rating: PropTypes.number,
-      date: PropTypes.string
+      isPro: PropTypes.bool,
+      avatarUrl: PropTypes.string
     })
   }))
 };
 
-export default Reviews;
+const mapStateToProps = (state) => ({
+  isAuthorized: getAuthorizationStatus(state),
+  comments: getComments(state)
+});
+
+export default connect(mapStateToProps)(Reviews);

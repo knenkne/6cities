@@ -15,7 +15,7 @@ class Map extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.city = props.currentOffer ? props.currentOffer.city : props.offers[0].city;
+    this.city = props.offers[0].city;
     this.map = null;
     this.layer = null;
     this.mapRef = React.createRef();
@@ -26,16 +26,11 @@ class Map extends React.PureComponent {
 
     for (const offer of this.props.offers) {
       leaflet
-      .marker([offer.location.latitude, offer.location.longitude], {icon: this.props.focusedOffer === offer.id ? activeIcon : icon})
+      .marker([offer.location.latitude, offer.location.longitude], {icon: (this.props.focusedOffer || this.props.currentOffer) === offer.id ? activeIcon : icon})
       .addTo(this.layer);
     }
 
-    if (this.props.currentOffer) {
-      leaflet
-        .marker([this.props.currentOffer.location.latitude, this.props.currentOffer.location.longitude], {icon: activeIcon})
-        .addTo(this.layer);
-    }
-
+    this.map.setView([this.props.offers[0].city.location.latitude, this.props.offers[0].city.location. longitude], this.props.offers[0].city.location.zoom);
   }
 
   componentDidMount() {
@@ -57,14 +52,8 @@ class Map extends React.PureComponent {
 
     for (const offer of this.props.offers) {
       leaflet
-      .marker([offer.location.latitude, offer.location.longitude], {icon})
+      .marker([offer.location.latitude, offer.location.longitude], {icon: (this.props.focusedOffer || this.props.currentOffer) === offer.id ? activeIcon : icon})
       .addTo(this.layer);
-    }
-
-    if (this.props.currentOffer) {
-      leaflet
-        .marker([this.props.currentOffer.location.latitude, this.props.currentOffer.location.longitude], {icon: activeIcon})
-        .addTo(this.layer);
     }
   }
 
@@ -77,15 +66,47 @@ class Map extends React.PureComponent {
 }
 
 Map.propTypes = {
-  offers: PropTypes.array,
+  offers: PropTypes.arrayOf(PropTypes.shape({
+    bedrooms: PropTypes.number,
+    city: PropTypes.shape({
+      location: PropTypes.shape({
+        latitude: PropTypes.number,
+        longitude: PropTypes.number,
+        zoom: PropTypes.number
+      }),
+      name: PropTypes.string
+    }),
+    description: PropTypes.string,
+    goods: PropTypes.arrayOf(PropTypes.string),
+    host: PropTypes.shape({
+      avatarUrl: PropTypes.string,
+      id: PropTypes.number,
+      isPro: PropTypes.bool,
+      name: PropTypes.string
+    }),
+    id: PropTypes.number,
+    images: PropTypes.arrayOf(PropTypes.string),
+    isFavorite: PropTypes.bool,
+    isPremium: PropTypes.bool,
+    location: PropTypes.shape({
+      latitude: PropTypes.number,
+      longitude: PropTypes.number,
+      zoom: PropTypes.number
+    }),
+    maxAdults: PropTypes.number,
+    previewImage: PropTypes.string,
+    price: PropTypes.number,
+    rating: PropTypes.number,
+    title: PropTypes.string,
+    type: PropTypes.string
+  })),
   mini: PropTypes.bool,
-  currentOffer: PropTypes.object,
+  currentOffer: PropTypes.number,
   focusedOffer: PropTypes.number
 };
 
 Map.defaultProps = {
-  mini: false,
-  currentOffer: null
+  mini: false
 };
 
 export default Map;

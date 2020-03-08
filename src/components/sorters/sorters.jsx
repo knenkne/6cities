@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
+import {getSorting} from '../../store/reducers/offers/selectors.js';
 import {ActionCreator} from '../../store/actions/actions.js';
 
 import withActiveItem from '../../hocs/with-active-item/with-active-item.jsx';
@@ -61,7 +62,7 @@ Sorters.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  currentSorting: state.currentSorting
+  currentSorting: getSorting(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

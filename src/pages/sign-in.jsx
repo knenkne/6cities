@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 import Header from '../components/header/header.jsx';
 import Form from '../components/sign-in-form/sign-in-form.jsx';
 
 
-function SignIn(props) {
+function SignIn({city}) {
   return (
     <div className="page page--gray page--login">
       <Header />
@@ -18,7 +19,7 @@ function SignIn(props) {
           <section className="locations locations--login locations--current">
             <div className="locations__item">
               <a className="locations__item-link" href="#">
-                <span>{props.city}</span>
+                <span>{city}</span>
               </a>
             </div>
           </section>
@@ -32,4 +33,8 @@ SignIn.propTypes = {
   city: PropTypes.string
 };
 
-export default SignIn;
+const mapStateToProps = (state) => ({
+  city: state.cities.current
+});
+
+export default connect(mapStateToProps)(SignIn);

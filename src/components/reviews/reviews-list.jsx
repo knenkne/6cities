@@ -8,10 +8,10 @@ function List({reviews}) {
     <React.Fragment>
       <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
       <ul className="reviews__list">
-        {reviews.map(({user: {id, name, avatarUrl}, rating, comment, date}) => {
+        {reviews.map(({user: {id, name, avatarUrl}, rating, comment, date}, i) => {
           const dateInstance = new Date(date);
           return (
-            <li key={`${name}-${id}`} className="reviews__item">
+            <li key={`${id}-${name}-${date}-${i}`} className="reviews__item">
               <div className="reviews__user user">
                 <div className="reviews__avatar-wrapper user__avatar-wrapper">
                   <img className="reviews__avatar user__avatar" src={avatarUrl} width="54" height="54" alt="Reviews avatar"/>
@@ -42,14 +42,12 @@ function List({reviews}) {
 
 List.propTypes = {
   reviews: PropTypes.arrayOf(PropTypes.shape({
-    author: PropTypes.shape({
+    id: PropTypes.number,
+    user: PropTypes.shape({
+      id: PropTypes.number,
       name: PropTypes.string,
-      avatar: PropTypes.string
-    }),
-    info: PropTypes.shape({
-      text: PropTypes.string,
-      rating: PropTypes.number,
-      date: PropTypes.string
+      isPro: PropTypes.bool,
+      avatarUrl: PropTypes.string
     })
   }))
 };

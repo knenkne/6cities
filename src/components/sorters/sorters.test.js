@@ -8,10 +8,11 @@ import Sorters from './sorters.jsx';
 
 const mockStore = configureStore([]);
 
-
 it(`<Sorters /> should have been rendered with Popular`, () => {
   const store = mockStore({
-    currentSorting: `id`
+    offers: {
+      sorting: `id`
+    }
   });
 
   const tree = renderer.create(

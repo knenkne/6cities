@@ -7,7 +7,9 @@ Array [
   >
     <h1
       className="property__name"
-    />
+    >
+      Beautiful & luxurious studio at great location
+    </h1>
     <button
       className="property__bookmark-button button"
       type="button"
@@ -37,7 +39,7 @@ Array [
       <span
         style={
           Object {
-            "width": "100%",
+            "width": "40%",
           }
         }
       />
@@ -50,7 +52,7 @@ Array [
     <span
       className="property__rating-value rating__value"
     >
-      4.51
+      1.8
     </span>
   </div>,
   <ul
@@ -71,6 +73,7 @@ Array [
       className="property__feature property__feature--adults"
     >
       Max 
+      4
        adults
     </li>
   </ul>,
@@ -81,7 +84,7 @@ Array [
       className="property__price-value"
     >
       €
-      1337
+      100
     </b>
     <span
       className="property__price-text"
@@ -95,13 +98,22 @@ Array [
 exports[`Render <Intro /> <Intro /> should render with premium and book marks 1`] = `
 Array [
   <div
+    className="property__mark"
+  >
+    <span>
+      Premium
+    </span>
+  </div>,
+  <div
     className="property__name-wrapper"
   >
     <h1
       className="property__name"
-    />
+    >
+      Beautiful & luxurious studio at great location
+    </h1>
     <button
-      className="property__bookmark-button button"
+      className="property__bookmark-button button property__bookmark-button--active"
       type="button"
     >
       <svg
@@ -129,7 +141,7 @@ Array [
       <span
         style={
           Object {
-            "width": "100%",
+            "width": "40%",
           }
         }
       />
@@ -142,7 +154,7 @@ Array [
     <span
       className="property__rating-value rating__value"
     >
-      4.51
+      1.8
     </span>
   </div>,
   <ul
@@ -163,6 +175,7 @@ Array [
       className="property__feature property__feature--adults"
     >
       Max 
+      4
        adults
     </li>
   </ul>,
@@ -173,7 +186,7 @@ Array [
       className="property__price-value"
     >
       €
-      1337
+      100
     </b>
     <span
       className="property__price-text"
