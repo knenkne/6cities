@@ -6,5 +6,5 @@ export const SET_OFFERS = `SET_OFFERS`;
 export const SET_NEARBY_OFFERS = `SET_NEARBY_OFFERS`;
 export const SET_SORTING = `SET_SORTING`;
 
-export const REQUIRE_AUTHORIZATION = `REQUIRE_AUTHORIZATION`;
+export const SET_AUTH = `SET_AUTH`;
 

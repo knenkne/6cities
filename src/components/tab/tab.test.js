@@ -32,7 +32,6 @@ describe(`Render <Tab />`, () => {
       }
     });
 
-
     const tree = renderer.create(
         <Provider store={store}>
           <Tab city={city}/>

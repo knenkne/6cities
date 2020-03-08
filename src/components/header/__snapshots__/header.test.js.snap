@@ -20,7 +20,7 @@ exports[`Render <Header /> <Header /> should have been rendered with sign-in 1`]
             alt="6 cities logo"
             className="header__logo"
             height="41"
-            src="/img/logo.svg"
+            src="img/logo.svg"
             width="81"
           />
         </a>
@@ -36,7 +36,8 @@ exports[`Render <Header /> <Header /> should have been rendered with sign-in 1`]
           >
             <a
               className="header__nav-link header__nav-link--profile"
-              href="#"
+              href="/login"
+              onClick={[Function]}
             >
               <div
                 className="header__avatar-wrapper user__avatar-wrapper"
@@ -75,7 +76,7 @@ exports[`Render <Header /> <Header /> should have been rendered with userName 1`
             alt="6 cities logo"
             className="header__logo"
             height="41"
-            src="/img/logo.svg"
+            src="img/logo.svg"
             width="81"
           />
         </a>
@@ -91,16 +92,15 @@ exports[`Render <Header /> <Header /> should have been rendered with userName 1`
           >
             <a
               className="header__nav-link header__nav-link--profile"
-              href="#"
+              href="/login"
+              onClick={[Function]}
             >
               <div
                 className="header__avatar-wrapper user__avatar-wrapper"
               />
               <span
                 className="header__user-name user__name"
-              >
-                jztenk@gmail.com
-              </span>
+              />
             </a>
           </li>
         </ul>

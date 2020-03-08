@@ -3,5 +3,5 @@ export const getAuthorizationStatus = (state) => {
 };
 
 export const getUsername = (state) => {
-  return state.user.name;
+  return state.user.email;
 };

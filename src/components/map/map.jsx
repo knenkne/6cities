@@ -8,8 +8,8 @@ const LeafIcon = leaflet.Icon.extend({
   }
 });
 
-const icon = new LeafIcon({iconUrl: `/img/pin.svg`});
-const activeIcon = new LeafIcon({iconUrl: `/img/pin-active.svg`});
+const icon = new LeafIcon({iconUrl: `img/pin.svg`});
+const activeIcon = new LeafIcon({iconUrl: `img/pin-active.svg`});
 
 class Map extends React.PureComponent {
   constructor(props) {

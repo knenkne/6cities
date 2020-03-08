@@ -5,6 +5,7 @@ import {Provider} from 'react-redux';
 
 import Reviews from './reviews.jsx';
 
+
 const mockStore = configureStore([]);
 
 const comments = [

@@ -44,21 +44,21 @@ exports[`<Map /> should render 1`] = `
       <img
         alt=""
         class="leaflet-marker-icon leaflet-zoom-hide leaflet-interactive"
-        src="/img/pin.svg"
+        src="img/pin.svg"
         style="margin-left: -13.5px; margin-top: -19.5px; width: 27px; height: 39px; left: -162px; top: 18px; z-index: 18;"
         tabindex="0"
       />
       <img
         alt=""
         class="leaflet-marker-icon leaflet-zoom-hide leaflet-interactive"
-        src="/img/pin.svg"
+        src="img/pin.svg"
         style="margin-left: -13.5px; margin-top: -19.5px; width: 27px; height: 39px; left: -31px; top: -24px; z-index: -24;"
         tabindex="0"
       />
       <img
         alt=""
         class="leaflet-marker-icon leaflet-zoom-hide leaflet-interactive"
-        src="/img/pin.svg"
+        src="img/pin.svg"
         style="margin-left: -13.5px; margin-top: -19.5px; width: 27px; height: 39px; left: -31px; top: -24px; z-index: -24;"
         tabindex="0"
       />
