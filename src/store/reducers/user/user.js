@@ -8,13 +8,13 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case types.SET_AUTH: {
-      const {email, name, isPro, id} = action.payload;
+      const {email, avatarUrl, name, isPro, id} = action.payload;
 
       return extend(state, {
         isAuthorized: true,
         email,
         name,
-        avatarUrl: `img/avatar-me.jpeg`,
+        avatarUrl,
         isPro,
         id
       });

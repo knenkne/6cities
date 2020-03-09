@@ -74,3 +74,18 @@ export const setAuth = (authData) => (dispatch, getState, api) => {
         dispatch(ActionCreator.setAuth(res.data));
       });
 };
+
+export const setComment = ({comment, rating, id}) => (dispatch, getState, api) => {
+  // block form
+  return api.post(`/comments/${id}`,
+      {
+        comment,
+        rating,
+      })
+      .then((res) => {
+        dispatch(ActionCreator.setComments(res.data));
+      })
+      .finally(() => {
+        // Unblock form
+      });
+};

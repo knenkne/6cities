@@ -36,3 +36,4 @@ export const getOffer = createSelector(
 
 export const getComments = (state) => state.offers.comments;
 export const getSorting = sortingSelector;
+export const getOfferID = IDSelector;

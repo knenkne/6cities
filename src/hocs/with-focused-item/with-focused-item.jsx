@@ -39,5 +39,4 @@ const withFocusedItem = (Component) => (
   }
 );
 
-
 export default withFocusedItem;
