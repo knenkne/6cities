@@ -21,4 +21,4 @@ OffersEmtpy.propTypes = {
   city: PropTypes.string
 };
 
-export default OffersEmtpy;
+export default React.memo(OffersEmtpy);

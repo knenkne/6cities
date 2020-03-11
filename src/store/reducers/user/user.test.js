@@ -16,3 +16,13 @@ it(`Reducer should set authData`, () => {
       Object.assign({isAuthorized: true}, authData)
   );
 });
+
+it(`Reducer should set operation status`, () => {
+  expect(reducer({
+    comment: ``,
+  }, ActionCreator.setOperationStatus(`comment`, `PENDING`))).toEqual(
+      {
+        comment: `PENDING`
+      }
+  );
+});

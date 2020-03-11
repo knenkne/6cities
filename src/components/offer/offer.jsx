@@ -1,26 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-function Offer(props) {
-  const {id, title, type, previewImage, isPremium, isFavorite, price, rating, handleMouseEnter, handleMouseLeave} = props;
+import {setBookmark} from '../../store/actions/actions.js';
+import {AppRoute} from '../../const.js';
+
+function Offer({id, title, type, previewImage, isPremium, isFavorite, price, rating, handleMouseEnter, handleMouseLeave, onClick, mini = false}) {
+  const handleClick = () => onClick(id, isFavorite ? 0 : 1);
   return (
-    <article className="cities__place-card place-card" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} data-id={id}>
+    <article className={`${mini ? `favorites__card` : `cities__place-card`} place-card`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} data-id={id}>
       {isPremium && <div className="place-card__mark">
         <span>Premium</span>
       </div>}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${mini ? `favorites__image-wrapper` : `cities__image-wrapper`} place-card__image-wrapper`}>
         <a href="#">
           <img
             className="place-card__image"
             src={previewImage}
-            width="260"
-            height="200"
+            width={mini ? `150` : `260`}
+            height={mini ? `110` : `200`}
             alt="Place image"
           />
         </a>
       </div>
-      <div className="place-card__info">
+      <div className={`${mini ? `favorites__card-info ` : ``}place-card__info`}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{price}</b>
@@ -29,6 +33,7 @@ function Offer(props) {
             </span>
           </div>
           <button
+            onClick={handleClick}
             className={`place-card__bookmark-button button${isFavorite ? ` place-card__bookmark-button--active` : ``}`}
             type="button"
           >
@@ -49,7 +54,7 @@ function Offer(props) {
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={`/offer/${id}`}>{title}</Link>
+          <Link to={`${AppRoute.OFFER}/${id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
@@ -58,6 +63,7 @@ function Offer(props) {
 }
 
 Offer.propTypes = {
+  mini: PropTypes.bool,
   bedrooms: PropTypes.number,
   city: PropTypes.shape({
     location: PropTypes.shape({
@@ -91,7 +97,15 @@ Offer.propTypes = {
   title: PropTypes.string,
   type: PropTypes.string,
   handleMouseEnter: PropTypes.func,
-  handleMouseLeave: PropTypes.func
+  handleMouseLeave: PropTypes.func,
+  onClick: PropTypes.func
 };
 
-export default Offer;
+
+const mapDispatchToProps = (dispatch) => ({
+  onClick(id, status) {
+    dispatch(setBookmark(id, status));
+  }
+});
+
+export default connect(null, mapDispatchToProps)(Offer);

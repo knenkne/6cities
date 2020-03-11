@@ -35,5 +35,6 @@ export const getOffer = createSelector(
 );
 
 export const getComments = (state) => state.offers.comments;
+export const getNearbyOffers = (state) => state.offers.nearby;
 export const getSorting = sortingSelector;
 export const getOfferID = IDSelector;

@@ -1,10 +1,12 @@
 import extend from '../../../utils/extend/extend.js';
 import * as types from '../../action-types.js';
 
+import {cities} from '../../../const.js';
+
 
 const initialState = {
-  current: `Paris`,
-  data: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`]
+  current: cities[0],
+  data: cities
 };
 
 export default (state = initialState, action) => {

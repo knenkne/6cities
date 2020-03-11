@@ -12,7 +12,7 @@ import OffersEmpty from './offers-empty.jsx';
 
 function Offers({offers, cities, city}) {
   return (
-    <main className={`page__main page__main--index page__main--index-empty${offers.length > 0 ? `` : ` page__main--index-empty`}`}>
+    <main className={`page__main page__main--index page__main--index-empty${offers.length ? `` : ` page__main--index-empty`}`}>
       <h1 className="visually-hidden">Cities</h1>
       <div className="tabs">
         <section className="locations container">
@@ -21,7 +21,7 @@ function Offers({offers, cities, city}) {
           </ul>
         </section>
       </div>
-      {offers.length > 0 ? <OffersFilled offers={offers} city={city} /> : <OffersEmpty city={city} />}
+      {offers.length ? <OffersFilled offers={offers} city={city}/> : <OffersEmpty city={city} />}
     </main>
   );
 }

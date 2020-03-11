@@ -2,14 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import leaflet from 'leaflet';
 
+import {PIN, LAYER} from '../../const.js';
+
 const LeafIcon = leaflet.Icon.extend({
   options: {
-    iconSize: [27, 39],
+    iconSize: PIN.size
   }
 });
 
-const icon = new LeafIcon({iconUrl: `img/pin.svg`});
-const activeIcon = new LeafIcon({iconUrl: `img/pin-active.svg`});
+const icon = new LeafIcon({iconUrl: PIN.url});
+const activeIcon = new LeafIcon({iconUrl: PIN.activeUrl});
 
 class Map extends React.PureComponent {
   constructor(props) {
@@ -37,7 +39,7 @@ class Map extends React.PureComponent {
     this.map = leaflet.map(this.mapRef.current.id, {
       center: [this.city.location.latitude, this.city.location.longitude],
       zoom: this.city.location.zoom,
-      zoomControl: true,
+      zoomControl: false,
       scrollWheelZoom: false,
       marker: true
     });
@@ -47,7 +49,7 @@ class Map extends React.PureComponent {
     this.map.setView([this.city.location.latitude, this.city.location. longitude], this.city.location.zoom);
 
     leaflet
-    .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{@2x}.png`)
+    .tileLayer(LAYER.url)
     .addTo(this.map);
 
     for (const offer of this.props.offers) {

@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function OfferIntro(props) {
-  const {title, type, bedrooms, maxAdults, isPremium, isFavorite, price, rating} = props;
-
+function OfferIntro({title, type, bedrooms, maxAdults, isPremium, isFavorite, price, rating, onClick, errorStatus}) {
   return (
     <React.Fragment>
       {isPremium && <div className="property__mark">
@@ -13,7 +11,7 @@ function OfferIntro(props) {
         <h1 className="property__name">
           {title}
         </h1>
-        <button className={`property__bookmark-button button${isFavorite ? ` property__bookmark-button--active` : ``}`} type="button">
+        <button className={`property__bookmark-button button${isFavorite ? ` property__bookmark-button--active` : ``}${errorStatus ? ` property__bookmark-button--error` : ``}`} type="button" onClick={onClick}>
           <svg className="property__bookmark-icon" width="31" height="33">
             <use xlinkHref="#icon-bookmark"></use>
           </svg>
@@ -54,7 +52,9 @@ OfferIntro.propTypes = {
   isPremium: PropTypes.bool,
   isFavorite: PropTypes.bool,
   price: PropTypes.number,
-  rating: PropTypes.number
+  rating: PropTypes.number,
+  onClick: PropTypes.func,
+  errorStatus: PropTypes.bool
 };
 
-export default OfferIntro;
+export default React.memo(OfferIntro);

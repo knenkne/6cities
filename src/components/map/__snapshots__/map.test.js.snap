@@ -75,30 +75,7 @@ exports[`<Map /> should render 1`] = `
   >
     <div
       class="leaflet-top leaflet-left"
-    >
-      <div
-        class="leaflet-control-zoom leaflet-bar leaflet-control"
-      >
-        <a
-          aria-label="Zoom in"
-          class="leaflet-control-zoom-in"
-          href="#"
-          role="button"
-          title="Zoom in"
-        >
-          +
-        </a>
-        <a
-          aria-label="Zoom out"
-          class="leaflet-control-zoom-out"
-          href="#"
-          role="button"
-          title="Zoom out"
-        >
-          −
-        </a>
-      </div>
-    </div>
+    />
     <div
       class="leaflet-top leaflet-right"
     />

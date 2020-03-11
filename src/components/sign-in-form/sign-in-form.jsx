@@ -43,4 +43,4 @@ SignInForm.propTypes = {
   onSubmit: PropTypes.func
 };
 
-export default SignInForm;
+export default React.memo(SignInForm);

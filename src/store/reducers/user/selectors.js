@@ -5,3 +5,7 @@ export const getAuthorizationStatus = (state) => {
 export const getUsername = (state) => {
   return state.user.email;
 };
+
+export const getOperationStatus = (state, name) => {
+  return state.user[name];
+};

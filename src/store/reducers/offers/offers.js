@@ -1,12 +1,15 @@
 import extend from '../../../utils/extend/extend.js';
 import * as types from '../../action-types.js';
 
+import {sorters} from '../../../const.js';
+
 const initialState = {
-  sorting: `id`,
+  sorting: sorters[0].name,
   current: null,
   data: [],
   nearby: [],
-  comments: []
+  comments: [],
+  favorites: []
 };
 
 export default (state = initialState, action) => {
@@ -25,6 +28,10 @@ export default (state = initialState, action) => {
 
     case types.SET_OFFERS: {
       return extend(state, {data: action.payload});
+    }
+
+    case types.SET_FAVORITES: {
+      return extend(state, {favorites: action.payload});
     }
 
     case types.SET_NEARBY_OFFERS: {

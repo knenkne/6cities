@@ -18,4 +18,4 @@ Features.propTypes = {
   features: PropTypes.arrayOf(PropTypes.string)
 };
 
-export default Features;
+export default React.memo(Features);

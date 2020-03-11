@@ -27,4 +27,4 @@ Host.propTypes = {
   description: PropTypes.string
 };
 
-export default Host;
+export default React.memo(Host);

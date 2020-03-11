@@ -32,5 +32,5 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Tab);
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Tab));
 

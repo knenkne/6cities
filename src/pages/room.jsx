@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import {getOffer} from '../store/reducers/offers/selectors.js';
-import {ActionCreator} from '../store/actions/actions.js';
-import {getComments} from '../store/actions/actions.js';
-import {getNearbyOffers} from '../store/actions/actions.js';
+import {getCity} from '../store/reducers/cities/selectors.js';
+import {getOperationStatus} from '../store/reducers/user/selectors.js';
+import {getOffer, getNearbyOffers as getOffers} from '../store/reducers/offers/selectors.js';
+import {ActionCreator, setBookmark, getComments, getNearbyOffers} from '../store/actions/actions.js';
 
 import Header from '../components/header/header.jsx';
 import Gallery from '../components/gallery/gallery.jsx';
@@ -15,13 +15,13 @@ import Host from '../components/host/host.jsx';
 import Reviews from '../components/reviews/reviews.jsx';
 import Map from '../components/map/map.jsx';
 import Offers from '../components/offers/offers-nearby.jsx';
-
-
-const MAX_IMAGES = 6;
+import {MAX_IMAGES, OperationStatus} from '../const.js';
 
 class Room extends React.PureComponent {
   constructor(props) {
     super(props);
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -47,8 +47,14 @@ class Room extends React.PureComponent {
     }
   }
 
+  handleClick() {
+    const {offer: {id, isFavorite}} = this.props;
+    const status = isFavorite ? 0 : 1;
+    this.props.setBookmark(id, status);
+  }
+
   render() {
-    const {offer, offers} = this.props;
+    const {offer, offers, bookmarkStatus} = this.props;
 
     if (!offer) {
       return null;
@@ -64,7 +70,7 @@ class Room extends React.PureComponent {
             <Gallery images={images.slice(0, MAX_IMAGES)} />
             <div className="property__container container">
               <div className="property__wrapper">
-                <Intro {...offer} />
+                <Intro {...offer} onClick={this.handleClick} errorStatus={bookmarkStatus === OperationStatus.FAILED}/>
                 <Features features={goods}/>
                 <Host {...host} description={description}/>
                 <Reviews />
@@ -85,6 +91,7 @@ Room.propTypes = {
       id: PropTypes.string
     })
   }),
+  bookmarkStatus: PropTypes.string,
   offers: PropTypes.arrayOf(PropTypes.shape({
     bedrooms: PropTypes.number,
     city: PropTypes.shape({
@@ -166,13 +173,15 @@ Room.propTypes = {
   setOffer: PropTypes.func,
   getComments: PropTypes.func,
   getNearbyOffers: PropTypes.func,
-  setCity: PropTypes.func
+  setCity: PropTypes.func,
+  setBookmark: PropTypes.func
 };
 
 const mapStateToProps = (state) => ({
-  city: state.cities.current,
-  offers: state.offers.nearby,
-  offer: getOffer(state)
+  city: getCity(state),
+  offers: getOffers(state),
+  offer: getOffer(state),
+  bookmarkStatus: getOperationStatus(state, `bookmarkStatus`)
 });
 
 
@@ -188,6 +197,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getNearbyOffers(id) {
     dispatch(getNearbyOffers(id));
+  },
+  setBookmark(id, status) {
+    dispatch(setBookmark(id, status));
   }
 });
 

@@ -7,7 +7,7 @@ import Offer from '../offer/offer.jsx';
 import Map from '../map/map.jsx';
 import Sorters from '../sorters/sorters.jsx';
 
-function OffersFilled({offers, city, focusedItem, onMouseEnter, onMouseLeave}) {
+function OffersFilled({offers, city, focusedItem, onBookmarkClick, onMouseEnter, onMouseLeave}) {
   return (
     <div className="cities">
       <div className="cities__places-container container">
@@ -22,6 +22,7 @@ function OffersFilled({offers, city, focusedItem, onMouseEnter, onMouseLeave}) {
               <Offer
                 {...offer}
                 key={offer.id}
+                onBookmarkClick={onBookmarkClick}
                 handleMouseEnter={onMouseEnter}
                 handleMouseLeave={onMouseLeave}
               />
@@ -78,7 +79,8 @@ OffersFilled.propTypes = {
   })),
   focusedItem: PropTypes.number,
   onMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func
+  onMouseLeave: PropTypes.func,
+  onBookmarkClick: PropTypes.func
 };
 
 export default withFocusedItem(OffersFilled);

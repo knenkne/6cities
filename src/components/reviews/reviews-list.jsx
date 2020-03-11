@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const months = [`January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, `December`];
+import {months} from '../../const.js';
 
-function List({reviews}) {
+
+function ReviewsList({reviews}) {
   return (
     <React.Fragment>
       <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
@@ -40,7 +41,7 @@ function List({reviews}) {
   );
 }
 
-List.propTypes = {
+ReviewsList.propTypes = {
   reviews: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     user: PropTypes.shape({
@@ -52,4 +53,4 @@ List.propTypes = {
   }))
 };
 
-export default List;
+export default React.memo(ReviewsList);

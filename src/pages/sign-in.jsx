@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
 
-import {getAuthorizationStatus} from '../store/reducers/user/selectors.js';
 import {getCity} from '../store/reducers/cities/selectors.js';
 import {setAuth} from '../store/actions/actions.js';
 
@@ -11,11 +9,7 @@ import Header from '../components/header/header.jsx';
 import Form from '../components/sign-in-form/sign-in-form.jsx';
 
 
-function SignIn({city, handleLogin, isAuthorized}) {
-  if (isAuthorized) {
-    return <Redirect to="/"/>;
-  }
-
+function SignIn({city, handleLogin}) {
   return (
     <div className="page page--gray page--login">
       <Header />
@@ -39,13 +33,11 @@ function SignIn({city, handleLogin, isAuthorized}) {
 }
 
 SignIn.propTypes = {
-  isAuthorized: PropTypes.bool,
   city: PropTypes.string,
   handleLogin: PropTypes.func
 };
 
 const mapStateToProps = (state) => ({
-  isAuthorized: getAuthorizationStatus(state),
   city: getCity(state)
 });
 
@@ -55,4 +47,4 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(SignIn));

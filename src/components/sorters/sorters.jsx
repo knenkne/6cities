@@ -2,28 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
+import {sorters} from '../../const.js';
 import {getSorting} from '../../store/reducers/offers/selectors.js';
 import {ActionCreator} from '../../store/actions/actions.js';
-
 import withActiveItem from '../../hocs/with-active-item/with-active-item.jsx';
-
-const sorters = [
-  {
-    name: `id`,
-    title: `Popular`
-  },
-  {
-    name: `toHigh`,
-    title: `Price: low to high`
-  },
-  {
-    name: `toLow`,
-    title: `Price: high to low`
-  },
-  {
-    name: `rating`,
-    title: `Top rated first`
-  }];
 
 
 function Sorters({currentSorting, isActive, onClick, onSortClick}) {
@@ -71,4 +53,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withActiveItem(Sorters));
+export default connect(mapStateToProps, mapDispatchToProps)(withActiveItem(React.memo(Sorters)));
