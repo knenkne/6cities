@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Map /> should render 1`] = `
+<section
+  class="property__map map leaflet-container leaflet-grab leaflet-touch-drag"
+  id="map"
+  style="position: relative;"
+  tabindex="0"
+>
+  <div
+    class="leaflet-pane leaflet-map-pane"
+    style="left: 0px; top: 0px;"
+  >
+    <div
+      class="leaflet-pane leaflet-tile-pane"
+    >
+      <div
+        class="leaflet-layer "
+        style="z-index: 1;"
+      >
+        <div
+          class="leaflet-tile-container leaflet-zoom-animated"
+          style="z-index: 18; left: 0px; top: 0px;"
+        >
+          <img
+            alt=""
+            class="leaflet-tile"
+            role="presentation"
+            src="https://a.basemaps.cartocdn.com/rastertiles/voyager_labels_under/10/525/336{@2x}.png"
+            style="width: 256px; height: 256px; left: -237px; top: -134px;"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="leaflet-pane leaflet-shadow-pane"
+    />
+    <div
+      class="leaflet-pane leaflet-overlay-pane"
+    />
+    <div
+      class="leaflet-pane leaflet-marker-pane"
+    >
+      <img
+        alt=""
+        class="leaflet-marker-icon leaflet-zoom-hide leaflet-interactive"
+        src="img/pin.svg"
+        style="margin-left: -13.5px; margin-top: -19.5px; width: 27px; height: 39px; left: -162px; top: 18px; z-index: 18;"
+        tabindex="0"
+      />
+      <img
+        alt=""
+        class="leaflet-marker-icon leaflet-zoom-hide leaflet-interactive"
+        src="img/pin.svg"
+        style="margin-left: -13.5px; margin-top: -19.5px; width: 27px; height: 39px; left: -31px; top: -24px; z-index: -24;"
+        tabindex="0"
+      />
+      <img
+        alt=""
+        class="leaflet-marker-icon leaflet-zoom-hide leaflet-interactive"
+        src="img/pin.svg"
+        style="margin-left: -13.5px; margin-top: -19.5px; width: 27px; height: 39px; left: -31px; top: -24px; z-index: -24;"
+        tabindex="0"
+      />
+    </div>
+    <div
+      class="leaflet-pane leaflet-tooltip-pane"
+    />
+    <div
+      class="leaflet-pane leaflet-popup-pane"
+    />
+  </div>
+  <div
+    class="leaflet-control-container"
+  >
+    <div
+      class="leaflet-top leaflet-left"
+    />
+    <div
+      class="leaflet-top leaflet-right"
+    />
+    <div
+      class="leaflet-bottom leaflet-left"
+    />
+    <div
+      class="leaflet-bottom leaflet-right"
+    >
+      <div
+        class="leaflet-control-attribution leaflet-control"
+      >
+        <a
+          href="https://leafletjs.com"
+          title="A JS library for interactive maps"
+        >
+          Leaflet
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+`;
