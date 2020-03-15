@@ -116,8 +116,8 @@ const offers: Offer[] = [
 ];
 
 it(`<OffersNearby /> should render offers`, () => {
-  const div = global.document.createElement(`div`);
-  global.document.body.appendChild(div);
+  const div = document.createElement(`div`);
+  document.body.appendChild(div);
 
   const store = mockStore({
     offers: {

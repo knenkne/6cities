@@ -12,6 +12,7 @@ Array [
     </h1>
     <button
       className="property__bookmark-button button"
+      onClick={[MockFunction]}
       type="button"
     >
       <svg
@@ -61,7 +62,7 @@ Array [
     <li
       className="property__feature property__feature--entire"
     >
-      Apartment
+      apartment
     </li>
     <li
       className="property__feature property__feature--bedrooms"
@@ -95,7 +96,7 @@ Array [
 ]
 `;
 
-exports[`Render <Intro /> <Intro /> should render with premium and book marks 1`] = `
+exports[`Render <Intro /> <Intro /> should render with premium, book marks & error 1`] = `
 Array [
   <div
     className="property__mark"
@@ -113,7 +114,8 @@ Array [
       Beautiful & luxurious studio at great location
     </h1>
     <button
-      className="property__bookmark-button button property__bookmark-button--active"
+      className="property__bookmark-button button property__bookmark-button--active property__bookmark-button--error"
+      onClick={[MockFunction]}
       type="button"
     >
       <svg
@@ -163,7 +165,7 @@ Array [
     <li
       className="property__feature property__feature--entire"
     >
-      Apartment
+      apartment
     </li>
     <li
       className="property__feature property__feature--bedrooms"

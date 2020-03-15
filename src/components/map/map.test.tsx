@@ -111,8 +111,8 @@ const offers: Offer[] = [
 ];
 
 it(`<Map /> should render`, () => {
-  const div = global.document.createElement(`div`);
-  global.document.body.appendChild(div);
+  const div = document.createElement(`div`);
+  document.body.appendChild(div);
 
   const tree = mount(<Map offers={offers} />, {attachTo: div});
   expect(tree.getDOMNode()).toMatchSnapshot();

@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
 import {Offer} from '../../types';
-import Intro from './offer-intro.jsx';
+import Intro from './offer-intro';
 
 const offer: Offer = {
   id: 1,

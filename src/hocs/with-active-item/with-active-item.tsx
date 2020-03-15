@@ -1,17 +1,20 @@
 import * as React from 'react';
+import {Subtract} from 'utility-types';
 
-
-interface P {
-  isActive: boolean;
-  onClick: () => void;
-}
 
 interface S {
   isActive: boolean;
 }
 
+interface InjectingProps {
+  isActive: boolean;
+  onClick: () => void;
+}
+
 const withActiveItem = (Component) => {
-  return class WithActiveItem extends React.PureComponent<P, S> {
+  type P = React.ComponentProps<typeof Component>;
+  type T = Subtract<P, InjectingProps>;
+  return class WithActiveItem extends React.PureComponent<T, S> {
     constructor(props) {
       super(props);
 

@@ -35,7 +35,7 @@ export const ActionCreator = {
       type: types.SET_FAVORITES,
       payload: Adapter.parse(data)
     }),
-  setNearbyOffers: (data) =>
+  setNearby: (data) =>
     ({
       type: types.SET_NEARBY_OFFERS,
       payload: Adapter.parse(data)
@@ -65,13 +65,14 @@ export const getFavorites = () => (dispatch, getState, api) => {
   return api.get(APIRoute.FAVORITES)
       .then((res) => {
         dispatch(ActionCreator.setFavorites(res.data));
-      });
+      })
+      .catch((err) => err);
 };
 
 export const getNearbyOffers = (id) => (dispatch, getState, api) => {
   return api.get(APIRoute.getNearbyOffers(id))
       .then((res) => {
-        dispatch(ActionCreator.setNearbyOffers(res.data));
+        dispatch(ActionCreator.setNearby(res.data));
       });
 };
 
@@ -118,7 +119,6 @@ export const setComment = ({comment, rating, id}) => (dispatch, getState, api) =
 };
 
 export const setBookmark = (id, status) => (dispatch, getState, api) => {
-  console.log(`kek`);
   dispatch(ActionCreator.setOperationStatus(`bookmarkStatus`, OperationStatus.PENDING));
   return api.post(`/favorite/${id}/${status}`)
   .then((res) => {

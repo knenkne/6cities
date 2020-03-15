@@ -9,3 +9,4 @@ const groupBy = (array, key) => array.reduce((acc, curr) => {
 }, {});
 
 export default groupBy;
+

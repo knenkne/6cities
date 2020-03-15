@@ -10,7 +10,7 @@ interface Props {
   rating: number;
   comment: string;
   onCommentChange: () => void;
-  onRatingCHange: () => void;
+  onRatingChange: () => void;
   onReset: () => void;
 }
 
@@ -33,11 +33,11 @@ const withValues = (Component) => {
     }
 
     handleCommentChange(e) {
-      this.setState({comment: e.target.value});
+      this.setState({comment: e.currentTarget.value});
     }
 
     handleRatingChange(e) {
-      this.setState({rating: parseInt(e.target.value, 10)});
+      this.setState({rating: parseInt(e.currentTarget.value, 10)});
     }
 
     handleReset() {
