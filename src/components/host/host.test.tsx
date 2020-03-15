@@ -14,7 +14,7 @@ const host: User = {
 };
 
 it(`<Host /> should render`, () => {
-  const tree = renderer.create(<Host {...host} />).toJSON();
+  const tree = renderer.create(<Host {...host} />);
 
   expect(tree).toMatchSnapshot();
 });

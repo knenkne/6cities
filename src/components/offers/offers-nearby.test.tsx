@@ -1,9 +1,14 @@
 import * as React from 'react';
 import {mount} from 'enzyme';
+import {Provider} from 'react-redux';
+import {BrowserRouter as Router} from 'react-router-dom';
+import configureStore from 'redux-mock-store';
 
 import {Offer} from '../../types';
-import Map from './map';
+import OffersNearby from './offers-nearby';
 
+
+const mockStore = configureStore([]);
 
 const offers: Offer[] = [
   {
@@ -110,10 +115,23 @@ const offers: Offer[] = [
   }
 ];
 
-it(`<Map /> should render`, () => {
+it(`<OffersNearby /> should render offers`, () => {
   const div = global.document.createElement(`div`);
   global.document.body.appendChild(div);
 
-  const tree = mount(<Map offers={offers} />, {attachTo: div});
+  const store = mockStore({
+    offers: {
+      sorting: `id`,
+      data: offers
+    }
+  });
+
+  const tree = mount(
+      <Provider store={store}>
+        <Router>
+          <OffersNearby offers={offers} />
+        </Router>
+      </Provider>, {attachTo: div});
+
   expect(tree.getDOMNode()).toMatchSnapshot();
 });

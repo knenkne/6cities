@@ -10,7 +10,7 @@
     "eslint.js": "eslint --ext .jsx --ext .js src/",
     "eslint.ts": "eslint --config .eslintrc-ts.yml --ext .tsx src/",
     "test": "npm run eslint && npm run test.jest",
-    "test.jest": "jest --watch"
+    "test.jest": "jest"
   },
   "devDependencies": {
     "@babel/core": "7.8.4",

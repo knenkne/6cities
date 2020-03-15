@@ -28,7 +28,7 @@ const Offers: React.FC<Props> = ({offers, cities, currentCity}) => {
           </ul>
         </section>
       </div>
-      {offers.length ? <OffersFilled offers={offers} city={currentCity}/> : <OffersEmpty city={currentCity} />}
+      {offers.length > 0 ? <OffersFilled offers={offers} city={currentCity}/> : <OffersEmpty city={currentCity} />}
     </main>
   );
 };

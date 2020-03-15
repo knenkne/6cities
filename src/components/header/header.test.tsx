@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import configureStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
+import configureStore from 'redux-mock-store';
 
 import Header from './header';
 
@@ -23,7 +23,8 @@ describe(`Render <Header />`, () => {
           <Provider store={store}>
             <Header />
           </Provider>
-        </Router>).toJSON();
+        </Router>
+    );
 
     expect(tree).toMatchSnapshot();
   });
@@ -40,7 +41,8 @@ describe(`Render <Header />`, () => {
           <Provider store={store}>
             <Header />
           </Provider>
-        </Router>).toJSON();
+        </Router>
+    );
 
     expect(tree).toMatchSnapshot();
   });

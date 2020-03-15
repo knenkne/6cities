@@ -1,10 +1,15 @@
 import * as React from 'react';
 import {mount} from 'enzyme';
+import {Provider} from 'react-redux';
+import {BrowserRouter as Router} from 'react-router-dom';
+import configureStore from 'redux-mock-store';
 
-import {Offer} from '../../types';
-import Map from './map';
+import {Offer, cityName} from '../../types';
+import Offers from './offers';
 
+const mockStore = configureStore([]);
 
+const cities: cityName[] = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`];
 const offers: Offer[] = [
   {
     id: 1,
@@ -110,10 +115,51 @@ const offers: Offer[] = [
   }
 ];
 
-it(`<Map /> should render`, () => {
-  const div = global.document.createElement(`div`);
-  global.document.body.appendChild(div);
+describe(`Render <Offers />`, () => {
+  it(`<Offers /> should render offer's container`, () => {
+    const div = global.document.createElement(`div`);
+    global.document.body.appendChild(div);
 
-  const tree = mount(<Map offers={offers} />, {attachTo: div});
-  expect(tree.getDOMNode()).toMatchSnapshot();
+    const store = mockStore({
+      cities: {
+        data: cities,
+        current: `Paris`
+      },
+      offers: {
+        sorting: `id`,
+        data: offers
+      }
+    });
+
+    const tree = mount(
+        <Provider store={store}>
+          <Router>
+            <Offers />
+          </Router>
+        </Provider>, {attachTo: div});
+
+    expect(tree.getDOMNode()).toMatchSnapshot();
+  });
+
+  it(`<Offers /> should render empty container`, () => {
+    const store = mockStore({
+      cities: {
+        data: cities,
+        current: `Cologne`
+      },
+      offers: {
+        sorting: `id`,
+        data: offers
+      }
+    });
+
+    const tree = mount(
+        <Provider store={store}>
+          <Router>
+            <Offers />
+          </Router>
+        </Provider>);
+
+    expect(tree.getDOMNode()).toMatchSnapshot();
+  });
 });

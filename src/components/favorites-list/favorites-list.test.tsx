@@ -1,11 +1,16 @@
 import * as React from 'react';
-import {mount} from 'enzyme';
+import * as renderer from 'react-test-renderer';
+import {Provider} from 'react-redux';
+import {BrowserRouter as Router} from 'react-router-dom';
+import configureStore from 'redux-mock-store';
 
 import {Offer} from '../../types';
-import Map from './map';
+import FavoritesList from './favorites-list';
 
 
-const offers: Offer[] = [
+const mockStore = configureStore([]);
+
+const favorites: Offer[] = [
   {
     id: 1,
     city: {
@@ -110,10 +115,20 @@ const offers: Offer[] = [
   }
 ];
 
-it(`<Map /> should render`, () => {
-  const div = global.document.createElement(`div`);
-  global.document.body.appendChild(div);
+it(`<FavoritesList /> should have been rendered`, () => {
+  const store = mockStore({
+    offers: {
+      favorites
+    }
+  });
 
-  const tree = mount(<Map offers={offers} />, {attachTo: div});
-  expect(tree.getDOMNode()).toMatchSnapshot();
+  const tree = renderer.create(
+      <Provider store={store}>
+        <Router>
+          <FavoritesList favorites={favorites}/>
+        </Router>
+      </Provider>
+  );
+
+  expect(tree).toMatchSnapshot();
 });
