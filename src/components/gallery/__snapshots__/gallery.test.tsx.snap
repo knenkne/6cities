@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Gallery /> should render 1`] = `
+exports[`<Gallery /> should br rendered 1`] = `
 <div
   className="property__gallery-container container"
 >

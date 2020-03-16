@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
-import {sorters} from '../../const.js';
+import {sorters} from '../../const';
 import {getSorting} from '../../store/reducers/offers/selectors';
 import {ActionCreator} from '../../store/actions/actions';
 import withActiveItem from '../../hocs/with-active-item/with-active-item';

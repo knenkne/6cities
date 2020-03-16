@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FavoritesList /> should have been rendered 1`] = `
+exports[`<FavoritesList /> should be rendered 1`] = `
 <ul
   className="favorites__list"
 >
   <li
     className="favorites__locations-items"
+    key="Amsterdam"
   >
     <div
       className="favorites__locations locations locations--current"
@@ -26,206 +27,123 @@ exports[`<FavoritesList /> should have been rendered 1`] = `
     <div
       className="favorites__places"
     >
-      <article
-        className="favorites__card place-card"
-        data-id={1}
-      >
-        <div
-          className="favorites__image-wrapper place-card__image-wrapper"
-        >
-          <a
-            href="#"
-          >
-            <img
-              alt="Place image"
-              className="place-card__image"
-              height="110"
-              src="img/apartment-01.jpg"
-              width="150"
-            />
-          </a>
-        </div>
-        <div
-          className="favorites__card-info place-card__info"
-        >
-          <div
-            className="place-card__price-wrapper"
-          >
-            <div
-              className="place-card__price"
-            >
-              <b
-                className="place-card__price-value"
-              >
-                €
-                100
-              </b>
-              <span
-                className="place-card__price-text"
-              >
-                / night
-              </span>
-            </div>
-            <button
-              className="place-card__bookmark-button button"
-              onClick={[Function]}
-              type="button"
-            >
-              <svg
-                className="place-card__bookmark-icon"
-                height="19"
-                width="18"
-              >
-                <use
-                  xlinkHref="#icon-bookmark"
-                />
-              </svg>
-              <span
-                className="visually-hidden"
-              >
-                To bookmarks
-              </span>
-            </button>
-          </div>
-          <div
-            className="place-card__rating rating"
-          >
-            <div
-              className="place-card__stars rating__stars"
-            >
-              <span
-                style={
-                  Object {
-                    "width": "40%",
-                  }
-                }
-              />
-              <span
-                className="visually-hidden"
-              >
-                Rating
-              </span>
-            </div>
-          </div>
-          <h2
-            className="place-card__name"
-          >
-            <a
-              href="/offer/1"
-              onClick={[Function]}
-            >
-              Beautiful & luxurious studio at great location
-            </a>
-          </h2>
-          <p
-            className="place-card__type"
-          >
-            apartment
-          </p>
-        </div>
-      </article>
-      <article
-        className="favorites__card place-card"
-        data-id={2}
-      >
-        <div
-          className="favorites__image-wrapper place-card__image-wrapper"
-        >
-          <a
-            href="#"
-          >
-            <img
-              alt="Place image"
-              className="place-card__image"
-              height="110"
-              src="img/apartment-02.jpg"
-              width="150"
-            />
-          </a>
-        </div>
-        <div
-          className="favorites__card-info place-card__info"
-        >
-          <div
-            className="place-card__price-wrapper"
-          >
-            <div
-              className="place-card__price"
-            >
-              <b
-                className="place-card__price-value"
-              >
-                €
-                140
-              </b>
-              <span
-                className="place-card__price-text"
-              >
-                / night
-              </span>
-            </div>
-            <button
-              className="place-card__bookmark-button button"
-              onClick={[Function]}
-              type="button"
-            >
-              <svg
-                className="place-card__bookmark-icon"
-                height="19"
-                width="18"
-              >
-                <use
-                  xlinkHref="#icon-bookmark"
-                />
-              </svg>
-              <span
-                className="visually-hidden"
-              >
-                To bookmarks
-              </span>
-            </button>
-          </div>
-          <div
-            className="place-card__rating rating"
-          >
-            <div
-              className="place-card__stars rating__stars"
-            >
-              <span
-                style={
-                  Object {
-                    "width": "60%",
-                  }
-                }
-              />
-              <span
-                className="visually-hidden"
-              >
-                Rating
-              </span>
-            </div>
-          </div>
-          <h2
-            className="place-card__name"
-          >
-            <a
-              href="/offer/2"
-              onClick={[Function]}
-            >
-              Beautiful & luxurious studio at great location
-            </a>
-          </h2>
-          <p
-            className="place-card__type"
-          >
-            room
-          </p>
-        </div>
-      </article>
+      <Connect(Card)
+        bedrooms={3}
+        city={
+          Object {
+            "location": Object {
+              "latitude": 52.370216,
+              "longitude": 4.895168,
+              "zoom": 10,
+            },
+            "name": "Amsterdam",
+          }
+        }
+        description="A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam."
+        goods={
+          Array [
+            "Heating",
+            "Kitchen",
+            "Cable TV",
+            "Washing machine",
+            "Coffee machine",
+            "Dishwasher",
+          ]
+        }
+        host={
+          Object {
+            "avatarUrl": "img/avatar-angelina.jpg",
+            "id": 3,
+            "isPro": true,
+            "name": "Angelina",
+          }
+        }
+        id={1}
+        images={
+          Array [
+            "img/apartment-02.jpg",
+            "img/apartment-03.jpg",
+          ]
+        }
+        isFavorite={false}
+        isPremium={false}
+        key="1"
+        location={
+          Object {
+            "latitude": 52.35514938496378,
+            "longitude": 4.673877537499948,
+            "zoom": 8,
+          }
+        }
+        maxAdults={4}
+        mini={true}
+        previewImage="img/apartment-01.jpg"
+        price={100}
+        rating={1.8}
+        title="Beautiful & luxurious studio at great location"
+        type="apartment"
+      />
+      <Connect(Card)
+        bedrooms={2}
+        city={
+          Object {
+            "location": Object {
+              "latitude": 52.370216,
+              "longitude": 4.895168,
+              "zoom": 10,
+            },
+            "name": "Amsterdam",
+          }
+        }
+        description="A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam."
+        goods={
+          Array [
+            "Heating",
+            "Kitchen",
+            "Cable TV",
+            "Washing machine",
+            "Coffee machine",
+            "Dishwasher",
+          ]
+        }
+        host={
+          Object {
+            "avatarUrl": "img/avatar-angelina.jpg",
+            "id": 3,
+            "isPro": true,
+            "name": "Angelina",
+          }
+        }
+        id={2}
+        images={
+          Array [
+            "img/apartment-01.jpg",
+            "img/apartment-03.jpg",
+          ]
+        }
+        isFavorite={false}
+        isPremium={false}
+        key="2"
+        location={
+          Object {
+            "latitude": 52.3909553943508,
+            "longitude": 4.85309666406198,
+            "zoom": 8,
+          }
+        }
+        maxAdults={4}
+        mini={true}
+        previewImage="img/apartment-02.jpg"
+        price={140}
+        rating={2.8}
+        title="Beautiful & luxurious studio at great location"
+        type="room"
+      />
     </div>
   </li>
   <li
     className="favorites__locations-items"
+    key="Paris"
   >
     <div
       className="favorites__locations locations locations--current"
@@ -246,104 +164,62 @@ exports[`<FavoritesList /> should have been rendered 1`] = `
     <div
       className="favorites__places"
     >
-      <article
-        className="favorites__card place-card"
-        data-id={3}
-      >
-        <div
-          className="favorites__image-wrapper place-card__image-wrapper"
-        >
-          <a
-            href="#"
-          >
-            <img
-              alt="Place image"
-              className="place-card__image"
-              height="110"
-              src="img/apartment-02.jpg"
-              width="150"
-            />
-          </a>
-        </div>
-        <div
-          className="favorites__card-info place-card__info"
-        >
-          <div
-            className="place-card__price-wrapper"
-          >
-            <div
-              className="place-card__price"
-            >
-              <b
-                className="place-card__price-value"
-              >
-                €
-                120
-              </b>
-              <span
-                className="place-card__price-text"
-              >
-                / night
-              </span>
-            </div>
-            <button
-              className="place-card__bookmark-button button"
-              onClick={[Function]}
-              type="button"
-            >
-              <svg
-                className="place-card__bookmark-icon"
-                height="19"
-                width="18"
-              >
-                <use
-                  xlinkHref="#icon-bookmark"
-                />
-              </svg>
-              <span
-                className="visually-hidden"
-              >
-                To bookmarks
-              </span>
-            </button>
-          </div>
-          <div
-            className="place-card__rating rating"
-          >
-            <div
-              className="place-card__stars rating__stars"
-            >
-              <span
-                style={
-                  Object {
-                    "width": "100%",
-                  }
-                }
-              />
-              <span
-                className="visually-hidden"
-              >
-                Rating
-              </span>
-            </div>
-          </div>
-          <h2
-            className="place-card__name"
-          >
-            <a
-              href="/offer/3"
-              onClick={[Function]}
-            >
-              Beautiful & luxurious studio at great location
-            </a>
-          </h2>
-          <p
-            className="place-card__type"
-          >
-            room
-          </p>
-        </div>
-      </article>
+      <Connect(Card)
+        bedrooms={2}
+        city={
+          Object {
+            "location": Object {
+              "latitude": 52.370216,
+              "longitude": 4.895168,
+              "zoom": 10,
+            },
+            "name": "Paris",
+          }
+        }
+        description="A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam."
+        goods={
+          Array [
+            "Heating",
+            "Kitchen",
+            "Cable TV",
+            "Washing machine",
+            "Coffee machine",
+            "Dishwasher",
+          ]
+        }
+        host={
+          Object {
+            "avatarUrl": "img/avatar-angelina.jpg",
+            "id": 3,
+            "isPro": true,
+            "name": "Angelina",
+          }
+        }
+        id={3}
+        images={
+          Array [
+            "img/apartment-01.jpg",
+            "img/apartment-03.jpg",
+          ]
+        }
+        isFavorite={false}
+        isPremium={false}
+        key="3"
+        location={
+          Object {
+            "latitude": 52.3909553943508,
+            "longitude": 4.85309666406198,
+            "zoom": 8,
+          }
+        }
+        maxAdults={4}
+        mini={true}
+        previewImage="img/apartment-02.jpg"
+        price={120}
+        rating={4.8}
+        title="Beautiful & luxurious studio at great location"
+        type="room"
+      />
     </div>
   </li>
 </ul>

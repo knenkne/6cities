@@ -1,8 +1,8 @@
 import * as types from '../action-types.js';
-import Adapter from '../../adapter.js';
-import history from '../../history.js';
+import Adapter from '../../adapter';
+import history from '../../history';
 
-import {OperationStatus, APIRoute, AppRoute, Error} from '../../const.js';
+import {OperationStatus, APIRoute, AppRoute, Error} from '../../const';
 
 export const ActionCreator = {
   setCity: (name) =>
@@ -44,12 +44,13 @@ export const ActionCreator = {
     type: types.SET_AUTH,
     payload: Adapter.parseItem(data)
   }),
-  setOperationStatus: (name, status) =>
+  setRequest: ({type, status, id}) =>
     ({
-      type: types.SET_OPERATION_STATUS,
+      type: types.SET_REQUEST,
       payload: {
-        name,
-        status
+        type,
+        status,
+        id
       }
     })
 };
@@ -103,7 +104,7 @@ export const setAuth = (authData) => (dispatch, getState, api) => {
 };
 
 export const setComment = ({comment, rating, id}) => (dispatch, getState, api) => {
-  dispatch(ActionCreator.setOperationStatus(`commentStatus`, OperationStatus.PENDING));
+  dispatch(ActionCreator.setRequest({type: `comment`, status: OperationStatus.PENDING}));
   return api.post(APIRoute.getComments(id),
       {
         comment,
@@ -111,32 +112,37 @@ export const setComment = ({comment, rating, id}) => (dispatch, getState, api) =
       })
       .then((res) => {
         dispatch(ActionCreator.setComments(res.data));
-        dispatch(ActionCreator.setOperationStatus(`commentStatus`, OperationStatus.SUCCESS));
+        dispatch(ActionCreator.setRequest({type: `comment`, status: OperationStatus.SUCCESS}));
       })
       .catch(() => {
-        dispatch(ActionCreator.setOperationStatus(`commentStatus`, OperationStatus.FAILED));
+        dispatch(ActionCreator.setRequest({type: `comment`, status: OperationStatus.FAILED}));
       });
 };
 
 export const setBookmark = (id, status) => (dispatch, getState, api) => {
-  dispatch(ActionCreator.setOperationStatus(`bookmarkStatus`, OperationStatus.PENDING));
+  dispatch(ActionCreator.setRequest({type: `favorite`, status: OperationStatus.PENDING, id}));
   return api.post(`/favorite/${id}/${status}`)
   .then((res) => {
     // data swap
     const data = res.data;
     const offers = getState().offers.data;
-    const index = offers.findIndex((offer) => offer.id === data.id);
+    let index = offers.findIndex((offer) => offer.id === data.id);
     offers[index] = data;
 
+    const nearby = getState().offers.nearby;
+    index = nearby.findIndex((offer) => offer.id === data.id);
+    nearby[index] = data;
+
     dispatch(ActionCreator.setOffers(offers));
+    dispatch(ActionCreator.setNearby(nearby));
     dispatch(getFavorites());
-    dispatch(ActionCreator.setOperationStatus(`bookmarkStatus`, OperationStatus.SUCCESS));
+    dispatch(ActionCreator.setRequest({type: `favorite`, status: OperationStatus.SUCCESS, id}));
   })
   .catch((err) => {
     if (err.response && err.response.status === Error.UNAUTHORIZED) {
       history.push(AppRoute.LOGIN);
     } else {
-      dispatch(ActionCreator.setOperationStatus(`bookmarkStatus`, OperationStatus.FAILED));
+      dispatch(ActionCreator.setRequest({type: `favorite`, status: OperationStatus.FAILED, id}));
     }
   });
 };

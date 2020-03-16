@@ -3,14 +3,14 @@ import * as renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
 
-import {cityName} from '../../types';
+import {city} from '../../types';
 import Tab from './tab';
 
 const mockStore = configureStore([]);
 
 describe(`Render <Tab />`, () => {
   it(`<Tab /> should render`, () => {
-    const city: cityName = `Amsterdam`;
+    const name: city = `Amsterdam`;
     const store = mockStore({
       cities: {
         current: `Paris`
@@ -19,7 +19,7 @@ describe(`Render <Tab />`, () => {
 
     const tree = renderer.create(
         <Provider store={store}>
-          <Tab name={city}/>
+          <Tab name={name}/>
         </Provider>
     );
 
@@ -27,7 +27,7 @@ describe(`Render <Tab />`, () => {
   });
 
   it(`Active <Tab /> should render`, () => {
-    const city: cityName = `Paris`;
+    const name: city = `Paris`;
     const store = mockStore({
       cities: {
         current: `Paris`
@@ -36,7 +36,7 @@ describe(`Render <Tab />`, () => {
 
     const tree = renderer.create(
         <Provider store={store}>
-          <Tab name={city}/>
+          <Tab name={name}/>
         </Provider>
     );
 

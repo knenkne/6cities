@@ -2,19 +2,21 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import {Offer as Type} from '../../types';
+import {Offer} from '../../interfaces';
+import {getStatus} from '../../store/reducers/request/selectors';
 import {setBookmark} from '../../store/actions/actions';
-import {AppRoute} from '../../const';
+import {AppRoute, OperationStatus} from '../../const';
 
 
-interface Props extends Type {
+interface Props extends Offer {
+  mini: boolean;
+  status: string;
   handleMouseEnter: () => void;
   handleMouseLeave: () => void;
   onClick: (id: number, isFavorite: number) => void;
-  mini: boolean;
 }
 
-const Offer: React.FC<Props> = ({id, title, type, previewImage, isPremium, isFavorite, price, rating, handleMouseEnter, handleMouseLeave, onClick, mini = false}: Props) => {
+const Card: React.FC<Props> = ({id, title, type, previewImage, isPremium, isFavorite, price, rating, handleMouseEnter, handleMouseLeave, onClick, status, mini = false}) => {
   const handleClick = () => onClick(id, isFavorite ? 0 : 1);
   return (
     <article className={`${mini ? `favorites__card` : `cities__place-card`} place-card`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} data-id={id}>
@@ -42,7 +44,7 @@ const Offer: React.FC<Props> = ({id, title, type, previewImage, isPremium, isFav
           </div>
           <button
             onClick={handleClick}
-            className={`place-card__bookmark-button button${isFavorite ? ` place-card__bookmark-button--active` : ``}`}
+            className={`place-card__bookmark-button button${isFavorite ? ` place-card__bookmark-button--active` : ``}${status === OperationStatus.FAILED ? ` place-card__bookmark-button--error` : ``}`}
             type="button"
           >
             <svg
@@ -70,10 +72,14 @@ const Offer: React.FC<Props> = ({id, title, type, previewImage, isPremium, isFav
   );
 };
 
+const mapStateToProps = (state, props) => ({
+  status: getStatus(state, `favorite`, props.id)
+});
+
 const mapDispatchToProps = (dispatch) => ({
   onClick(id: number, status: number) {
     dispatch(setBookmark(id, status));
   }
 });
 
-export default connect(null, mapDispatchToProps)(Offer);
+export default connect(mapStateToProps, mapDispatchToProps)(Card);

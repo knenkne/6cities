@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import {BASE_URL, TIMEOUT} from '../const.js';
+import {BASE_URL, TIMEOUT} from '../const';
 
 
 const createAPI = () =>

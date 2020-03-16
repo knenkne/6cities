@@ -2,10 +2,9 @@ import * as React from 'react';
 import * as leaflet from 'leaflet';
 
 
-import {Offer, City} from '../../types';
+import {Offer, City} from '../../interfaces';
 import {PIN, LAYER} from '../../const';
 
-const size: [number, number] = [27, 39];
 interface Props {
   offers: Offer[];
   focusedOffer?: number;
@@ -14,12 +13,12 @@ interface Props {
 }
 
 const icon = leaflet.icon({
-  iconSize: size,
+  iconSize: PIN.size,
   iconUrl: PIN.url
 });
 
 const activeIcon = leaflet.icon({
-  iconSize: size,
+  iconSize: PIN.size,
   iconUrl: PIN.activeUrl
 });
 

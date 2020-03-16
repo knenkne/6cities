@@ -4,12 +4,13 @@ import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 
-import {Offer, cityName} from '../../types';
+import {Offer} from '../../interfaces';
+import {city} from '../../types';
 import Offers from './offers';
 
 const mockStore = configureStore([]);
 
-const cities: cityName[] = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`];
+const cities: city[] = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`];
 const offers: Offer[] = [
   {
     id: 1,
@@ -128,6 +129,11 @@ describe(`Render <Offers />`, () => {
       offers: {
         sorting: `id`,
         data: offers
+      },
+      request: {
+        type: ``,
+        status: ``,
+        id: null
       }
     });
 
@@ -150,6 +156,11 @@ describe(`Render <Offers />`, () => {
       offers: {
         sorting: `id`,
         data: offers
+      },
+      request: {
+        type: ``,
+        status: ``,
+        id: null
       }
     });
 

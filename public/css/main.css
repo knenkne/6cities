@@ -1750,7 +1750,9 @@ img {
 }
 
 .reviews__form--error, 
-.property__bookmark-button--error {
+.property__bookmark-button--error,
+.place-card__bookmark-button--error
+ {
   animation: shake 0.6s;
 }
 

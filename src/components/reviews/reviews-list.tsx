@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import {Review} from '../../types';
-import {months} from '../../const';
+import {Review} from '../../interfaces';
+import {Months} from '../../const';
 
 
 const ReviewsList: React.FC<{reviews: Review[]}> = ({reviews}) => {
@@ -15,7 +15,7 @@ const ReviewsList: React.FC<{reviews: Review[]}> = ({reviews}) => {
             <li key={`${id}-${name}-${date}-${i}`} className="reviews__item">
               <div className="reviews__user user">
                 <div className="reviews__avatar-wrapper user__avatar-wrapper">
-                  <img className="reviews__avatar user__avatar" src={avatarUrl} width="54" height="54" alt="Reviews avatar"/>
+                  <img className="reviews__avatar user__avatar" src={avatarUrl} width="54" height="54" alt={name}/>
                 </div>
                 <span className="reviews__user-name">
                   {name}
@@ -31,7 +31,7 @@ const ReviewsList: React.FC<{reviews: Review[]}> = ({reviews}) => {
                 <p className="reviews__text">
                   {comment}
                 </p>
-                <time className="reviews__time" dateTime={date}>{months[dateInstance.getMonth()]} {dateInstance.getFullYear()}</time>
+                <time className="reviews__time" dateTime={date}>{Months[dateInstance.getMonth()]} {dateInstance.getFullYear()}</time>
               </div>
             </li>
           );

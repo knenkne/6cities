@@ -1,7 +1,7 @@
 import extend from '../../../utils/extend/extend.js';
 import * as types from '../../action-types.js';
 
-import {cities} from '../../../const.js';
+import {cities} from '../../../const';
 
 
 const initialState = {

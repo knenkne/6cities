@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {mount} from 'enzyme';
 
-import {Offer} from '../../types';
+import {Offer} from '../../interfaces';
 import Map from './map';
 
 

@@ -1,20 +1,23 @@
 import * as React from 'react';
+import {connect} from 'react-redux';
 
-import {id as idType} from '../../types';
 import {OperationStatus, COMMENT} from '../../const';
+import {getOfferID} from '../../store/reducers/offers/selectors';
+import {getStatus} from '../../store/reducers/request/selectors';
+import {ActionCreator, setComment} from '../../store/actions/actions';
 import withValues from '../../hocs/with-values/with-values';
 
 
 interface Props {
-  readonly id: idType;
+  id: number;
+  status: OperationStatus;
   comment: string;
   rating: number;
-  commentStatus: string;
-  onSubmit: ({comment, rating, id}: {comment: string; rating: number; id: number}) => void;
+  onSubmit: (data: object) => void;
   onReset: () => void;
-  onRatingChange: () => void;
-  onCommentChange: () => void;
-  onOperationStatusReset: (status: string) => void;
+  onStatusReset: () => void;
+  onRatingChange: (e: React.SyntheticEvent) => void;
+  onCommentChange: (e: React.SyntheticEvent) => void;
 }
 
 class ReviewForm extends React.PureComponent<Props, {}> {
@@ -25,19 +28,19 @@ class ReviewForm extends React.PureComponent<Props, {}> {
   }
 
   componentDidUpdate() {
-    const {commentStatus, onReset, onOperationStatusReset} = this.props;
+    const {status, onReset, onStatusReset} = this.props;
 
-    if (commentStatus === OperationStatus.SUCCESS) {
+    if (status === OperationStatus.SUCCESS) {
       onReset();
-      onOperationStatusReset(`commentStatus`);
+      onStatusReset();
     }
   }
 
 
   handleSubmit(e) {
-    const {comment, rating, id, onSubmit} = this.props;
-
     e.preventDefault();
+
+    const {comment, rating, id, onSubmit} = this.props;
     onSubmit({
       comment,
       rating,
@@ -46,9 +49,9 @@ class ReviewForm extends React.PureComponent<Props, {}> {
   }
 
   render() {
-    const {commentStatus, rating, comment, onRatingChange, onCommentChange} = this.props;
-    const pendingStatus = commentStatus === OperationStatus.PENDING;
-    const errorStatus = commentStatus === OperationStatus.FAILED;
+    const {status, rating, comment, onRatingChange, onCommentChange} = this.props;
+    const pendingStatus = status === OperationStatus.PENDING;
+    const errorStatus = status === OperationStatus.FAILED;
 
     return (
       <form className={`reviews__form${errorStatus ? ` reviews__form--error` : ``} form`} action="#" method="post" onSubmit={this.handleSubmit}>
@@ -85,4 +88,17 @@ class ReviewForm extends React.PureComponent<Props, {}> {
   }
 }
 
-export default withValues(ReviewForm);
+const mapStateToProps = (state, props) => ({
+  id: getOfferID(state),
+  status: getStatus(state, `comment`, props.id)
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onSubmit(data) {
+    dispatch(setComment(data));
+  },
+  onStatusReset() {
+    dispatch(ActionCreator.setRequest({type: `comment`, status: ``}));
+  }
+});
+export default connect(mapStateToProps, mapDispatchToProps)(withValues(ReviewForm));

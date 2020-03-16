@@ -1,18 +1,19 @@
 import * as React from 'react';
 
-import {Offer, cityName} from '../../types';
+import {Offer} from '../../interfaces';
+import {city} from '../../types';
 import Card from '../../components/offer/offer';
 import groupBy from '../../utils/group-by/group-by';
 
 
 const FavoritesList: React.FC<{favorites: Offer[]}> = ({favorites}) => {
   const isExists = favorites.length;
-  const citiesGroups = groupBy(favorites, `city`);
+  const citiesGroups = groupBy(favorites, `city.name`);
 
   if (isExists) {
     return (
       <ul className="favorites__list">
-        {Object.entries(citiesGroups).map(([name, offers]: [cityName, Offer[]]) => {
+        {Object.entries(citiesGroups).map(([name, offers]: [city, Offer[]]) => {
           return (
             <li className="favorites__locations-items" key={name}>
               <div className="favorites__locations locations locations--current">

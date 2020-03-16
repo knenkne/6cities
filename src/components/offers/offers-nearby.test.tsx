@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 
-import {Offer} from '../../types';
+import {Offer} from '../../interfaces';
 import OffersNearby from './offers-nearby';
 
 
@@ -123,6 +123,11 @@ it(`<OffersNearby /> should render offers`, () => {
     offers: {
       sorting: `id`,
       data: offers
+    },
+    request: {
+      type: ``,
+      status: ``,
+      id: null
     }
   });
 

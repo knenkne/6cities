@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import {User} from '../../types';
+import {User} from '../../interfaces';
 import Host from './host';
 
 

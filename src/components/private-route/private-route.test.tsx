@@ -4,15 +4,15 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import {cityName} from '../../types';
-import {AppRoute} from '../../const.js';
-import SignIn from '../../pages/sign-in';
+import {city} from '../../types';
+import {AppRoute} from '../../const';
+import SignIn from '../../pages/sign-in/sign-in';
 import PrivateRoute from './private-route';
 
 
 const mockStore = configureStore([]);
 
-const cities: cityName[] = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`];
+const cities: city[] = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`];
 
 it(`<PrivateRoute /> should not redirect`, () => {
   const store = mockStore({

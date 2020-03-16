@@ -1,12 +1,16 @@
-const groupBy = (array, key) => array.reduce((acc, curr) => {
-  if (!acc.hasOwnProperty(curr[key].name)) {
-    acc[curr[key].name] = [];
-  }
+import getValue from '../get-value/get-value.js';
 
-  acc[curr[key].name].push(curr);
+const groupBy = (array, keys) => {
+  return array.reduce((acc, curr) => {
+    const value = getValue(curr, keys);
+    if (!acc.hasOwnProperty(value)) {
+      acc[value] = [];
+    }
 
-  return acc;
-}, {});
+    acc[value].push(curr);
+
+    return acc;
+  }, {});
+};
 
 export default groupBy;
-

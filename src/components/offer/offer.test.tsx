@@ -4,8 +4,8 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
+import {Offer} from '../../interfaces';
 import Card from './offer';
-import {Offer} from '../../types';
 
 
 const mockStore = configureStore([]);
@@ -46,7 +46,13 @@ const offer: Offer = {
 };
 
 it(`<Offer /> should render "Beautiful & luxurious apartment at great location"`, () => {
-  const store = mockStore();
+  const store = mockStore({
+    request: {
+      type: ``,
+      status: ``,
+      id: null
+    }
+  });
 
   const tree = renderer.create(
       <Provider store={store}>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Render <Header /> <Header /> should have been rendered with sign-in 1`] = `
+exports[`Render <Header /> <Header /> should be rendered with Sign-in 1`] = `
 <header
   className="header"
 >
@@ -58,7 +58,7 @@ exports[`Render <Header /> <Header /> should have been rendered with sign-in 1`]
 </header>
 `;
 
-exports[`Render <Header /> <Header /> should have been rendered with userName 1`] = `
+exports[`Render <Header /> <Header /> should be rendered with jztenk@gmail.com 1`] = `
 <header
   className="header"
 >

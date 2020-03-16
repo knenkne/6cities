@@ -1,7 +1,7 @@
 import extend from '../../../utils/extend/extend.js';
 import * as types from '../../action-types.js';
 
-import {sorters} from '../../../const.js';
+import {sorters} from '../../../const';
 
 const initialState = {
   sorting: sorters[0].name,

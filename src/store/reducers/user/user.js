@@ -2,9 +2,7 @@ import extend from '../../../utils/extend/extend.js';
 import * as types from '../../action-types.js';
 
 const initialState = {
-  isAuthorized: false,
-  commentStatus: ``,
-  bookmarkStatus: ``
+  isAuthorized: false
 };
 
 export default (state = initialState, action) => {
@@ -20,11 +18,6 @@ export default (state = initialState, action) => {
         isPro,
         id
       });
-    }
-
-    case types.SET_OPERATION_STATUS: {
-      const {name, status} = action.payload;
-      return extend(state, {[name]: status});
     }
 
     default: {

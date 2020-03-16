@@ -10,7 +10,7 @@ import Header from './header';
 const mockStore = configureStore([]);
 
 describe(`Render <Header />`, () => {
-  it(`<Header /> should have been rendered with userName`, () => {
+  it(`<Header /> should be rendered with jztenk@gmail.com`, () => {
     const store = mockStore({
       user: {
         isAuthorized: true,
@@ -29,7 +29,7 @@ describe(`Render <Header />`, () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it(`<Header /> should have been rendered with sign-in`, () => {
+  it(`<Header /> should be rendered with Sign-in`, () => {
     const store = mockStore({
       user: {
         isAuthorized: false

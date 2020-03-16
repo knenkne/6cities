@@ -12,6 +12,8 @@ export const SET_SORTING = `SET_SORTING`;
 
 // USER
 export const SET_AUTH = `SET_AUTH`;
-export const SET_OPERATION_STATUS = `SET_OPERATION_STATUS`;
+
+// REQUEST
+export const SET_REQUEST = `SET_REQUEST`;
 
 

@@ -1,0 +1,422 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Favorites /> should be rendered 1`] = `
+<div
+  class="page"
+>
+  <header
+    class="header"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="header__wrapper"
+      >
+        <div
+          class="header__left"
+        >
+          <a
+            class="header__logo-link header__logo-link--active"
+            href="/"
+          >
+            <img
+              alt="6 cities logo"
+              class="header__logo"
+              height="41"
+              src="img/logo.svg"
+              width="81"
+            />
+          </a>
+        </div>
+        <nav
+          class="header__nav"
+        >
+          <ul
+            class="header__nav-list"
+          >
+            <li
+              class="header__nav-item user"
+            >
+              <a
+                class="header__nav-link header__nav-link--profile"
+                href="/favorites"
+              >
+                <div
+                  class="header__avatar-wrapper user__avatar-wrapper"
+                />
+                <span
+                  class="header__user-name user__name"
+                >
+                  jztenk@gmail.com
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main
+    class="page__main page__main--favorites"
+  >
+    <div
+      class="page__favorites-container container"
+    >
+      <section
+        class="favorites"
+      >
+        <h1
+          class="favorites__title"
+        >
+          Saved listing
+        </h1>
+        <ul
+          class="favorites__list"
+        >
+          <li
+            class="favorites__locations-items"
+          >
+            <div
+              class="favorites__locations locations locations--current"
+            >
+              <div
+                class="locations__item"
+              >
+                <a
+                  class="locations__item-link"
+                  href="#"
+                >
+                  <span>
+                    Amsterdam
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div
+              class="favorites__places"
+            >
+              <article
+                class="favorites__card place-card"
+                data-id="1"
+              >
+                <div
+                  class="favorites__image-wrapper place-card__image-wrapper"
+                >
+                  <a
+                    href="#"
+                  >
+                    <img
+                      alt="Place image"
+                      class="place-card__image"
+                      height="110"
+                      src="img/apartment-01.jpg"
+                      width="150"
+                    />
+                  </a>
+                </div>
+                <div
+                  class="favorites__card-info place-card__info"
+                >
+                  <div
+                    class="place-card__price-wrapper"
+                  >
+                    <div
+                      class="place-card__price"
+                    >
+                      <b
+                        class="place-card__price-value"
+                      >
+                        €
+                        100
+                      </b>
+                      <span
+                        class="place-card__price-text"
+                      >
+                        / night
+                      </span>
+                    </div>
+                    <button
+                      class="place-card__bookmark-button button place-card__bookmark-button--active"
+                      type="button"
+                    >
+                      <svg
+                        class="place-card__bookmark-icon"
+                        height="19"
+                        width="18"
+                      >
+                        <use
+                          xlink:href="#icon-bookmark"
+                        />
+                      </svg>
+                      <span
+                        class="visually-hidden"
+                      >
+                        To bookmarks
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="place-card__rating rating"
+                  >
+                    <div
+                      class="place-card__stars rating__stars"
+                    >
+                      <span
+                        style="width: 40%;"
+                      />
+                      <span
+                        class="visually-hidden"
+                      >
+                        Rating
+                      </span>
+                    </div>
+                  </div>
+                  <h2
+                    class="place-card__name"
+                  >
+                    <a
+                      href="/offer/1"
+                    >
+                      Beautiful & luxurious studio at great location
+                    </a>
+                  </h2>
+                  <p
+                    class="place-card__type"
+                  >
+                    apartment
+                  </p>
+                </div>
+              </article>
+              <article
+                class="favorites__card place-card"
+                data-id="2"
+              >
+                <div
+                  class="favorites__image-wrapper place-card__image-wrapper"
+                >
+                  <a
+                    href="#"
+                  >
+                    <img
+                      alt="Place image"
+                      class="place-card__image"
+                      height="110"
+                      src="img/apartment-02.jpg"
+                      width="150"
+                    />
+                  </a>
+                </div>
+                <div
+                  class="favorites__card-info place-card__info"
+                >
+                  <div
+                    class="place-card__price-wrapper"
+                  >
+                    <div
+                      class="place-card__price"
+                    >
+                      <b
+                        class="place-card__price-value"
+                      >
+                        €
+                        140
+                      </b>
+                      <span
+                        class="place-card__price-text"
+                      >
+                        / night
+                      </span>
+                    </div>
+                    <button
+                      class="place-card__bookmark-button button place-card__bookmark-button--active"
+                      type="button"
+                    >
+                      <svg
+                        class="place-card__bookmark-icon"
+                        height="19"
+                        width="18"
+                      >
+                        <use
+                          xlink:href="#icon-bookmark"
+                        />
+                      </svg>
+                      <span
+                        class="visually-hidden"
+                      >
+                        To bookmarks
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="place-card__rating rating"
+                  >
+                    <div
+                      class="place-card__stars rating__stars"
+                    >
+                      <span
+                        style="width: 60%;"
+                      />
+                      <span
+                        class="visually-hidden"
+                      >
+                        Rating
+                      </span>
+                    </div>
+                  </div>
+                  <h2
+                    class="place-card__name"
+                  >
+                    <a
+                      href="/offer/2"
+                    >
+                      Beautiful & luxurious studio at great location
+                    </a>
+                  </h2>
+                  <p
+                    class="place-card__type"
+                  >
+                    room
+                  </p>
+                </div>
+              </article>
+            </div>
+          </li>
+          <li
+            class="favorites__locations-items"
+          >
+            <div
+              class="favorites__locations locations locations--current"
+            >
+              <div
+                class="locations__item"
+              >
+                <a
+                  class="locations__item-link"
+                  href="#"
+                >
+                  <span>
+                    Paris
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div
+              class="favorites__places"
+            >
+              <article
+                class="favorites__card place-card"
+                data-id="3"
+              >
+                <div
+                  class="favorites__image-wrapper place-card__image-wrapper"
+                >
+                  <a
+                    href="#"
+                  >
+                    <img
+                      alt="Place image"
+                      class="place-card__image"
+                      height="110"
+                      src="img/apartment-02.jpg"
+                      width="150"
+                    />
+                  </a>
+                </div>
+                <div
+                  class="favorites__card-info place-card__info"
+                >
+                  <div
+                    class="place-card__price-wrapper"
+                  >
+                    <div
+                      class="place-card__price"
+                    >
+                      <b
+                        class="place-card__price-value"
+                      >
+                        €
+                        120
+                      </b>
+                      <span
+                        class="place-card__price-text"
+                      >
+                        / night
+                      </span>
+                    </div>
+                    <button
+                      class="place-card__bookmark-button button place-card__bookmark-button--active"
+                      type="button"
+                    >
+                      <svg
+                        class="place-card__bookmark-icon"
+                        height="19"
+                        width="18"
+                      >
+                        <use
+                          xlink:href="#icon-bookmark"
+                        />
+                      </svg>
+                      <span
+                        class="visually-hidden"
+                      >
+                        To bookmarks
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="place-card__rating rating"
+                  >
+                    <div
+                      class="place-card__stars rating__stars"
+                    >
+                      <span
+                        style="width: 100%;"
+                      />
+                      <span
+                        class="visually-hidden"
+                      >
+                        Rating
+                      </span>
+                    </div>
+                  </div>
+                  <h2
+                    class="place-card__name"
+                  >
+                    <a
+                      href="/offer/3"
+                    >
+                      Beautiful & luxurious studio at great location
+                    </a>
+                  </h2>
+                  <p
+                    class="place-card__type"
+                  >
+                    room
+                  </p>
+                </div>
+              </article>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <footer
+    class="footer container"
+  >
+    <a
+      class="footer__logo-link"
+      href="/"
+    >
+      <img
+        alt="6 cities logo"
+        class="footer__logo"
+        height="33"
+        src="img/logo.svg"
+        width="64"
+      />
+    </a>
+  </footer>
+</div>
+`;

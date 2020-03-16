@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import {Review} from '../../types';
+import {Review} from '../../interfaces';
 import List from './reviews-list';
 
 

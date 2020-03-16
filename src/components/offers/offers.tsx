@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
-import {Offer, cityName} from '../../types';
+import {city} from '../../types';
+import {Offer} from '../../interfaces';
 import {getOffers} from '../../store/reducers/offers/selectors';
 import {getCities} from '../../store/reducers/cities/selectors';
 import {getCity} from '../../store/reducers/cities/selectors';
@@ -14,7 +15,7 @@ import OffersEmpty from './offers-empty';
 interface Props {
   offers: Offer[];
   cities: string[];
-  currentCity: cityName;
+  currentCity: city;
 }
 
 const Offers: React.FC<Props> = ({offers, cities, currentCity}) => {
@@ -24,11 +25,11 @@ const Offers: React.FC<Props> = ({offers, cities, currentCity}) => {
       <div className="tabs">
         <section className="locations container">
           <ul className="locations__list tabs__list">
-            {cities.map((city) => <Tab name={city} key={city} />)}
+            {cities.map((name) => <Tab name={name} key={name} />)}
           </ul>
         </section>
       </div>
-      {offers.length > 0 ? <OffersFilled offers={offers} city={currentCity}/> : <OffersEmpty city={currentCity} />}
+      {offers.length > 0 ? <OffersFilled offers={offers} city={currentCity}/> : <OffersEmpty name={currentCity} />}
     </main>
   );
 };

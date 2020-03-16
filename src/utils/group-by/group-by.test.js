@@ -39,7 +39,7 @@ it(`Function should group cities`, () => {
       }
     ];
 
-  expect(groupBy(data, `city`)).toEqual(
+  expect(groupBy(data, `city.name`)).toEqual(
       {
         'Moscow': [{city: {name: `Moscow`}, id: 1}, {city: {name: `Moscow`}, id: 4}],
         'New York': [{city: {name: `New York`}, id: 2}, {city: {name: `New York`}, id: 3}],

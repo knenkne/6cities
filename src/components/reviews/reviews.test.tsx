@@ -3,7 +3,7 @@ import * as renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
 
-import {Review} from '../../types';
+import {Review} from '../../interfaces';
 import Reviews from './reviews';
 
 
@@ -31,6 +31,11 @@ it(`<Reviews /> should render`, () => {
     },
     offers: {
       comments
+    },
+    request: {
+      type: ``,
+      status: ``,
+      id: null
     }
   });
 
@@ -51,6 +56,11 @@ it(`<Reviews /> should render with form`, () => {
     },
     offers: {
       comments
+    },
+    request: {
+      type: ``,
+      status: ``,
+      id: null
     }
   });
 

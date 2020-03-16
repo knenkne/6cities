@@ -16,6 +16,7 @@ const sortMap = {
 };
 
 const offersSelector = (state) => state.offers.data;
+const favoritesSelector = (state) => state.offers.favorites;
 const IDSelector = (state) => state.offers.current;
 const citySelector = (state) => state.cities.current;
 const sortingSelector = (state) => state.offers.sorting;
@@ -38,3 +39,4 @@ export const getComments = (state) => state.offers.comments;
 export const getNearbyOffers = (state) => state.offers.nearby;
 export const getSorting = sortingSelector;
 export const getOfferID = IDSelector;
+export const getFavorites = favoritesSelector;

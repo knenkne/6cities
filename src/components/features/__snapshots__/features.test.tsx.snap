@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Features /> should render 1`] = `
+exports[`<Features /> should be rendered 1`] = `
 <div
   className="property__inside"
 >

@@ -25,7 +25,7 @@ Array [
           className="reviews__avatar-wrapper user__avatar-wrapper"
         >
           <img
-            alt="Reviews avatar"
+            alt="Max"
             className="reviews__avatar user__avatar"
             height="54"
             src="/img/avatar-max.jpg"

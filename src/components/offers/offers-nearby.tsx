@@ -1,14 +1,10 @@
 import * as React from 'react';
 
-import {Offer} from '../../types';
+import {Offer} from '../../interfaces';
 import Card from '../offer/offer';
 
 
-interface Props {
-  offers: Offer[];
-}
-
-const NearbyOffers: React.FC<Props> = ({offers}: Props) => {
+const NearbyOffers: React.FC<{offers: Offer[]}> = ({offers}) => {
   return (
     <div className="container">
       <section className="near-places places">

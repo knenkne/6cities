@@ -1,14 +1,9 @@
 import * as React from 'react';
-import * as renderer from 'react-test-renderer';
-import {Provider} from 'react-redux';
-import {BrowserRouter as Router} from 'react-router-dom';
-import configureStore from 'redux-mock-store';
+import {shallow} from 'enzyme';
 
-import {Offer} from '../../types';
+import {Offer} from '../../interfaces';
 import FavoritesList from './favorites-list';
 
-
-const mockStore = configureStore([]);
 
 const favorites: Offer[] = [
   {
@@ -115,20 +110,8 @@ const favorites: Offer[] = [
   }
 ];
 
-it(`<FavoritesList /> should have been rendered`, () => {
-  const store = mockStore({
-    offers: {
-      favorites
-    }
-  });
-
-  const tree = renderer.create(
-      <Provider store={store}>
-        <Router>
-          <FavoritesList favorites={favorites}/>
-        </Router>
-      </Provider>
-  );
+it(`<FavoritesList /> should be rendered`, () => {
+  const tree = shallow(<FavoritesList favorites={favorites}/>);
 
   expect(tree).toMatchSnapshot();
 });
