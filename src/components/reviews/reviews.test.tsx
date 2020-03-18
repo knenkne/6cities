@@ -3,7 +3,7 @@ import * as renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
 
-import {Review} from '../../interfaces';
+import {Review} from '../../common/interfaces';
 import Reviews from './reviews';
 
 

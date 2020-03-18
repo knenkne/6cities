@@ -4,8 +4,8 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import {city} from '../../types';
-import {AppRoute} from '../../const';
+import {city} from '../../common/types';
+import {AppRoute} from '../../common/const';
 import SignIn from '../../pages/sign-in/sign-in';
 import PrivateRoute from './private-route';
 

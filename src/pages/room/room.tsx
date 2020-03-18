@@ -1,10 +1,11 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
-import {Offer} from '../../interfaces';
-import {getCity} from '../../store/reducers/cities/selectors';
-import {getOffer, getNearbyOffers as getOffers} from '../../store/reducers/offers/selectors';
-import {ActionCreator, setBookmark, getComments, getNearbyOffers} from '../../store/actions/actions';
+import {Offer} from '../../common/interfaces';
+import {getCity} from '../../store/reducer/cities/selectors';
+import {getOffer, getNearbyOffers as getOffers} from '../../store/reducer/offers/selectors';
+import {ActionCreator as OffersActionCreator, getNearby, setFavorite, getComments} from '../../store/reducer/offers/actions';
+import {ActionCreator as CitiesActionCreator} from '../../store/reducer/cities/actions';
 
 import Header from '../../components/header/header';
 import Gallery from '../../components/gallery/gallery';
@@ -14,7 +15,7 @@ import Host from '../../components/host/host';
 import Reviews from '../../components/reviews/reviews';
 import Map from '../../components/map/map';
 import Offers from '../../components/offers/offers-nearby';
-import {MAX_IMAGES, OperationStatus} from '../../const';
+import {MAX_IMAGES, OperationStatus} from '../../common/const';
 
 
 interface Props {
@@ -29,9 +30,9 @@ interface Props {
   status: string;
   setOffer: (id: number) => void;
   getComments: (id: string) => void;
-  getNearbyOffers: (id: string) => void;
+  getNearby: (id: string) => void;
   setCity: (name: string) => void;
-  setBookmark: (id: number, status: number) => void;
+  setFavorite: (id: number, status: number) => void;
 }
 
 class Room extends React.PureComponent<Props, {}> {
@@ -42,9 +43,10 @@ class Room extends React.PureComponent<Props, {}> {
   }
 
   componentDidMount() {
-    this.props.setOffer(parseInt(this.props.match.params.id, 10));
-    this.props.getComments(this.props.match.params.id);
-    this.props.getNearbyOffers(this.props.match.params.id);
+    const id = this.props.match.params.id;
+    this.props.setOffer(parseInt(id, 10));
+    this.props.getComments(id);
+    this.props.getNearby(id);
   }
 
   componentDidUpdate(prevProps) {
@@ -54,9 +56,10 @@ class Room extends React.PureComponent<Props, {}> {
         behavior: `smooth`
       });
 
-      this.props.setOffer(parseInt(this.props.match.params.id, 10));
-      this.props.getComments(this.props.match.params.id);
-      this.props.getNearbyOffers(this.props.match.params.id);
+      const id = this.props.match.params.id;
+      this.props.setOffer(parseInt(id, 10));
+      this.props.getComments(id);
+      this.props.getNearby(id);
     }
 
     if (this.props.offer && (this.props.city !== this.props.offer.city.name)) {
@@ -67,7 +70,7 @@ class Room extends React.PureComponent<Props, {}> {
   handleClick() {
     const {offer: {id, isFavorite}} = this.props;
     const status = isFavorite ? 0 : 1;
-    this.props.setBookmark(id, status);
+    this.props.setFavorite(id, status);
   }
 
   render() {
@@ -111,19 +114,19 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setCity(name) {
-    dispatch(ActionCreator.setCity(name));
+    dispatch(CitiesActionCreator.setCity(name));
   },
   setOffer(id) {
-    dispatch(ActionCreator.setOffer(id));
+    dispatch(OffersActionCreator.setOffer(id));
   },
   getComments(id) {
     dispatch(getComments(id));
   },
-  getNearbyOffers(id) {
-    dispatch(getNearbyOffers(id));
+  getNearby(id) {
+    dispatch(getNearby(id));
   },
-  setBookmark(id, status) {
-    dispatch(setBookmark(id, status));
+  setFavorite(id, status) {
+    dispatch(setFavorite(id, status));
   }
 });
 

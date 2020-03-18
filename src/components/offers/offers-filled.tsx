@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {Offer} from '../../interfaces';
+import {Offer} from '../../common/interfaces';
 import withFocusedItem from '../../hocs/with-focused-item/with-focused-item';
 import Card from '../offer/offer';
 import Map from '../map/map';

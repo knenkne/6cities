@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import {city} from '../../types';
+import {city} from '../../common/types';
 import OffersEmpty from './offers-empty';
 
 const name: city = `Amsterdam`;

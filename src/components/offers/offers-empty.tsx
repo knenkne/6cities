@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import {city} from '../../types';
+import {city} from '../../common/types';
 
 
-const OffersEmtpy: React.FC<{name: city}> = ({name}) => {
+const OffersEmpty: React.FC<{name: city}> = ({name}) => {
   return (
     <div className="cities">
       <div className="cities__places-container cities__places-container--empty container">
@@ -19,4 +19,4 @@ const OffersEmtpy: React.FC<{name: city}> = ({name}) => {
   );
 };
 
-export default React.memo(OffersEmtpy);
+export default React.memo(OffersEmpty);

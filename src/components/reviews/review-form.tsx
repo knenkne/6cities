@@ -1,10 +1,11 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
-import {OperationStatus, COMMENT} from '../../const';
-import {getOfferID} from '../../store/reducers/offers/selectors';
-import {getStatus} from '../../store/reducers/request/selectors';
-import {ActionCreator, setComment} from '../../store/actions/actions';
+import {OperationStatus, COMMENT, ratings} from '../../common/const';
+import {getOfferID} from '../../store/reducer/offers/selectors';
+import {getStatus} from '../../store/reducer/request/selectors';
+import {ActionCreator} from '../../store/reducer/request/actions';
+import {setComment} from '../../store/reducer/offers/actions';
 import withValues from '../../hocs/with-values/with-values';
 
 
@@ -37,7 +38,7 @@ class ReviewForm extends React.PureComponent<Props, {}> {
   }
 
 
-  handleSubmit(e) {
+  handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
 
     const {comment, rating, id, onSubmit} = this.props;
@@ -57,7 +58,7 @@ class ReviewForm extends React.PureComponent<Props, {}> {
       <form className={`reviews__form${errorStatus ? ` reviews__form--error` : ``} form`} action="#" method="post" onSubmit={this.handleSubmit}>
         <label className="reviews__label form__label" htmlFor="review">Your review</label>
         <div className="reviews__rating-form form__rating">
-          {[5, 4, 3, 2, 1].map((i) => {
+          {ratings.map((i) => {
             return (
               <React.Fragment key={`star-${i}`}>
                 <input className="form__rating-input visually-hidden" name="rating" value={i} id={`${i}-stars`} type="radio" onChange={onRatingChange} checked={i === rating} disabled={pendingStatus}/>
@@ -73,12 +74,12 @@ class ReviewForm extends React.PureComponent<Props, {}> {
         <textarea className="reviews__textarea form__textarea" id="review" name="review" placeholder="Tell how was your stay, what you like and what can be improved" onChange={onCommentChange} value={comment} disabled={pendingStatus}></textarea>
         <div className="reviews__button-wrapper">
           <p className="reviews__help">
-            To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay with at least <b className="reviews__text-amount">{COMMENT.minLength} characters</b>.
+            To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay with at least <b className="reviews__text-amount">{COMMENT.MIN_LENGTH} and below {COMMENT.MAX_LENGTH} characters</b>.
           </p>
           <button
             className="reviews__submit form__submit button"
             type="submit"
-            disabled={!rating || comment.length < COMMENT.minLength || pendingStatus}
+            disabled={!rating || comment.length < COMMENT.MIN_LENGTH || comment.length > COMMENT.MAX_LENGTH || pendingStatus}
           >
             Submit
           </button>
@@ -88,9 +89,9 @@ class ReviewForm extends React.PureComponent<Props, {}> {
   }
 }
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = (state) => ({
   id: getOfferID(state),
-  status: getStatus(state, `comment`, props.id)
+  status: getStatus(state, `comment`, getOfferID(state))
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -98,7 +99,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(setComment(data));
   },
   onStatusReset() {
-    dispatch(ActionCreator.setRequest({type: `comment`, status: ``}));
+    dispatch(ActionCreator.setRequest({type: `comment`, status: OperationStatus.EMPTY, id: null}));
   }
 });
 export default connect(mapStateToProps, mapDispatchToProps)(withValues(ReviewForm));

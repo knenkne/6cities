@@ -3,7 +3,7 @@ import * as renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
 
-import {city} from '../../types';
+import {city} from '../../common/types';
 import Tab from './tab';
 
 const mockStore = configureStore([]);

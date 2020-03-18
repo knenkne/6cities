@@ -3,8 +3,8 @@ import {Router, Route, Switch} from 'react-router-dom';
 import {connect} from 'react-redux';
 import history from '../../history';
 
-import {AppRoute} from '../../const';
-import {getAuthorizationStatus} from '../../store/reducers/user/selectors';
+import {AppRoute} from '../../common/const';
+import {getAuthorizationStatus} from '../../store/reducer/user/selectors';
 
 import Main from '../../pages/main/main';
 import SignIn from '../../pages/sign-in/sign-in';

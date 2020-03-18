@@ -2,16 +2,16 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import {Offer} from '../../interfaces';
-import {getStatus} from '../../store/reducers/request/selectors';
-import {setBookmark} from '../../store/actions/actions';
-import {AppRoute, OperationStatus} from '../../const';
+import {Offer} from '../../common/interfaces';
+import {getStatus} from '../../store/reducer/request/selectors';
+import {setFavorite} from '../../store/reducer/offers/actions';
+import {AppRoute, OperationStatus} from '../../common/const';
 
 
 interface Props extends Offer {
   mini: boolean;
   status: string;
-  handleMouseEnter: () => void;
+  handleMouseEnter: (e: React.SyntheticEvent) => void;
   handleMouseLeave: () => void;
   onClick: (id: number, isFavorite: number) => void;
 }
@@ -78,8 +78,9 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onClick(id: number, status: number) {
-    dispatch(setBookmark(id, status));
+    dispatch(setFavorite(id, status));
   }
 });
 
+export {Card};
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

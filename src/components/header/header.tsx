@@ -2,8 +2,8 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import {AppRoute} from '../../const';
-import {getAuthorizationStatus, getUsername} from '../../store/reducers/user/selectors';
+import {AppRoute} from '../../common/const';
+import {getAuthorizationStatus, getUsername} from '../../store/reducer/user/selectors';
 
 
 const Header: React.FC<{isAuthorized: boolean; name: string}> = ({isAuthorized, name}) => {

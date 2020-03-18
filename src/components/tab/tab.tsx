@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
-import {getCity} from '../../store/reducers/cities/selectors';
-import {ActionCreator} from '../../store/actions/actions';
+import {getCity} from '../../store/reducer/cities/selectors';
+import {ActionCreator} from '../../store/reducer/cities/actions';
 
 
 interface P {
@@ -32,5 +32,6 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
+export {Tab};
 export default connect(mapStateToProps, mapDispatchToProps)(Tab);
 

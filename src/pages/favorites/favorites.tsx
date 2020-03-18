@@ -2,8 +2,8 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import {Offer} from '../../interfaces';
-import {getFavorites} from '../../store/reducers/offers/selectors';
+import {Offer} from '../../common/interfaces';
+import {getFavorites} from '../../store/reducer/offers/selectors';
 import Header from '../../components/header/header';
 import List from '../../components/favorites-list/favorites-list';
 

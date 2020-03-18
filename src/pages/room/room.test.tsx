@@ -4,8 +4,8 @@ import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 
-import {Offer, Review} from '../../interfaces';
-import {city} from '../../types';
+import {Offer, Review} from '../../common/interfaces';
+import {city} from '../../common/types';
 import {Room} from './room';
 
 
@@ -173,9 +173,9 @@ it(`<Room /> should be rendered`, () => {
             status={``}
             setOffer={jest.fn()}
             setCity={jest.fn()}
-            setBookmark={jest.fn()}
+            setFavorite={jest.fn()}
             getComments={() => comments}
-            getNearbyOffers={() => nearby}
+            getNearby={() => nearby}
           />
         </Router>
       </Provider>, {attachTo: div});

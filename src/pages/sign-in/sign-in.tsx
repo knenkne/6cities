@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
-import {getCity} from '../../store/reducers/cities/selectors';
-import {setAuth} from '../../store/actions/actions';
+import {getCity} from '../../store/reducer/cities/selectors';
+import {setAuth} from '../../store/reducer/user/actions';
 
 import Header from '../../components/header/header';
 import Form from '../../components/sign-in-form/sign-in-form';

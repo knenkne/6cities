@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import {Review} from '../../interfaces';
-import {Months} from '../../const';
+import {Review} from '../../common/interfaces';
+import {Months} from '../../common/const';
 
 
 const ReviewsList: React.FC<{reviews: Review[]}> = ({reviews}) => {
@@ -9,10 +9,10 @@ const ReviewsList: React.FC<{reviews: Review[]}> = ({reviews}) => {
     <React.Fragment>
       <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
       <ul className="reviews__list">
-        {reviews.map(({user: {id, name, avatarUrl}, rating, comment, date}, i) => {
+        {reviews.map(({user: {id, name, avatarUrl}, rating, comment, date}) => {
           const dateInstance = new Date(date);
           return (
-            <li key={`${id}-${name}-${date}-${i}`} className="reviews__item">
+            <li key={`${id}-${name}-${date}`} className="reviews__item">
               <div className="reviews__user user">
                 <div className="reviews__avatar-wrapper user__avatar-wrapper">
                   <img className="reviews__avatar user__avatar" src={avatarUrl} width="54" height="54" alt={name}/>

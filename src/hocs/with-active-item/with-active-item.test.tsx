@@ -5,7 +5,7 @@ import withActiveItem from './with-active-item';
 
 interface P {
   isActive: boolean;
-  onClick: () => void;
+       onClick: () => void;
 }
 
 const MockComponent: React.FC<P> = () => <div />;

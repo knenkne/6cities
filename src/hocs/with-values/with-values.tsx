@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Subtract} from "utility-types";
-
+import {COMMENT} from '../../common/const';
 
 interface State {
   rating: number;
@@ -33,7 +33,9 @@ const withValues = (Component) => {
     }
 
     handleCommentChange(e) {
-      this.setState({comment: e.currentTarget.value});
+      if (e.currentTarget.value.length <= COMMENT.MAX_LENGTH) {
+        this.setState({comment: e.currentTarget.value});
+      }
     }
 
     handleRatingChange(e) {

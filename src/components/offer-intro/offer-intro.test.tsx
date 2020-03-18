@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import {Offer} from '../../interfaces';
+import {Offer} from '../../common/interfaces';
 import Intro from './offer-intro';
 
 const offer: Offer = {

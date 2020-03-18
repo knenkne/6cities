@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {property} from '../../types';
+import {property} from '../../common/types';
 
 
 interface Props {

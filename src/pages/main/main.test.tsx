@@ -4,8 +4,8 @@ import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 
-import {Offer} from '../../interfaces';
-import {city} from '../../types';
+import {Offer} from '../../common/interfaces';
+import {city} from '../../common/types';
 import Main from './main';
 
 

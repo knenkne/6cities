@@ -2,8 +2,8 @@ import * as React from 'react';
 import * as leaflet from 'leaflet';
 
 
-import {Offer, City} from '../../interfaces';
-import {PIN, LAYER} from '../../const';
+import {Offer, City} from '../../common/interfaces';
+import {PIN, LAYER} from '../../common/const';
 
 interface Props {
   offers: Offer[];
@@ -13,13 +13,13 @@ interface Props {
 }
 
 const icon = leaflet.icon({
-  iconSize: PIN.size,
-  iconUrl: PIN.url
+  iconSize: PIN.SIZE,
+  iconUrl: PIN.URL
 });
 
 const activeIcon = leaflet.icon({
-  iconSize: PIN.size,
-  iconUrl: PIN.activeUrl
+  iconSize: PIN.SIZE,
+  iconUrl: PIN.ACTIVE_URL
 });
 
 class Map extends React.PureComponent<Props, {}> {
@@ -67,7 +67,7 @@ class Map extends React.PureComponent<Props, {}> {
     this.map.setView([this.city.location.latitude, this.city.location. longitude], this.city.location.zoom);
 
     leaflet
-    .tileLayer(LAYER.url)
+    .tileLayer(LAYER.URL)
     .addTo(this.map);
 
     for (const offer of this.props.offers) {

@@ -58,7 +58,7 @@ exports[`<Gallery /> should br rendered 1`] = `
       <img
         alt="Photo studio"
         className="property__image"
-        src="img/apartment-01.jpg"
+        src="img/apartment-04.jpg"
       />
     </div>
   </div>

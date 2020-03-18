@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
-import {sorters} from '../../const';
-import {getSorting} from '../../store/reducers/offers/selectors';
-import {ActionCreator} from '../../store/actions/actions';
+import {sorters} from '../../common/const';
+import {getSorting} from '../../store/reducer/offers/selectors';
+import {ActionCreator} from '../../store/reducer/offers/actions';
 import withActiveItem from '../../hocs/with-active-item/with-active-item';
 
 
@@ -52,4 +52,5 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
+export {Sorters};
 export default connect(mapStateToProps, mapDispatchToProps)(withActiveItem(React.memo(Sorters)));

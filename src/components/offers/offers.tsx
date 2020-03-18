@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
-import {city} from '../../types';
-import {Offer} from '../../interfaces';
-import {getOffers} from '../../store/reducers/offers/selectors';
-import {getCities} from '../../store/reducers/cities/selectors';
-import {getCity} from '../../store/reducers/cities/selectors';
+import {city} from '../../common/types';
+import {Offer} from '../../common/interfaces';
+import {getOffers} from '../../store/reducer/offers/selectors';
+import {getCities} from '../../store/reducer/cities/selectors';
+import {getCity} from '../../store/reducer/cities/selectors';
 
 import Tab from '../tab/tab';
 import OffersFilled from './offers-filled';

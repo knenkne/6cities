@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {User} from '../../interfaces';
+import {User} from '../../common/interfaces';
 
 
 const Host: React.FC<User> = ({name, isPro, description, avatarUrl}: User) => {

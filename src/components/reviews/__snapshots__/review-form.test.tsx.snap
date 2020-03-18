@@ -168,6 +168,8 @@ exports[`<Form /> should render 1`] = `
         className="reviews__text-amount"
       >
         50
+         and below 
+        300
          characters
       </b>
       .

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import {Offer} from '../../interfaces';
-import {city} from '../../types';
+import {Offer} from '../../common/interfaces';
+import {city} from '../../common/types';
 import Card from '../../components/offer/offer';
 import groupBy from '../../utils/group-by/group-by';
 

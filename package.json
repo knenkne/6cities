@@ -6,9 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server",
-    "eslint": "npm run eslint.js && npm run eslint.ts",
-    "eslint.js": "eslint --ext .jsx --ext .js src/",
-    "eslint.ts": "eslint --config .eslintrc-ts.yml --ext .tsx src/",
+    "eslint": "eslint --ext .tsx --ext .ts src/",
     "test": "npm run eslint && npm run test.jest",
     "test.jest": "jest"
   },
@@ -25,6 +23,7 @@
     "@types/react-test-renderer": "16.9.2",
     "@typescript-eslint/eslint-plugin": "2.23.0",
     "@typescript-eslint/parser": "2.23.0",
+    "axios-mock-adapter": "1.17.0",
     "babel-jest": "25.1.0",
     "babel-loader": "8.0.6",
     "enzyme": "3.11.0",
@@ -34,7 +33,6 @@
     "eslint-config-htmlacademy": "0.5.2",
     "eslint-plugin-react": "7.18.3",
     "jest": "25.1.0",
-    "raf": "3.4.1",
     "react-scripts": "3.4.0",
     "react-scripts-ts": "3.1.0",
     "react-test-renderer": "16.12.0",

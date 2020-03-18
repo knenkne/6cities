@@ -4,7 +4,7 @@ import * as renderer from 'react-test-renderer';
 import Gallery from './gallery';
 
 
-const images: string[] = [`img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`];
+const images: string[] = [`img/room.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-04.jpg`];
 
 it(`<Gallery /> should br rendered`, () => {
   const tree = renderer.create(<Gallery images={images} />);

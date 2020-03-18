@@ -482,6 +482,8 @@ exports[`<Room /> should be rendered 1`] = `
                     class="reviews__text-amount"
                   >
                     50
+                     and below 
+                    300
                      characters
                   </b>
                   .
