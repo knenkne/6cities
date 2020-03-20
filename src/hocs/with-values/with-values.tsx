@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {Subtract} from "utility-types";
-import {COMMENT} from '../../common/const';
+
 
 interface State {
-  rating: number;
-  comment: string;
+ [key: string]: string;
 }
+
 interface Props {
   rating: number;
   comment: string;
@@ -14,41 +14,36 @@ interface Props {
   onReset: () => void;
 }
 
+const initialState = {};
+
 const withValues = (Component) => {
   type P = React.ComponentProps<typeof Component>;
   type T = Subtract<P, Props>;
   return class WithValues extends React.PureComponent<T, State> {
-
     constructor(props) {
       super(props);
 
-      this.state = {
-        rating: null,
-        comment: ``
-      };
+      this.state = initialState;
 
-      this.handleRatingChange = this.handleRatingChange.bind(this);
-      this.handleCommentChange = this.handleCommentChange.bind(this);
+      this.handleChange = this.handleChange.bind(this);
       this.handleReset = this.handleReset.bind(this);
     }
 
-    handleCommentChange(e) {
-      if (e.currentTarget.value.length <= COMMENT.MAX_LENGTH) {
-        this.setState({comment: e.currentTarget.value});
-      }
-    }
-
-    handleRatingChange(e) {
-      this.setState({rating: parseInt(e.currentTarget.value, 10)});
-    }
-
     handleReset() {
-      this.setState({rating: null, comment: ``});
+      const cleanState = {};
+      Object.keys(this.state).forEach((key) => {
+        cleanState[key] = ``;
+      });
+      this.setState(cleanState);
+    }
+
+    handleChange(e) {
+      this.setState({[e.target.name]: e.target.value});
     }
 
     render() {
       return (
-        <Component {...this.props} rating={this.state.rating} comment={this.state.comment} onCommentChange={this.handleCommentChange} onRatingChange={this.handleRatingChange} onReset={this.handleReset}/>
+        <Component {...this.props} {...this.state} onChange={this.handleChange} onReset={this.handleReset}/>
       );
     }
   };

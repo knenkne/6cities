@@ -22,4 +22,7 @@ module.exports = {
   ],
   snapshotSerializers: [`enzyme-to-json/serializer`],
   setupFilesAfterEnv: [`<rootDir>/src/setupEnzyme.ts`],
+  collectCoverage: true,
+  coverageReporters: [`html`],
+  coverageDirectory: `<rootDir>/src/reports`
 };

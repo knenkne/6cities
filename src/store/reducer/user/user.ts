@@ -19,6 +19,7 @@ const initialState: State = {
   name: ``,
   avatarUrl: ``,
   isPro: undefined,
+  email: ``
 };
 
 export default (state: State = initialState, action: Action) => {

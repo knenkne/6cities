@@ -462,7 +462,7 @@ exports[`<Room /> should be rendered 1`] = `
               <textarea
                 class="reviews__textarea form__textarea"
                 id="review"
-                name="review"
+                name="comment"
                 placeholder="Tell how was your stay, what you like and what can be improved"
               />
               <div

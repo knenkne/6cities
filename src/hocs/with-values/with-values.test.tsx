@@ -3,13 +3,11 @@ import {shallow} from 'enzyme';
 
 import withValues from './with-values';
 
-
 interface P {
-    rating: number;
-    comment: string;
-    onCommentChange: () => void;
-    onRatingChange: () => void;
-    onReset: () => void;
+rating: number;
+comment: string;
+onChange: (e: React.SyntheticEvent) => void;
+onReset: () => void;
 }
 
 const MockComponent: React.FC<P> = () => <div />;
@@ -21,20 +19,21 @@ it(`Should get rating changes`, () => {
   const e = {
     persist: jest.fn(),
     preventDefault: jest.fn(),
-    currentTarget: {
+    target: {
+      name: `rating`,
       value: `4`
     }
   };
 
-  expect(wrapper.props().rating).toEqual(null);
+  expect(wrapper.props().rating).toBe(undefined);
 
-  wrapper.props().onRatingChange(e);
-  expect(wrapper.props().rating).toEqual(4);
+  wrapper.props().onChange(e);
+  expect(wrapper.props().rating).toBe(`4`);
 
-  e.currentTarget.value = `2`;
+  e.target.value = `2`;
 
-  wrapper.props().onRatingChange(e);
-  expect(wrapper.props().rating).toEqual(2);
+  wrapper.props().onChange(e);
+  expect(wrapper.props().rating).toBe(`2`);
 });
 
 it(`Should get comment changes`, () => {
@@ -43,49 +42,38 @@ it(`Should get comment changes`, () => {
   const e = {
     persist: jest.fn(),
     preventDefault: jest.fn(),
-    currentTarget: {
+    target: {
+      name: `comment`,
       value: `Hello!`
     }
   };
 
-  expect(wrapper.props().comment).toEqual(``);
+  expect(wrapper.props().comment).toBe(undefined);
 
-  wrapper.props().onCommentChange(e);
-  expect(wrapper.props().comment).toEqual(`Hello!`);
+  wrapper.props().onChange(e);
+  expect(wrapper.props().comment).toBe(`Hello!`);
 
-  e.currentTarget.value = `My name is...`;
+  e.target.value = `My name is...`;
 
-  wrapper.props().onCommentChange(e);
-  expect(wrapper.props().comment).toEqual(`My name is...`);
+  wrapper.props().onChange(e);
+  expect(wrapper.props().comment).toBe(`My name is...`);
 });
 
 it(`Should reset`, () => {
   const wrapper = shallow(<MockComponentWrapped />);
 
-  const commentE = {
+  const e = {
     persist: jest.fn(),
     preventDefault: jest.fn(),
-    currentTarget: {
+    target: {
+      name: `comment`,
       value: `Hello!`
     }
   };
 
-  const ratingE = {
-    persist: jest.fn(),
-    preventDefault: jest.fn(),
-    currentTarget: {
-      value: `5`
-    }
-  };
-
-  wrapper.props().onCommentChange(commentE);
-  wrapper.props().onRatingChange(ratingE);
-  expect(wrapper.props().comment).toEqual(`Hello!`);
-  expect(wrapper.props().rating).toEqual(5);
+  wrapper.props().onChange(e);
+  expect(wrapper.props().comment).toBe(`Hello!`);
 
   wrapper.props().onReset();
-  expect(wrapper.props().comment).toEqual(``);
-  expect(wrapper.props().rating).toEqual(null);
+  expect(wrapper.props().comment).toBe(``);
 });
-
-

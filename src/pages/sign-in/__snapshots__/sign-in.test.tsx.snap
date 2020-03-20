@@ -90,6 +90,7 @@ exports[`<SignIn /> should be rendered 1`] = `
             <input
               className="login__input form__input"
               name="email"
+              onChange={[Function]}
               placeholder="Email"
               required={true}
               type="email"
@@ -106,6 +107,7 @@ exports[`<SignIn /> should be rendered 1`] = `
             <input
               className="login__input form__input"
               name="password"
+              onChange={[Function]}
               placeholder="Password"
               required={true}
               type="password"

@@ -184,7 +184,7 @@ exports[`<Reviews /> should render with form 1`] = `
         name="rating"
         onChange={[Function]}
         type="radio"
-        value={5}
+        value="5"
       />
       <label
         className="reviews__rating-label form__rating-label"
@@ -209,7 +209,7 @@ exports[`<Reviews /> should render with form 1`] = `
         name="rating"
         onChange={[Function]}
         type="radio"
-        value={4}
+        value="4"
       />
       <label
         className="reviews__rating-label form__rating-label"
@@ -234,7 +234,7 @@ exports[`<Reviews /> should render with form 1`] = `
         name="rating"
         onChange={[Function]}
         type="radio"
-        value={3}
+        value="3"
       />
       <label
         className="reviews__rating-label form__rating-label"
@@ -259,7 +259,7 @@ exports[`<Reviews /> should render with form 1`] = `
         name="rating"
         onChange={[Function]}
         type="radio"
-        value={2}
+        value="2"
       />
       <label
         className="reviews__rating-label form__rating-label"
@@ -284,7 +284,7 @@ exports[`<Reviews /> should render with form 1`] = `
         name="rating"
         onChange={[Function]}
         type="radio"
-        value={1}
+        value="1"
       />
       <label
         className="reviews__rating-label form__rating-label"
@@ -306,7 +306,7 @@ exports[`<Reviews /> should render with form 1`] = `
       className="reviews__textarea form__textarea"
       disabled={false}
       id="review"
-      name="review"
+      name="comment"
       onChange={[Function]}
       placeholder="Tell how was your stay, what you like and what can be improved"
       value=""

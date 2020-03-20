@@ -9,11 +9,11 @@ export const ActionCreator = {
   })
 };
 
-export const setAuth = (authData) => (dispatch, getState, api) => {
+export const setAuth = ({email, password}) => (dispatch, getState, api) => {
   return api.post(APIRoute.LOGIN,
       {
-        email: authData.email,
-        password: authData.password,
+        email,
+        password,
       })
       .then((res) => {
         dispatch(ActionCreator.setAuth(res.data));

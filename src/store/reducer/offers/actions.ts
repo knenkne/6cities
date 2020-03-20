@@ -3,7 +3,7 @@ import Adapter from '../../../adapter';
 import history from '../../../history';
 import {sort} from '../../../common/types';
 import {ActionCreator as RequestActionCreator} from '../request/actions';
-import {APIRoute, AppRoute, Error, OperationStatus} from '../../../common/const';
+import {APIRoute, AppRoute, APIStatus, OperationStatus} from '../../../common/const';
 
 
 export const ActionCreator = {
@@ -87,7 +87,7 @@ export const setFavorite = (id, status) => (dispatch, getState, api) => {
       dispatch(RequestActionCreator.setRequest({type: `favorite`, status: OperationStatus.SUCCESS, id}));
     })
     .catch((err) => {
-      if (err.response && err.response.status === Error.UNAUTHORIZED) {
+      if (err.response && err.response.status === APIStatus.UNAUTHORIZED) {
         history.push(AppRoute.LOGIN);
       } else {
         dispatch(RequestActionCreator.setRequest({type: `favorite`, status: OperationStatus.FAILED, id}));

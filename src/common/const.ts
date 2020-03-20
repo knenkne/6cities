@@ -7,8 +7,9 @@ export enum OperationStatus {
   EMPTY = ``
 }
 
-export enum Error {
-  UNAUTHORIZED = 401
+export enum APIStatus {
+  UNAUTHORIZED = 401,
+  SUCCESS = 200
 }
 
 export enum Months {
@@ -68,7 +69,7 @@ export const COMMENT = {
 };
 
 export const cities: city[] = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`];
-export const ratings: number[] = [5, 4, 3, 2, 1];
+export const ratings: string[] = [`5`, `4`, `3`, `2`, `1`];
 export const sorters = [
   {
     name: `id`,

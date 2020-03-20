@@ -1,15 +1,15 @@
 import * as React from 'react';
 import thunk from 'redux-thunk';
-import {mount} from 'enzyme';
-import configureStore from 'redux-mock-store';
+import {shallow} from 'enzyme';
 import MockAdapter from 'axios-mock-adapter';
+import configureStore from 'redux-mock-store';
 
 import createAPI from '../../api/api';
-import reducer from '../../store/reducer/offers/offers';
-// import {ActionCreator as CitiesActionCreator} from '../../store/reducer/cities/actions';
-import {ActionCreator as OffersActionCreator, getNearby} from '../../store/reducer/offers/actions';
-import {OperationStatus, APIRoute} from '../../common/const';
-import {sort} from '../../common/types';
+import reducer from '../../store/reducer/reducer';
+import {ActionCreator as CitiesActionCreator} from '../../store/reducer/cities/actions';
+import {ActionCreator as OffersActionCreator, getNearby, getComments} from '../../store/reducer/offers/actions';
+import {OperationStatus, APIRoute, APIStatus} from '../../common/const';
+import {sort, city} from '../../common/types';
 import {Offer, Review} from '../../common/interfaces';
 import {Room} from './room';
 
@@ -23,10 +23,10 @@ const match = {
     id: `1`
   }
 };
-const sorting: sort = `id`;
-// const currentCity: city = `Amsterdam`;
-const id = parseInt(match.params.id, 10);
 
+const sorting: sort = `id`;
+const id = parseInt(match.params.id, 10);
+const cities: city[] = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`];
 const offer: Offer = {
   id: 1,
   city: {
@@ -148,79 +148,84 @@ const comments: Review[] = [
   }
 ];
 
-// TODO: Status codes
-mockAxios.onGet(APIRoute.getNearbyOffers(id)).reply(200, nearby);
 
 describe(`<Room />`, () => {
+  mockAxios.onGet(APIRoute.getNearbyOffers(id)).reply(APIStatus.SUCCESS, nearby);
+  mockAxios.onGet(APIRoute.getComments(id)).reply(APIStatus.SUCCESS, comments);
+
+  const handleCity = () => store.dispatch(CitiesActionCreator.setCity(`Amsterdam`));
+  const handleOffer = () => store.dispatch(OffersActionCreator.setOffer(id));
+  const handleComments = () => getComments(id)(store.dispatch, store.getState, api);
+  const handleNearby = () => getNearby(id)(store.dispatch, store.getState, api);
+
   let state = {
-    sorting,
-    data: [offer, ...nearby],
-    current: null,
-    nearby: [],
-    comments: [],
-    favorites: []
+    user: {
+      isAuthorized: true,
+      email: `jztenk@gmail.com`
+    },
+    cities: {
+      data: cities,
+      current: null
+    },
+    offers: {
+      sorting,
+      data: [offer, ...nearby],
+      nearby: [],
+      current: null,
+      comments: [],
+      favorites: []
+    },
+    request: {
+      type: ``,
+      status: ``,
+      id: null
+    }
   };
 
   const store = mockStore(state);
-
-  const offerHandler = () => store.dispatch(OffersActionCreator.setOffer(id));
-  const nearbyHandler = () => getNearby(id)(store.dispatch, store.getState, api);
-
-  const tree = mount(
+  const tree = shallow(
       <Room
-        setOffer={offerHandler}
-        setCity={jest.fn()}
-        getComments={jest.fn()}
-        getNearby={nearbyHandler}
         setFavorite={jest.fn()}
+        setCity={handleCity}
+        setOffer={handleOffer}
+        getComments={handleComments}
+        getNearby={handleNearby}
         city={null}
         match={match}
         status={OperationStatus.EMPTY}
-        offers={state.data}
+        offers={store.getState().offers.data}
         offer={null}
       />
   );
 
+  afterEach(store.clearActions);
+
   it(`Should init`, () => {
+    expect(tree.exists(`.page`)).toBe(false);
+
     const actions = store.getActions();
-    const expectedActions = [{type: `SET_OFFER`, payload: id}, {type: `SET_NEARBY`, payload: nearby}];
+    const expectedActions = [{type: `SET_OFFER`, payload: id}, {type: `SET_COMMENTS`, payload: comments}, {type: `SET_NEARBY`, payload: nearby}];
     expect(actions).toEqual(expectedActions);
 
     actions.forEach((action) => {
       state = reducer(state, action);
     });
-    expect(state.current).toBe(id);
-    expect(state.nearby).toEqual(nearby);
+    expect(state.offers.current).toBe(id);
+    expect(state.offers.nearby).toEqual(nearby);
+    expect(state.offers.comments).toEqual(comments);
+  });
 
+  it(`Should update`, () => {
+    tree.setProps({offer});
+    expect(tree.exists(`.page`)).toBe(true);
+
+    const actions = store.getActions();
+    const expectedActions = [{type: `SET_CITY`, payload: `Amsterdam`}];
+    expect(actions).toEqual(expectedActions);
+
+    actions.forEach((action) => {
+      state = reducer(state, action);
+    });
+    expect(state.cities.current).toBe(`Amsterdam`);
   });
 });
-
-// it(`<Room /> should toggle favorite`, () => {
-
-//   tree.find(`button`).simulate(`click`);
-
-//   let actions = store.getActions();
-//   let expectedActions = [{type: `SET_OFFERS`, payload: [offer]}];
-//   expect(actions).toEqual(expectedActions);
-
-//   actions.forEach((action) => {
-//     state = reducer(state, action);
-//   });
-//   expect(state.data[0].isFavorite).toBe(true);
-
-
-//   store.clearActions();
-
-
-//   tree.find(`button`).simulate(`click`);
-
-//   actions = store.getActions();
-//   expectedActions = [{type: `SET_OFFERS`, payload: [offer]}];
-//   expect(actions).toEqual(expectedActions);
-
-//   actions.forEach((action) => {
-//     state = reducer(state, action);
-//   });
-//   expect(state.data[0].isFavorite).toBe(false);
-// });
-

@@ -13,15 +13,19 @@ interface Props {
   id: number;
   status: OperationStatus;
   comment: string;
-  rating: number;
+  rating: string;
   onSubmit: (data: object) => void;
   onReset: () => void;
   onStatusReset: () => void;
-  onRatingChange: (e: React.SyntheticEvent) => void;
-  onCommentChange: (e: React.SyntheticEvent) => void;
+  onChange: (e: React.SyntheticEvent) => void;
 }
 
 class ReviewForm extends React.PureComponent<Props, {}> {
+  static defaultProps = {
+    comment: ``,
+    rating: ``
+  }
+
   constructor(props) {
     super(props);
 
@@ -44,13 +48,13 @@ class ReviewForm extends React.PureComponent<Props, {}> {
     const {comment, rating, id, onSubmit} = this.props;
     onSubmit({
       comment,
-      rating,
+      rating: parseInt(rating, 10),
       id
     });
   }
 
   render() {
-    const {status, rating, comment, onRatingChange, onCommentChange} = this.props;
+    const {status, rating, comment, onChange} = this.props;
     const pendingStatus = status === OperationStatus.PENDING;
     const errorStatus = status === OperationStatus.FAILED;
 
@@ -61,7 +65,7 @@ class ReviewForm extends React.PureComponent<Props, {}> {
           {ratings.map((i) => {
             return (
               <React.Fragment key={`star-${i}`}>
-                <input className="form__rating-input visually-hidden" name="rating" value={i} id={`${i}-stars`} type="radio" onChange={onRatingChange} checked={i === rating} disabled={pendingStatus}/>
+                <input className="form__rating-input visually-hidden" name="rating" value={i} id={`${i}-stars`} type="radio" onChange={onChange} checked={i === rating} disabled={pendingStatus}/>
                 <label htmlFor={`${i}-stars`} className="reviews__rating-label form__rating-label" title="perfect">
                   <svg className="form__star-image" width="37" height="33">
                     <use xlinkHref="#icon-star"></use>
@@ -71,7 +75,7 @@ class ReviewForm extends React.PureComponent<Props, {}> {
             );
           })}
         </div>
-        <textarea className="reviews__textarea form__textarea" id="review" name="review" placeholder="Tell how was your stay, what you like and what can be improved" onChange={onCommentChange} value={comment} disabled={pendingStatus}></textarea>
+        <textarea className="reviews__textarea form__textarea" id="review" name="comment" placeholder="Tell how was your stay, what you like and what can be improved" onChange={onChange} value={comment} disabled={pendingStatus}></textarea>
         <div className="reviews__button-wrapper">
           <p className="reviews__help">
             To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay with at least <b className="reviews__text-amount">{COMMENT.MIN_LENGTH} and below {COMMENT.MAX_LENGTH} characters</b>.
