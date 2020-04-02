@@ -1,10 +1,13 @@
 import * as React from 'react';
 import {mount} from 'enzyme';
 
+import {PIN} from '../../common/const';
 import {Offer} from '../../common/interfaces';
+import {id} from '../../common/types';
 import Map from './map';
 
 
+const offer: id = 1;
 const offers: Offer[] = [
   {
     id: 1,
@@ -110,10 +113,25 @@ const offers: Offer[] = [
   }
 ];
 
-it(`<Map /> should br rendered`, () => {
+it(`<Map /> should be rendered`, () => {
   const div = document.createElement(`div`);
   document.body.appendChild(div);
 
-  const tree = mount(<Map offers={offers} />, {attachTo: div});
-  expect(tree.getDOMNode()).toMatchSnapshot();
+  const tree = mount(
+      <Map
+        currentOffer={offer}
+        offers={offers}
+      />,
+      {attachTo: div}
+  );
+
+  expect(tree.render().find(`.leaflet-marker-pane`).children()).toHaveLength(offers.length);
+  expect(tree.render().find(`.leaflet-marker-pane`).children().get(0).attribs.src).toBe(PIN.ACTIVE_URL);
+  expect(tree.render().find(`.leaflet-marker-icon[src="${PIN.URL}"]`)).toHaveLength(offers.length - 1);
+  expect(tree.render().find(`.leaflet-marker-icon[src="${PIN.ACTIVE_URL}"]`)).toHaveLength(1);
+
+  tree.setProps({currentOffer: 2});
+  expect(tree.render().find(`.leaflet-marker-pane`).children().get(0).attribs.src).toBe(PIN.URL);
+  expect(tree.render().find(`.leaflet-marker-pane`).children().get(1).attribs.src).toBe(PIN.ACTIVE_URL);
 });
+

@@ -106,4 +106,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.setRequest({type: `comment`, status: OperationStatus.EMPTY, id: null}));
   }
 });
+
+export {ReviewForm};
 export default connect(mapStateToProps, mapDispatchToProps)(withValues(ReviewForm));

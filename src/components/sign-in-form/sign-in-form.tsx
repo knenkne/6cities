@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import withValues from '../../hocs/with-values/with-values';
-import {SignIn} from '../../pages/sign-in/sign-in';
 
 
 interface Props {

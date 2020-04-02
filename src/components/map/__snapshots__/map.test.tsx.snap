@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Map /> should render 1`] = `
+exports[`<Map /> should br rendered 1`] = `
 <section
   class="property__map map leaflet-container leaflet-grab leaflet-touch-drag"
   id="map"

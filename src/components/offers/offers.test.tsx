@@ -8,6 +8,7 @@ import {Offer} from '../../common/interfaces';
 import {city} from '../../common/types';
 import Offers from './offers';
 
+
 const mockStore = configureStore([]);
 
 const cities: city[] = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`];
