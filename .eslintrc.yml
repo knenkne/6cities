@@ -4,13 +4,9 @@ env:
   commonjs: true
   jest: true
 
-extends: ['htmlacademy/es6', 'plugin:react/recommended']
+extends: ['htmlacademy/es6', 'plugin:react/recommended', 'plugin:@typescript-eslint/recommended']
 
-parserOptions:
-  ecmaFeatures:
-    jsx: true
-  ecmaVersion: 6
-  sourceType: module
+parser: '@typescript-eslint/parser'
 
 plugins: ['react']
 
@@ -18,7 +14,8 @@ settings:
   react:
     version: '16'
 
-overrides:
-- files: ['**/*.tsx']
-  rules:
-    'react/prop-types': 'off'
+rules:
+  '@typescript-eslint/explicit-function-return-type': 'off'
+  '@typescript-eslint/no-use-before-define': 'off'
+  'eslint/quotes': 'off'
+  'react/prop-types': 'off'
